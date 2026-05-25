@@ -763,10 +763,10 @@
       <div class="cap">
         <div class="cap-num">03</div>
         <h3>Capacitación y Transferencia</h3>
-        <p>Entrenamos a tu equipo para operar los sistemas que construimos. Programas de fundamentos de IA, talleres aplicados y certificaciones a través de Lambda School of Decision Sciences.</p>
+        <p>Entrenamos a tu equipo para operar los sistemas que construimos. Programas de fundamentos de IA, talleres aplicados y certificaciones a través de Lambda Learn.</p>
         <div class="cap-tags">
           <span class="cap-tag">Fundamentos IA</span>
-          <span class="cap-tag">LSDS</span>
+          <span class="cap-tag">Lambda Learn</span>
           <span class="cap-tag">Talleres aplicados</span>
         </div>
       </div>
@@ -833,7 +833,7 @@
           <div class="pillar-num">03</div>
           <div>
             <h4>Transferencia de capacidad</h4>
-            <p>Tu equipo no queda dependiente de nosotros. Lambda School of Decision Sciences entrena a tu gente para operar los sistemas que construimos.</p>
+            <p>Tu equipo no queda dependiente de nosotros. Lambda Learn entrena a tu gente para operar los sistemas que construimos.</p>
           </div>
         </div>
         <div class="pillar">
@@ -929,6 +929,14 @@
     align-self: flex-start;
   }
   .academia-card .ac-link:hover { gap: 10px; color: var(--navy-ink); }
+  /* Stretched link: toda la card es clickeable */
+  .academia-card { cursor: pointer; }
+  .academia-card .ac-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
   .academia-foot {
     margin-top: 40px;
     display: flex;
@@ -1012,7 +1020,7 @@
         <p>Cuéntanos en qué estás trabajando. Respondemos en menos de 24 horas hábiles.</p>
         <p style="margin-top: 14px;">
           <a href="mailto:info@scilambda.net" style="color: var(--gold); text-decoration: none; font-weight: 500;">info@scilambda.net</a><br/>
-          <span style="color: rgba(244,237,226,0.6); font-size: 14px;">+(502) 2301-0853</span>
+          <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color: rgba(244,237,226,0.6); font-size: 14px; text-decoration: none;">WhatsApp +(502) 2301-0853</a>
         </p>
       </div>
       <a href="mailto:info@scilambda.net?subject=Quiero conversar con Lambda Analytics" class="btn-primary">
@@ -1030,7 +1038,7 @@
       <div class="footer-brand">
         <h5>LAMBDA</h5>
         <span class="footer-descriptor">ANALYTICS</span>
-        <p>Firma de analítica avanzada con sede en Guatemala. IA, modelos predictivos y plataformas de datos para empresas en Centroamérica y Estados Unidos.</p>
+        <p>Firma de analítica avanzada, IA, modelos predictivos y plataformas de datos para empresas en Centroamérica y Estados Unidos.</p>
       </div>
 
       <div class="footer-col">
@@ -1039,7 +1047,7 @@
           <li><a href="#capacidades">Estrategia de Datos e IA</a></li>
           <li><a href="#capacidades">Implementación Técnica</a></li>
           <li><a href="#capacidades">Capacitación y Transferencia</a></li>
-          <li><a href="https://lsds.lambda-analytics.net" target="_blank">Lambda School of Decision Sciences ↗</a></li>
+          <li><a href="https://learn.lambda-analytics.net" target="_blank">Lambda Learn ↗</a></li>
         </ul>
       </div>
 
