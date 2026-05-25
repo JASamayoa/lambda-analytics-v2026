@@ -138,9 +138,10 @@ em{font-style:italic;color:var(--gold-deep)}
   border-bottom:1px solid var(--line);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:baseline;gap:.05em;font-family:var(--brand);font-size:1.15rem;color:var(--navy-deep);letter-spacing:.02em}
-.brand .dot{color:var(--gold-deep)}
-.brand .sub{font-size:.6rem;color:var(--muted);letter-spacing:.18em;margin-left:.55em;align-self:center;text-transform:uppercase}
+.brand{display:inline-flex;flex-direction:column;align-items:flex-end;gap:2px;line-height:1;font-family:var(--brand);color:var(--navy-deep);text-decoration:none}
+.brand .wordmark{font-size:1.4rem;letter-spacing:.06em;font-weight:400;line-height:1}
+.brand .sub{font-family:var(--sans);font-size:.62rem;letter-spacing:.28em;color:var(--muted);font-weight:600;line-height:1;text-transform:none}
+.brand .sub .dot{color:var(--gold-deep);margin:0 .35em;font-weight:700}
 .nav-links{display:flex;align-items:center;gap:2rem}
 .nav-links a{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);position:relative;padding:.3em 0;transition:color .25s}
 .nav-links a:hover{color:var(--gold-deep)}
@@ -266,7 +267,7 @@ em{font-style:italic;color:var(--gold-deep)}
 <!-- NAV -->
 <nav class="nav" id="top">
   <div class="wrap nav-inner">
-    <a href="/" class="brand">lambda<span class="dot">.</span>Analytics<span class="sub">Learn</span></a>
+    <a href="/" class="brand"><span class="wordmark">LAMBDA</span><span class="sub">ANALYTICS<span class="dot">·</span>Learn</span></a>
     <div class="nav-links">
       <a href="#cursos">Cursos</a>
       <a href="#metodologia">Metodología</a>
@@ -444,7 +445,7 @@ em{font-style:italic;color:var(--gold-deep)}
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="brand">lambda<span class="dot">.</span>Analytics<span class="sub">Learn</span></div>
+        <div class="brand"><span class="wordmark">LAMBDA</span><span class="sub">ANALYTICS<span class="dot">·</span>Learn</span></div>
         <p>Academia de formación abierta en IA aplicada. Operada por Scilambda, S.A. — firma de analítica avanzada con sede en Guatemala.</p>
       </div>
       <div class="footer-col">

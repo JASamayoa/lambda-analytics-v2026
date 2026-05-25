@@ -98,39 +98,29 @@
     align-items: center;
   }
   .logo {
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    letter-spacing: 0.02em;
-    color: var(--paper);
     text-decoration: none;
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
+    gap: 3px;
   }
   .logo .wordmark {
     font-family: 'Pirulen', 'Inter', sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.08em;
+    font-size: 22px;
+    letter-spacing: 0.06em;
     color: var(--paper);
     font-weight: 400;
+    line-height: 1;
   }
   .logo .descriptor {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 9.5px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(244,237,226,0.55);
-    font-weight: 500;
-  }
-  .logo .accent {
-    display: inline-block;
-    width: 5px;
-    height: 5px;
-    background: var(--gold);
-    border-radius: 50%;
-    margin: 0 6px 2px;
-    vertical-align: middle;
+    color: rgba(244,237,226,0.78);
+    font-weight: 600;
+    line-height: 1;
   }
   .nav-links {
     display: flex;
@@ -622,20 +612,23 @@
   }
   .footer-brand h5 {
     font-family: 'Pirulen', 'Inter', sans-serif;
-    font-size: 26px;
+    font-size: 32px;
     font-weight: 400;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--paper);
-    margin-bottom: 6px;
+    margin-bottom: 4px;
+    line-height: 1;
   }
   .footer-brand .footer-descriptor {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 12px;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: rgba(244,237,226,0.55);
-    margin-bottom: 18px;
+    color: rgba(244,237,226,0.78);
+    font-weight: 600;
+    margin-bottom: 22px;
     display: block;
+    line-height: 1;
   }
   .footer-brand p {
     font-size: 14px;
@@ -700,8 +693,7 @@
 <nav class="top">
   <a href="#" class="logo">
     <span class="wordmark">LAMBDA</span>
-    <span class="accent"></span>
-    <span class="descriptor">Analytics</span>
+    <span class="descriptor">ANALYTICS</span>
   </a>
   <div class="nav-links">
     <a href="#capacidades">Capacidades</a>
@@ -1037,7 +1029,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h5>LAMBDA</h5>
-        <span class="footer-descriptor">Analytics</span>
+        <span class="footer-descriptor">ANALYTICS</span>
         <p>Firma de analítica avanzada con sede en Guatemala. IA, modelos predictivos y plataformas de datos para empresas en Centroamérica y Estados Unidos.</p>
       </div>
 
