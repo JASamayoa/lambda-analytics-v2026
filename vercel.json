@@ -1,38 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": true,
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "learn.lambda-analytics.net" }],
-      "destination": "/learn/:path*"
-    }
-  ],
-  "redirects": [
-    {
-      "source": "/learn",
-      "has": [{ "type": "host", "value": "lambda-analytics.net" }],
-      "destination": "https://learn.lambda-analytics.net",
-      "permanent": false
-    },
-    {
-      "source": "/learn/:path*",
-      "has": [{ "type": "host", "value": "lambda-analytics.net" }],
-      "destination": "https://learn.lambda-analytics.net/:path*",
-      "permanent": false
-    },
-    {
-      "source": "/learn",
-      "has": [{ "type": "host", "value": "www.lambda-analytics.net" }],
-      "destination": "https://learn.lambda-analytics.net",
-      "permanent": false
-    },
-    {
-      "source": "/learn/:path*",
-      "has": [{ "type": "host", "value": "www.lambda-analytics.net" }],
-      "destination": "https://learn.lambda-analytics.net/:path*",
-      "permanent": false
+      "destination": "/learn/$1"
     }
   ],
   "headers": [
