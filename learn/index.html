@@ -199,6 +199,9 @@ em{font-style:italic;color:var(--gold-deep)}
 .course-foot{padding:0 1.7rem 1.7rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .course-cta{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;gap:.55em;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:.2em;transition:gap .3s var(--ease),color .25s}
 .course-cta:hover{gap:.9em;color:var(--gold-deep)}
+/* Stretched link: hace que toda la card sea clickeable manteniendo accesibilidad */
+.course-cta::after{content:"";position:absolute;inset:0;z-index:1;cursor:pointer}
+.course{cursor:pointer}
 .course.is-soon{opacity:.92}
 .course.is-soon .course-cta{color:var(--muted);border-bottom-color:var(--line-cool)}
 
