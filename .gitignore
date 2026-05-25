@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# FUSE / sandbox temp files
+.fuse_hidden*
+
+# Vercel
+.vercel
+
+# Node (por si en algún momento se agregan dependencias)
+node_modules
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Build outputs (futuros)
+dist
+build
+.cache
+.parcel-cache
+
+# Folder residual del deploy anterior (consolidación dentro de /learn)
+lambda-learn

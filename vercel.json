@@ -1,0 +1,63 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "learn.lambda-analytics.net" }],
+      "destination": "/learn/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/learn",
+      "has": [{ "type": "host", "value": "lambda-analytics.net" }],
+      "destination": "https://learn.lambda-analytics.net",
+      "permanent": false
+    },
+    {
+      "source": "/learn/:path*",
+      "has": [{ "type": "host", "value": "lambda-analytics.net" }],
+      "destination": "https://learn.lambda-analytics.net/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/learn",
+      "has": [{ "type": "host", "value": "www.lambda-analytics.net" }],
+      "destination": "https://learn.lambda-analytics.net",
+      "permanent": false
+    },
+    {
+      "source": "/learn/:path*",
+      "has": [{ "type": "host", "value": "www.lambda-analytics.net" }],
+      "destination": "https://learn.lambda-analytics.net/:path*",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "Permissions-Policy", "value": "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()" },
+        { "key": "X-DNS-Prefetch-Control", "value": "on" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(woff2|otf|ttf|woff)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(jpg|jpeg|png|webp|svg|gif|ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

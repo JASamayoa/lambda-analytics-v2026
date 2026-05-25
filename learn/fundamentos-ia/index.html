@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamentos de la IA · lambda Analytics</title>
+<meta name="description" content="Curso introductorio en vivo para entender qué es la inteligencia artificial, qué puede y qué no puede hacer, y cómo evaluar su adopción en organizaciones medianas y grandes.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="canonical" href="https://learn.lambda-analytics.net/fundamentos-ia">
+<meta property="og:title" content="Fundamentos de la IA · lambda Analytics">
+<meta property="og:description" content="Curso en vivo para entender qué es la IA, qué puede y qué no puede hacer, y cómo evaluar su adopción.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_GT">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{
+  font-family:'Pirulen';
+  src:url('fonts/pirulen.otf') format('opentype');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
+
+:root{
+  --navy:#163b59;
+  --navy-deep:#0d2640;
+  --ink:#0a1929;
+  --gold:#ffb530;
+  --gold-deep:#e09a14;
+  --paper:#fafaf7;
+  --paper-warm:#f4f1ea;
+  --paper-deep:#ece7dc;
+  --muted:#5a6b7d;
+  --line:#d8d3c8;
+  --line-cool:#c4d0db;
+  --grid:rgba(22,59,89,.055);
+
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --brand:'Pirulen','Inter',sans-serif;
+
+  --maxw:1200px;
+  --gutter:clamp(20px,5vw,64px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:64px 64px;
+  background-position:center top;
+}
+::selection{background:var(--navy);color:var(--gold)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ---------- type ---------- */
+.mono{font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--navy);
+  display:inline-flex;
+  align-items:center;
+  gap:.6em;
+}
+.eyebrow::before{
+  content:"";
+  width:1.8em;height:1px;background:var(--gold-deep);
+}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.04;letter-spacing:-.015em;color:var(--navy-deep)}
+h1{font-size:clamp(2.6rem,7vw,5.4rem);font-optical-sizing:auto}
+h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+h3{font-size:clamp(1.3rem,2.2vw,1.7rem)}
+.lead{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--navy);max-width:46ch;line-height:1.55}
+em{font-style:italic;color:var(--gold-deep)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--gutter)}
+section{position:relative}
+
+/* ---------- crop marks helper ---------- */
+.crop{position:relative}
+.crop::before,.crop::after{
+  content:"";position:absolute;width:9px;height:9px;pointer-events:none;
+  border-color:var(--gold-deep);border-style:solid;opacity:.8;
+}
+.crop::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.crop::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-family:var(--mono);font-size:.82rem;font-weight:600;letter-spacing:.04em;
+  padding:1.05em 1.6em;border-radius:2px;position:relative;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .25s;
+  text-transform:uppercase;
+}
+.btn .arrow{transition:transform .35s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+.btn-primary{background:var(--navy-deep);color:var(--paper);box-shadow:4px 4px 0 var(--gold)}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--gold)}
+.btn-ghost{color:var(--navy-deep);border:1px solid var(--navy);background:transparent}
+.btn-ghost:hover{background:var(--navy-deep);color:var(--paper);transform:translateY(-2px)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:80;
+  background:rgba(250,250,247,.82);
+  backdrop-filter:saturate(140%) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:baseline;gap:.05em;font-family:var(--brand);font-size:1.15rem;color:var(--navy-deep);letter-spacing:.02em}
+.brand .dot{color:var(--gold-deep)}
+.brand .sub{font-size:.6rem;color:var(--muted);letter-spacing:.18em;margin-left:.55em;align-self:center;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--navy);position:relative;padding:.3em 0}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--gold-deep);transition:width .3s var(--ease)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{padding:.7em 1.2em;background:var(--navy-deep);color:var(--paper);border-radius:2px;font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:background .25s,transform .25s}
+.nav-cta:hover{background:var(--gold-deep);color:var(--navy-deep);transform:translateY(-1px)}
+.nav-toggle{display:none;font-family:var(--mono);font-size:.74rem;color:var(--navy-deep);letter-spacing:.1em}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(48px,8vh,96px);padding-bottom:clamp(56px,9vh,110px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-coords{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;display:flex;gap:1.4em;flex-wrap:wrap;margin-bottom:1.6rem}
+.hero-coords span{display:inline-flex;gap:.5em;align-items:center}
+.hero-coords b{color:var(--navy);font-weight:600}
+.hero h1{margin:.4rem 0 1.5rem}
+.hero h1 .accent{display:block;font-style:italic;font-weight:300}
+.hero h1 .hl{position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:-.04em;right:-.04em;bottom:.08em;height:.34em;background:var(--gold);opacity:.45;z-index:-1;transform:scaleX(0);transform-origin:left;animation:swipe 1s var(--ease) .8s forwards}
+@keyframes swipe{to{transform:scaleX(1)}}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin:2.2rem 0 2.4rem}
+
+/* spec sheet */
+.spec{border:1px solid var(--line-cool);background:rgba(255,255,255,.5)}
+.spec-row{display:grid;grid-template-columns:repeat(4,1fr)}
+.spec-cell{padding:1.05rem 1.1rem;border-right:1px solid var(--line-cool)}
+.spec-cell:last-child{border-right:none}
+.spec-cell .k{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:.4em}
+.spec-cell .v{font-family:var(--serif);font-size:1.45rem;color:var(--navy-deep);line-height:1}
+
+/* console */
+.console{
+  background:var(--navy-deep);
+  border-radius:6px;
+  box-shadow:0 30px 60px -28px rgba(13,38,64,.6),0 0 0 1px rgba(13,38,64,.2);
+  overflow:hidden;
+  position:relative;
+}
+.console::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(255,181,48,.04) 100%);pointer-events:none}
+.console-bar{display:flex;align-items:center;gap:.7em;padding:.8rem 1.1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.console-bar .tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,241,234,.5)}
+.console-bar .led{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18)}
+.console-bar .led.on{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.console-bar .grow{flex:1}
+.console-body{padding:1.4rem 1.3rem;min-height:280px;font-family:var(--mono);font-size:.84rem;line-height:1.75;color:var(--paper-warm)}
+.console-line{display:flex;gap:.7em;margin-bottom:.2em}
+.console-line .pre{color:var(--gold);user-select:none}
+.console-prompt{color:#cfe0ee;min-height:1.75em}
+.caret{display:inline-block;width:.55em;height:1.05em;background:var(--gold);vertical-align:-.18em;animation:blink 1s steps(1) infinite;margin-left:1px}
+@keyframes blink{50%{opacity:0}}
+.console-resp{margin-top:1.1rem;border-top:1px dashed rgba(255,255,255,.14);padding-top:1.1rem}
+.resp-label{color:rgba(207,224,238,.55);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.7em}
+.resp-item{display:flex;gap:.7em;color:var(--paper-warm);opacity:0;transform:translateY(6px);transition:all .5s var(--ease)}
+.resp-item.show{opacity:1;transform:none}
+.resp-item .n{color:var(--gold);font-weight:600}
+
+/* marquee */
+.marquee{margin-top:clamp(48px,7vh,80px);border-block:1px solid var(--line);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:scroll 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.7rem);color:var(--navy);padding:1rem 2rem;display:flex;align-items:center;gap:2rem;white-space:nowrap}
+.marquee-item::after{content:"◆";color:var(--gold-deep);font-size:.5em}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- stats ---------- */
+.stats{border-block:1px solid var(--line);background:var(--paper-warm)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:clamp(2rem,4vw,3.2rem) var(--gutter);border-right:1px solid var(--line);position:relative}
+.stat:last-child{border-right:none}
+.stat .stat-num{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);color:var(--navy-deep);line-height:1;display:flex;align-items:baseline;gap:.08em}
+.stat .stat-num .suffix{font-size:.4em;color:var(--gold-deep)}
+.stat .stat-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.9rem;line-height:1.5;max-width:24ch}
+.stat .idx{position:absolute;top:1rem;right:1.1rem;font-family:var(--mono);font-size:.6rem;color:var(--gold-deep);letter-spacing:.1em}
+
+/* ---------- section header ---------- */
+.sec{padding-block:clamp(64px,10vh,128px)}
+.sec-head{max-width:60ch;margin-bottom:clamp(2.8rem,5vw,4rem)}
+.sec-head h2{margin:1.1rem 0 1.2rem}
+
+/* ---------- programa ---------- */
+.modules{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.module{border-bottom:1px solid var(--line);position:relative;transition:background .3s}
+.module:hover{background:var(--paper-warm)}
+.module-head{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1rem,3vw,2.4rem);align-items:center;padding:clamp(1.5rem,3vw,2.2rem) 0;cursor:pointer}
+.module-idx{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--gold-deep);letter-spacing:.1em;align-self:start;padding-top:.4em}
+.module-titlewrap{display:flex;flex-direction:column;gap:.7rem}
+.module-title{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,2rem);color:var(--navy-deep);line-height:1.1}
+.module-tools{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);border:1px solid var(--line-cool);padding:.35em .7em;border-radius:2px;background:rgba(255,255,255,.5)}
+.module-toggle{font-family:var(--mono);font-size:1.4rem;color:var(--navy);width:2rem;height:2rem;display:grid;place-items:center;transition:transform .4s var(--ease);align-self:start;margin-top:.2em}
+.module.open .module-toggle{transform:rotate(45deg);color:var(--gold-deep)}
+.module-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.module.open .module-body{grid-template-rows:1fr}
+.module-body-inner{overflow:hidden}
+.module-content{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(1.5rem,4vw,3rem);padding:0 0 clamp(1.8rem,3vw,2.6rem);padding-left:clamp(0px,5vw,4.4rem)}
+.module-obj .obj-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.8rem}
+.module-obj p{color:var(--navy);font-size:1.02rem;line-height:1.6}
+.module-list{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+.module-list li{display:flex;gap:.85em;color:var(--ink);font-size:.96rem;line-height:1.5}
+.module-list li::before{content:"→";color:var(--gold-deep);font-family:var(--mono);flex:none}
+
+/* ---------- herramientas ---------- */
+.tools{background:var(--navy-deep);color:var(--paper-warm)}
+.tools h2,.tools .lead{color:var(--paper)}
+.tools .eyebrow{color:var(--gold)}
+.tools .eyebrow::before{background:var(--gold)}
+.tools .lead{color:rgba(244,241,234,.78)}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:clamp(2.5rem,5vw,3.5rem)}
+.tool-card{border:1px solid rgba(255,255,255,.14);padding:2rem 1.7rem 2.2rem;border-radius:4px;position:relative;transition:transform .4s var(--ease),background .4s}
+.tool-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.04)}
+.tool-card .tool-fn{font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;display:block}
+.tool-card .tool-name{font-family:var(--serif);font-size:1.7rem;color:var(--paper);margin-bottom:.9rem}
+.tool-card p{color:rgba(244,241,234,.72);font-size:.94rem;line-height:1.6}
+.tool-card .node{position:absolute;top:1.5rem;right:1.5rem;font-family:var(--mono);font-size:.62rem;color:rgba(255,255,255,.3)}
+.tools-note{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:rgba(244,241,234,.55);margin-top:2.2rem;border-left:2px solid var(--gold);padding-left:1rem;line-height:1.7;max-width:62ch}
+
+/* ---------- calendario ---------- */
+.cal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.timeline{border-top:1px solid var(--line)}
+.cal-row{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:clamp(1rem,3vw,2.5rem);align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--line);transition:padding-left .3s var(--ease)}
+.cal-row:hover{padding-left:.8rem}
+.cal-s{font-family:var(--mono);font-size:.7rem;font-weight:600;color:var(--gold-deep);letter-spacing:.08em}
+.cal-date{display:flex;align-items:baseline;gap:.5rem}
+.cal-date .day{font-family:var(--serif);font-size:clamp(2rem,4vw,2.8rem);color:var(--navy-deep);line-height:1}
+.cal-date .mo{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.cal-dow{font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--navy)}
+.cal-title{font-family:var(--sans);font-size:.95rem;color:var(--ink);font-weight:500}
+.cal-time{font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
+.cal-add{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);border:1px solid var(--line-cool);padding:.55em .85em;border-radius:2px;transition:all .25s;white-space:nowrap}
+.cal-add:hover{background:var(--navy-deep);color:var(--paper);border-color:var(--navy-deep)}
+.cal-foot{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
+.cal-foot p{font-size:.86rem;color:var(--muted);max-width:60ch;line-height:1.6}
+.ics-btn{font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;gap:.5em;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:.2em;transition:gap .25s}
+.ics-btn:hover{gap:.9em}
+
+/* ---------- audiencia + equipo ---------- */
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
+.aud-list{list-style:none;display:flex;flex-direction:column}
+.aud-list li{display:flex;gap:1em;align-items:center;padding:1.1rem 0;border-bottom:1px solid var(--line);font-size:1.02rem;color:var(--ink)}
+.aud-list li .mk{font-family:var(--mono);font-size:.7rem;color:var(--gold-deep);font-weight:600}
+.aud-aside{background:var(--paper-warm);border:1px solid var(--line);padding:clamp(1.8rem,4vw,2.6rem);position:relative}
+.aud-aside .quote{font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.35;color:var(--navy-deep);font-style:italic}
+.aud-aside .cite{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1.5rem;display:block}
+.level{margin-top:1.6rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--navy);display:inline-flex;gap:.6em;align-items:center;background:rgba(255,181,48,.16);padding:.6em 1em;border-radius:2px}
+
+.team{margin-top:clamp(3rem,6vw,4.5rem)}
+.team-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.6rem;display:flex;align-items:center;gap:.8em}
+.team-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.member{border:1px solid var(--line);background:rgba(255,255,255,.4);transition:transform .35s var(--ease),box-shadow .35s;overflow:hidden;display:flex;flex-direction:column}
+.member:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--paper-deep)}
+.member-photo{position:relative;aspect-ratio:4/5;background:linear-gradient(155deg,var(--navy) 0%,var(--navy-deep) 100%);overflow:hidden}
+.member-photo::before{content:attr(data-initials);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--serif);font-size:3.2rem;color:rgba(255,181,48,.45);letter-spacing:.04em}
+.member-photo img{position:relative;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.member-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(13,38,64,.4));pointer-events:none}
+.member-info{padding:1.3rem 1.4rem 1.6rem;display:flex;flex-direction:column;flex:1}
+.member .role{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.45rem}
+.member .name{font-family:var(--serif);font-size:1.4rem;color:var(--navy-deep);margin-bottom:1rem}
+.member-creds{list-style:none;display:flex;flex-direction:column;gap:.75rem;border-top:1px solid var(--line);padding-top:1rem;margin-top:1rem}
+.member-creds li{display:flex;flex-direction:column;gap:.12rem}
+.member-creds .deg{font-size:.82rem;color:var(--ink);font-weight:500;line-height:1.32}
+.member-creds .inst{font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+
+/* ---------- cta banner ---------- */
+.banner{background:var(--navy-deep);color:var(--paper);position:relative;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:48px 48px}
+.banner-inner{position:relative;display:flex;justify-content:space-between;align-items:center;gap:2.5rem;flex-wrap:wrap;padding-block:clamp(3rem,6vw,4.5rem)}
+.banner h2{color:var(--paper);max-width:18ch}
+.banner .banner-meta{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--gold);margin-top:1rem}
+.banner .btn-primary{background:var(--gold);color:var(--navy-deep);box-shadow:4px 4px 0 rgba(255,255,255,.25)}
+.banner .btn-primary:hover{box-shadow:6px 6px 0 rgba(255,255,255,.35)}
+
+/* ---------- inscripcion ---------- */
+.enroll-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:start}
+.price-card{border:1px solid var(--line-cool);background:var(--paper-warm);position:relative}
+.price-head{padding:1.6rem 1.8rem;border-bottom:1px dashed var(--line)}
+.price-tier{display:flex;justify-content:space-between;align-items:baseline;padding:1.4rem 1.8rem;border-bottom:1px solid var(--line)}
+.price-tier:last-of-type{border-bottom:none}
+.price-tier .pt-name{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.price-tier .pt-name small{display:block;color:var(--muted);font-size:.62rem;margin-top:.35em;letter-spacing:.04em;text-transform:none}
+.price-tier .pt-amt{font-family:var(--serif);font-size:2rem;color:var(--navy-deep)}
+.price-tier.featured{background:rgba(255,181,48,.12)}
+.price-tier.featured .pt-amt{color:var(--gold-deep)}
+.price-detail{padding:1.5rem 1.8rem;display:flex;flex-direction:column;gap:.9rem}
+.price-detail .pd-row{display:flex;gap:.8em;font-size:.9rem;color:var(--ink);align-items:flex-start}
+.price-detail .pd-row .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex:none;width:6.5em;padding-top:.25em}
+.cupo{margin:1.4rem 0 0;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--gold-deep);display:flex;align-items:center;gap:.6em}
+.cupo .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold-deep);box-shadow:0 0 0 0 rgba(224,154,20,.5);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(224,154,20,0)}100%{box-shadow:0 0 0 0 rgba(224,154,20,0)}}
+
+/* form */
+.form-card{position:relative}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.45rem}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--navy)}
+.field label .req{color:var(--gold-deep)}
+.field input,.field select,.field textarea{
+  font-family:var(--sans);font-size:.95rem;color:var(--ink);
+  background:rgba(255,255,255,.7);border:1px solid var(--line-cool);
+  padding:.85em .9em;border-radius:2px;transition:border-color .2s,box-shadow .2s;width:100%;
+}
+.field textarea{resize:vertical;min-height:88px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(22,59,89,.1)}
+.field input::placeholder,.field textarea::placeholder{color:#9aa7b2}
+.form-submit{margin-top:1.4rem;width:100%;justify-content:center}
+.form-fine{font-size:.78rem;color:var(--muted);margin-top:1rem;line-height:1.5}
+.form-fine a{color:var(--navy);border-bottom:1px solid var(--gold)}
+.form-success{display:none;text-align:center;padding:2.5rem 1rem}
+.form-success.show{display:block;animation:fade .6s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.form-success .ok{font-family:var(--serif);font-size:1.8rem;color:var(--navy-deep);margin-bottom:.8rem}
+.form-success p{color:var(--navy);max-width:42ch;margin:0 auto;line-height:1.6}
+.popup-fallback{display:none;margin-top:1.2rem;font-size:.86rem}
+.popup-fallback.show{display:block}
+.popup-fallback a{color:var(--navy-deep);font-weight:600;border-bottom:1px solid var(--gold)}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--line);background:var(--paper-warm);padding-block:clamp(3rem,6vw,4rem)}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+.footer .brand{font-size:1.4rem;margin-bottom:1rem}
+.footer p{font-size:.88rem;color:var(--muted);line-height:1.6;max-width:34ch}
+.footer-col h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:1.1rem;font-weight:600}
+.footer-col a,.footer-col span{display:block;font-size:.9rem;color:var(--ink);margin-bottom:.7rem;transition:color .2s}
+.footer-col a:hover{color:var(--gold-deep)}
+.footer-bottom{margin-top:3rem;padding-top:1.6rem;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+.reveal[data-d="4"]{transition-delay:.32s}
+
+/* ---------- responsive ---------- */
+@media(max-width:920px){
+  .hero-grid{grid-template-columns:1fr}
+  .console{order:-1}
+  .enroll-grid{grid-template-columns:1fr}
+  .aud-grid{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .spec-row{grid-template-columns:1fr 1fr}
+  .spec-cell:nth-child(2){border-right:none}
+  .spec-cell:nth-child(-n+2){border-bottom:1px solid var(--line-cool)}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .module-content{grid-template-columns:1fr;padding-left:0}
+  .module-head{grid-template-columns:auto 1fr auto}
+}
+@media(max-width:680px){
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:.5rem var(--gutter) 1.5rem}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:.9rem 0;border-bottom:1px solid var(--line);width:100%}
+  .nav-links .nav-cta{margin-top:1rem;text-align:center;padding:.9em}
+  .nav-toggle{display:block}
+  .form-grid{grid-template-columns:1fr}
+  .cal-row{grid-template-columns:auto 1fr;gap:1rem;row-gap:.4rem}
+  .cal-s{grid-column:1/-1}
+  .cal-title{grid-column:1/-1}
+  .cal-time{grid-column:1/-1}
+  .cal-add{grid-column:1/-1;text-align:center}
+  .banner-inner{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- BORRADOR BANNER -->
+<div style="background:#ffb530;color:#0d2640;padding:.8rem 1.2rem;font-family:JetBrains Mono,monospace;font-size:.78rem;letter-spacing:.06em;text-align:center;font-weight:600;border-bottom:2px solid #e09a14">BORRADOR · Esta página usa el curso IA-RRHH como plantilla. Editá los textos antes de publicar.</div>
+
+<!-- NAV -->
+<nav class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand">lambda<span class="dot">.</span>Analytics<span class="sub">Learn</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="/">← Academia</a>
+      <a href="#programa">Programa</a>
+      <a href="#calendario">Calendario</a>
+      <a href="#audiencia">Equipo</a>
+      <a href="#inscripcion" class="nav-cta">Inscribirme</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">Menú ☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-coords reveal">
+        <span><b>CURSO</b> FUND-IA/2026</span>
+        <span><b>NIVEL</b> Básico → Intermedio</span>
+        <span><b>SEDE</b> Zoom</span>
+      </div>
+      <p class="eyebrow reveal" data-d="1">Capacitación ejecutiva · Junio 2026</p>
+      <h1 class="reveal" data-d="1">Fundamentos<span class="accent">de la <span class="hl">Inteligencia&nbsp;Artificial</span></span></h1>
+      <p class="lead reveal" data-d="2"><strong>[BORRADOR]</strong> Curso introductorio en vivo para líderes, mandos medios y profesionales que necesitan entender la IA antes de adoptarla. Sales con criterio propio para evaluar herramientas, casos de uso y proveedores.</p>
+      <div class="hero-cta reveal" data-d="3">
+        <a href="#inscripcion" class="btn btn-primary">Reservar mi cupo <span class="arrow">→</span></a>
+        <a href="#programa" class="btn btn-ghost">Ver programa</a>
+      </div>
+      <div class="spec reveal crop" data-d="4">
+        <div class="spec-row">
+          <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
+          <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
+          <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
+          <div class="spec-cell"><span class="k">Inicio</span><span class="v">11 Jun</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- console -->
+    <div class="console reveal" data-d="2" aria-hidden="true">
+      <div class="console-bar">
+        <span class="led on"></span><span class="led"></span><span class="led"></span>
+        <span class="grow"></span>
+        <span class="tag">prompt_lab · rrhh.gpt</span>
+      </div>
+      <div class="console-body">
+        <div class="console-line"><span class="pre">&gt;_</span><span class="console-prompt" id="typed"></span></div>
+        <div class="console-resp" id="resp" style="display:none">
+          <div class="resp-label">// salida generada</div>
+          <div class="resp-item" data-i="1"><span class="n">01</span><span>¿Cómo priorizas tareas cuando tienes 3 vacantes críticas en paralelo?</span></div>
+          <div class="resp-item" data-i="2"><span class="n">02</span><span>Describe una métrica de selección que hayas mejorado y cómo la mediste.</span></div>
+          <div class="resp-item" data-i="3"><span class="n">03</span><span>¿Qué harías si un hiring manager rechaza a todos los finalistas?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marquee">
+      <div class="marquee-item">Reclutamiento</div>
+      <div class="marquee-item">Onboarding</div>
+      <div class="marquee-item">Clima organizacional</div>
+      <div class="marquee-item">Evaluación de desempeño</div>
+      <div class="marquee-item">Desarrollo de talento</div>
+      <div class="marquee-item">Comunicación interna</div>
+      <div class="marquee-item">Retención</div>
+      <div class="marquee-item">Compensación</div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal" data-count="8"><span class="idx">/01</span><div class="stat-num"><span class="counter">0</span><span class="suffix">h</span></div><div class="stat-label">en vivo · sin grabaciones diferidas</div></div>
+    <div class="stat reveal" data-d="1" data-count="4"><span class="idx">/02</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">sesiones con práctica guiada</div></div>
+    <div class="stat reveal" data-d="2" data-count="3"><span class="idx">/03</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">herramientas de IA orquestadas</div></div>
+    <div class="stat reveal" data-d="3" data-count="70"><span class="idx">/04</span><div class="stat-num"><span class="counter">0</span><span class="suffix">%</span></div><div class="stat-label">del tiempo es práctica aplicada</div></div>
+  </div>
+</section>
+
+<!-- PROGRAMA -->
+<section class="sec programa" id="programa">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Ruta del curso · 4 módulos</p>
+      <h2>De cero a flujo de trabajo: una progresión clara.</h2>
+      <p class="lead">Cada sesión combina un marco conceptual breve, demostración en vivo y práctica guiada con casos reales de Recursos Humanos.</p>
+    </div>
+
+    <div class="modules reveal">
+      <!-- M1 -->
+      <article class="module open">
+        <div class="module-head" role="button" tabindex="0" aria-expanded="true">
+          <span class="module-idx">S/01</span>
+          <div class="module-titlewrap">
+            <h3 class="module-title">Introducción a IA y entorno de trabajo</h3>
+            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Drive / OneDrive</span></div>
+          </div>
+          <span class="module-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="module-body"><div class="module-body-inner"><div class="module-content">
+          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Dejar lista tu “base de operaciones” digital y hacer tus primeros prompts, descubriendo en la práctica qué puede hacer la IA por tu trabajo diario.</p></div>
+          <ul class="module-list">
+            <li>Crear y configurar cuentas en ChatGPT y Google Gemini</li>
+            <li>Organizar Google Drive u OneDrive como carpeta central del curso</li>
+            <li>Conectar las herramientas de IA a tu nube personal</li>
+            <li>Navegación básica en las interfaces de ChatGPT y Gemini</li>
+            <li>Primeros prompts exploratorios con tu trabajo real de RRHH</li>
+            <li>Reflexión grupal: ¿qué sorprendió? ¿qué usarías mañana?</li>
+          </ul>
+        </div></div></div>
+      </article>
+      <!-- M2 -->
+      <article class="module">
+        <div class="module-head" role="button" tabindex="0" aria-expanded="false">
+          <span class="module-idx">S/02</span>
+          <div class="module-titlewrap">
+            <h3 class="module-title">Prompt Engineering y Proyectos</h3>
+            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span></div>
+          </div>
+          <span class="module-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="module-body"><div class="module-body-inner"><div class="module-content">
+          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Comunicarte con la IA de forma estructurada y efectiva, y crear tu primer Proyecto persistente en ChatGPT con instrucciones propias.</p></div>
+          <ul class="module-list">
+            <li>Anatomía del prompt efectivo: rol + contexto + tarea + formato de salida</li>
+            <li>Diferencia entre prompts exploratorios y solicitudes formales</li>
+            <li>Casos reales: oferta de trabajo, retroalimentación escrita, preguntas de entrevista</li>
+            <li>Presentaciones profesionales con Gemini (resultados de selección, métricas)</li>
+            <li>Proyectos en ChatGPT: instrucciones de sistema, archivos y memoria persistente</li>
+            <li>Cada participante crea y configura su primer Proyecto</li>
+          </ul>
+        </div></div></div>
+      </article>
+      <!-- M3 -->
+      <article class="module">
+        <div class="module-head" role="button" tabindex="0" aria-expanded="false">
+          <span class="module-idx">S/03</span>
+          <div class="module-titlewrap">
+            <h3 class="module-title">Selección Inteligente de Talento</h3>
+            <div class="module-tools"><span class="chip">NotebookLM</span></div>
+          </div>
+          <span class="module-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="module-body"><div class="module-body-inner"><div class="module-content">
+          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Usar NotebookLM como asistente de reclutamiento para analizar, comparar y rankear candidatos sin leer cada CV por separado.</p></div>
+          <ul class="module-list">
+            <li>Qué es NotebookLM y en qué se diferencia de ChatGPT</li>
+            <li>Cargar CVs como fuentes dentro de una libreta de trabajo</li>
+            <li>Cargar la descripción del puesto para contextualizar la búsqueda</li>
+            <li>Consultas estratégicas: ¿quién tiene más experiencia? ¿quién hace mejor match?</li>
+            <li>Preguntas de entrevista personalizadas por candidato</li>
+            <li>Tabla comparativa de candidatos como entregable de cierre</li>
+          </ul>
+        </div></div></div>
+      </article>
+      <!-- M4 -->
+      <article class="module">
+        <div class="module-head" role="button" tabindex="0" aria-expanded="false">
+          <span class="module-idx">S/04</span>
+          <div class="module-titlewrap">
+            <h3 class="module-title">Flujos de Trabajo y Productividad con IA</h3>
+            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span></div>
+          </div>
+          <span class="module-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="module-body"><div class="module-body-inner"><div class="module-content">
+          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Construir plantillas reutilizables y hábitos de trabajo con IA que apliques desde el día siguiente al curso, garantizando la adopción sostenida.</p></div>
+          <ul class="module-list">
+            <li>Plantillas frecuentes: seguimiento a candidatos, reportes de clima, minutas, comunicados</li>
+            <li>Organizar Proyectos de ChatGPT por área (selección, capacitación, bienestar, administración)</li>
+            <li>Reportes visuales con Gemini usando datos desde Google Drive</li>
+            <li>Buenas prácticas y hábitos sostenibles con IA</li>
+            <li>Taller final: cada quien construye 3 a 5 plantillas listas para usar</li>
+            <li>Cierre: integrar la IA en la semana laboral sin depender de ella</li>
+          </ul>
+        </div></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section class="sec tools">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Stack de herramientas</p>
+      <h2>Tres plataformas que se complementan.</h2>
+      <p class="lead">No aprendes herramientas aisladas. Aprendes a orquestarlas según el problema que tengas enfrente.</p>
+    </div>
+    <div class="tools-grid">
+      <div class="tool-card reveal"><span class="node">node·01</span><span class="tool-fn">Conversación y redacción</span><div class="tool-name">ChatGPT</div><p>Redacta políticas, descripciones de puesto, comunicaciones internas y respuestas a candidatos con tono y consistencia.</p></div>
+      <div class="tool-card reveal" data-d="1"><span class="node">node·02</span><span class="tool-fn">Análisis documental</span><div class="tool-name">NotebookLM</div><p>Síntesis y análisis de cuerpos extensos de información: CVs, encuestas, evaluaciones, documentos y reportes internos.</p></div>
+      <div class="tool-card reveal" data-d="2"><span class="node">node·03</span><span class="tool-fn">Presentación</span><div class="tool-name">Google Gemini</div><p>Presentaciones ejecutivas, hallazgos visuales y materiales de comunicación con calidad profesional en una fracción del tiempo.</p></div>
+    </div>
+    <p class="tools-note reveal">Metodología — el 70% del tiempo se dedica a ejercicios prácticos con casos reales del área de RRHH. Cada sesión: explicación conceptual breve · demostración en vivo · práctica guiada.</p>
+  </div>
+</section>
+
+<!-- CALENDARIO -->
+<section class="sec calendario" id="calendario">
+  <div class="wrap">
+    <div class="cal-head reveal">
+      <div class="sec-head" style="margin:0">
+        <p class="eyebrow">Calendario</p>
+        <h2>Cuatro encuentros en vivo, dos semanas.</h2>
+      </div>
+      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">5:30 — 7:30 PM · hora Guatemala (CST · UTC-6)</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="cal-row">
+        <span class="cal-s">S/01</span>
+        <div class="cal-date"><span class="day">11</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Jueves</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
+        <span class="cal-time">17:30 – 19:30</span>
+        <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
+      </div>
+      <div class="cal-row">
+        <span class="cal-s">S/02</span>
+        <div class="cal-date"><span class="day">16</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Martes</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
+        <span class="cal-time">17:30 – 19:30</span>
+        <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
+      </div>
+      <div class="cal-row">
+        <span class="cal-s">S/03</span>
+        <div class="cal-date"><span class="day">18</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Jueves</span><div class="cal-title">Selección Inteligente de Talento</div></div>
+        <span class="cal-time">17:30 – 19:30</span>
+        <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
+      </div>
+      <div class="cal-row">
+        <span class="cal-s">S/04</span>
+        <div class="cal-date"><span class="day">23</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Martes</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
+        <span class="cal-time">17:30 – 19:30</span>
+        <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
+      </div>
+    </div>
+    <div class="cal-foot reveal">
+      <p>Las sesiones se imparten vía Zoom. Recibirás el enlace de acceso, materiales y recordatorios automáticos al correo registrado al confirmar tu inscripción.</p>
+      <a href="#" class="ics-btn" id="downloadIcs">Descargar las 4 sesiones (.ics) <span>↓</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCIA + EQUIPO -->
+<section class="sec audiencia" id="audiencia">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">A quién va dirigido</p>
+      <h2>Diseñado para quienes deciden sobre el talento.</h2>
+    </div>
+    <div class="aud-grid">
+      <ul class="aud-list reveal">
+        <li><span class="mk">A1</span>Equipos y profesionales de Recursos Humanos, en cualquier nivel</li>
+        <li><span class="mk">A2</span>Gerentes de RH y HR Business Partners</li>
+        <li><span class="mk">A3</span>Recruiters y especialistas en adquisición de talento</li>
+        <li><span class="mk">A4</span>Líderes de equipo y mandos medios</li>
+        <li><span class="mk">A5</span>Consultores en gestión del talento y desarrollo</li>
+      </ul>
+      <aside class="aud-aside reveal crop" data-d="1">
+        <p class="quote">La IA en RRHH no reemplaza el juicio humano. Te da mejor información y te devuelve el tiempo operativo para las decisiones que solo una persona puede tomar.</p>
+        <span class="cite">— lambda Analytics</span>
+        <div class="level"><span>◆</span> Nivel básico–intermedio · sin experiencia previa en IA</div>
+      </aside>
+    </div>
+
+    <div class="team">
+      <div class="team-label reveal">Quién imparte el curso · consultores con experiencia aplicada</div>
+      <div class="team-grid">
+        <div class="member reveal">
+          <div class="member-photo" data-initials="ES"><img src="img/elena.jpg" alt="Elena Samayoa, VP of HR" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-info">
+            <div class="role">VP of HR</div>
+            <div class="name">Elena Samayoa</div>
+            <ul class="member-creds">
+              <li><span class="deg">M.Sc. Administración de Recursos Humanos</span><span class="inst">Universidad Galileo</span></li>
+              <li><span class="deg">Lic. Psicología Clínica</span><span class="inst">Univ. Rafael Landívar</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="member reveal" data-d="1">
+          <div class="member-photo" data-initials="JS"><img src="img/jorge.jpg" alt="Jorge Samayoa, CEO" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-info">
+            <div class="role">CEO</div>
+            <div class="name">Jorge Samayoa</div>
+            <ul class="member-creds">
+              <li><span class="deg">Ph.D. Operations Research</span><span class="inst">Purdue University</span></li>
+              <li><span class="deg">M.Sc. Matemática</span><span class="inst">Texas A&amp;M University</span></li>
+              <li><span class="deg">M.Sc. Investigación de Operaciones</span><span class="inst">Universidad Galileo</span></li>
+              <li><span class="deg">Ing. Electrónica</span><span class="inst">Univ. Francisco Marroquín</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="member reveal" data-d="2">
+          <div class="member-photo" data-initials="DJ"><img src="img/dimas.jpg" alt="Dimas Jolón, AI Expert" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-info">
+            <div class="role">AI Expert</div>
+            <div class="name">Dimas Jolón</div>
+            <ul class="member-creds">
+              <li><span class="deg">M.Sc. Investigación de Operaciones</span><span class="inst">Universidad Galileo</span></li>
+              <li><span class="deg">Ing. Mecatrónica</span><span class="inst">Universidad Galileo</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="banner">
+  <div class="wrap banner-inner">
+    <div class="reveal">
+      <h2>¿Listo para integrar IA en tu día a día de RRHH?</h2>
+      <p class="banner-meta">El curso se imparte con cupo limitado para mantener la dinámica de práctica guiada.</p>
+    </div>
+    <a href="#inscripcion" class="btn btn-primary reveal" data-d="1">Reservar mi cupo <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- INSCRIPCION -->
+<section class="sec inscripcion" id="inscripcion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Inscripción</p>
+      <h2>Reserva tu cupo.</h2>
+      <p class="lead">Completa el formulario y nos pondremos en contacto para confirmar tu inscripción y el método de pago.</p>
+    </div>
+
+    <div class="enroll-grid">
+      <!-- price -->
+      <div class="price-card reveal crop">
+        <div class="price-head"><p class="eyebrow" style="margin:0">Inversión · USD</p></div>
+        <div class="price-tier featured">
+          <div class="pt-name">Inscripción temprana<small>Tarifa de reserva anticipada</small></div>
+          <div class="pt-amt">$100</div>
+        </div>
+        <div class="price-tier">
+          <div class="pt-name">General<small>Tarifa estándar</small></div>
+          <div class="pt-amt">$125</div>
+        </div>
+        <div class="price-detail">
+          <div class="pd-row"><span class="k">Inicio</span><span>Jueves 11 de junio, 2026</span></div>
+          <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
+          <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, materiales, plantillas y grabación de referencia</span></div>
+          <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
+          <div class="cupo"><span class="pulse"></span> Cupo limitado · reserva con anticipación</div>
+        </div>
+      </div>
+
+      <!-- form -->
+      <div class="form-card reveal" data-d="1">
+        <form id="enrollForm" novalidate>
+          <div class="form-grid">
+            <div class="field"><label for="nombre">Nombre <span class="req">*</span></label><input type="text" id="nombre" name="nombre" autocomplete="given-name" required></div>
+            <div class="field"><label for="apellido">Apellido <span class="req">*</span></label><input type="text" id="apellido" name="apellido" autocomplete="family-name" required></div>
+            <div class="field full"><label for="email">Correo electrónico <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label for="telefono">Teléfono <span class="req">*</span></label><input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" autocomplete="tel" required></div>
+            <div class="field"><label for="empresa">Empresa <span class="req">*</span></label><input type="text" id="empresa" name="empresa" autocomplete="organization" required></div>
+            <div class="field"><label for="cargo">Cargo <span class="req">*</span></label><input type="text" id="cargo" name="cargo" autocomplete="organization-title" required></div>
+            <div class="field"><label for="origen">¿Cómo nos conociste? <span class="req">*</span></label>
+              <select id="origen" name="origen" required>
+                <option value="">Selecciona una opción</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Recomendación">Recomendación de un colega</option>
+                <option value="Email">Email de lambda Analytics</option>
+                <option value="WhatsApp">WhatsApp</option>
+                <option value="Sitio web">Sitio web lambda-analytics.net</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="field full"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" placeholder="¿Hay algo específico que esperas del curso?"></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">Enviar inscripción <span class="arrow">→</span></button>
+          <p class="form-fine">Al enviar te contactaremos por correo o WhatsApp. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="ok">¡Recibimos tu solicitud! ✦</div>
+          <p>Gracias por reservar. Te abrimos WhatsApp para confirmar tu cupo de inmediato; si no se abrió, escríbenos por ese medio o por correo.</p>
+          <div class="popup-fallback" id="popupFallback">¿No se abrió WhatsApp? <a href="#" id="manualWa" target="_blank" rel="noopener">Ábrelo aquí →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">lambda<span class="dot">.</span>Analytics</div>
+        <p>Capacitación aplicada en inteligencia artificial y analítica para equipos que toman decisiones.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Curso</h4>
+        <a href="#programa">Programa</a>
+        <a href="#calendario">Calendario</a>
+        <a href="#audiencia">Equipo</a>
+        <a href="#inscripcion">Inscripción</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>
+        <a href="https://wa.me/50254105000" target="_blank" rel="noopener">WhatsApp +502 5410-5000</a>
+        <a href="https://lambda-analytics.net" target="_blank" rel="noopener">lambda-analytics.net</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 lambda Analytics · Guatemala</span>
+      <span>FUND-IA / 2026 · BORRADOR</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ========================= CONFIG ========================= */
+const SHEET_WEBHOOK_URL = 'REEMPLAZAR_CON_URL_DE_APPS_SCRIPT';
+const COURSE_NAME = 'Fundamentos de la IA - lambda Analytics 2026';
+const WHATSAPP_NUMBER = '50254105000';
+const WA_BASE = 'https://wa.me/' + WHATSAPP_NUMBER;
+
+/* ===== SESSIONS (CST = UTC-6, no DST) · 17:30–19:30 → 23:30–01:30 UTC ===== */
+const SESSIONS = [
+  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260611T233000Z', endUTC:'20260612T013000Z', dateLabel:'Jueves 11 de junio de 2026'},
+  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260616T233000Z', endUTC:'20260617T013000Z', dateLabel:'Martes 16 de junio de 2026'},
+  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260618T233000Z', endUTC:'20260619T013000Z', dateLabel:'Jueves 18 de junio de 2026'},
+  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260623T233000Z', endUTC:'20260624T013000Z', dateLabel:'Martes 23 de junio de 2026'}
+];
+
+const COURSE_DESCRIPTION =
+'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM hora Guatemala (CST).\\n\\n' +
+'Te compartiremos el enlace de Zoom y los materiales por correo antes de la sesión.\\n\\n' +
+'Contacto: learn@scilambda.net  |  WhatsApp +502 5410-5000\\n' +
+'Sitio: https://learn.lambda-analytics.net';
+
+/* ===== GOOGLE CALENDAR per session ===== */
+function gcalUrl(s){
+  const params = new URLSearchParams({
+    action:'TEMPLATE',
+    text: s.title + ' · lambda Analytics',
+    dates: s.startUTC + '/' + s.endUTC,
+    details: COURSE_DESCRIPTION,
+    location: 'Zoom (enlace por correo)'
+  });
+  return 'https://calendar.google.com/calendar/render?' + params.toString();
+}
+document.querySelectorAll('[data-cal-add]').forEach(btn => {
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    const i = parseInt(btn.dataset.calAdd, 10);
+    window.open(gcalUrl(SESSIONS[i]), '_blank', 'noopener');
+  });
+});
+
+/* ===== ICS — all 4 sessions with 30min VALARM ===== */
+function nowUTC(){ return new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z'; }
+function buildIcs(){
+  const stamp = nowUTC();
+  const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lambda Analytics//Curso IA RRHH//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  SESSIONS.forEach(s => {
+    lines.push(
+      'BEGIN:VEVENT',
+      'UID:lambda-iarrhh-2026-' + s.n + '@lambda-analytics.net',
+      'DTSTAMP:' + stamp,
+      'DTSTART:' + s.startUTC,
+      'DTEND:' + s.endUTC,
+      'SUMMARY:' + s.title + ' · lambda Analytics',
+      'DESCRIPTION:' + COURSE_DESCRIPTION.replace(/\\n/g,'\\\\n'),
+      'LOCATION:Zoom (enlace por correo)',
+      'STATUS:CONFIRMED',
+      'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Recordatorio · ' + s.title,'TRIGGER:-PT30M','END:VALARM',
+      'END:VEVENT'
+    );
+  });
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n');
+}
+document.getElementById('downloadIcs').addEventListener('click', e => {
+  e.preventDefault();
+  const blob = new Blob([buildIcs()], {type:'text/calendar;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.download = 'lambda-fundamentos-ia-2026.ics'; a.href = url;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+/* ===== PROGRAMA accordion ===== */
+function toggleModule(head){
+  const item = head.closest('.module');
+  const open = item.classList.toggle('open');
+  head.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+document.querySelectorAll('.module-head').forEach(head => {
+  head.addEventListener('click', () => toggleModule(head));
+  head.addEventListener('keydown', e => {
+    if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleModule(head); }
+  });
+});
+
+/* ===== MOBILE NAV ===== */
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
+}));
+
+/* ===== FORM submit + WhatsApp handoff ===== */
+const form = document.getElementById('enrollForm');
+const formSuccess = document.getElementById('formSuccess');
+const popupFallback = document.getElementById('popupFallback');
+const manualWa = document.getElementById('manualWa');
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if(!form.checkValidity()){ form.reportValidity(); return; }
+  const data = Object.fromEntries(new FormData(form).entries());
+  const payload = {
+    timestamp:new Date().toISOString(),
+    nombre:data.nombre||'', apellido:data.apellido||'', email:data.email||'',
+    telefono:data.telefono||'', empresa:data.empresa||'', cargo:data.cargo||'',
+    origen:data.origen||'', mensaje:data.mensaje||'', curso:COURSE_NAME
+  };
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true; submitBtn.innerHTML = 'Enviando…';
+  try{
+    await fetch(SHEET_WEBHOOK_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body:JSON.stringify(payload)
+    });
+    const fullName = (payload.nombre + ' ' + payload.apellido).trim();
+    const waMessage = 'Hola, soy ' + fullName + '. Quiero reservar mi cupo para la capacitación de IA en RRHH, de Junio 2026';
+    const waUrl = WA_BASE + '?text=' + encodeURIComponent(waMessage);
+    form.style.display = 'none';
+    formSuccess.classList.add('show');
+    const popup = window.open(waUrl, '_blank', 'noopener');
+    if(!popup || popup.closed || typeof popup.closed === 'undefined'){
+      manualWa.href = waUrl; popupFallback.classList.add('show');
+    }
+  }catch(err){
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = 'Enviar inscripción <span class="arrow">→</span>';
+    alert('No pudimos registrar tu inscripción automáticamente. Escríbenos a learn@scilambda.net o por WhatsApp al +502 5410-5000 para reservar tu cupo.');
+  }
+});
+
+/* ===== STATS count-up ===== */
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(!entry.isIntersecting) return;
+    const target = parseInt(entry.target.parentElement.parentElement.dataset.count, 10);
+    const el = entry.target, duration = 1400, start = performance.now();
+    function step(now){
+      const t = Math.min(1,(now-start)/duration);
+      el.textContent = Math.round(target * (1 - Math.pow(1-t,3)));
+      if(t<1) requestAnimationFrame(step); else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+    counterObserver.unobserve(entry.target);
+  });
+}, {threshold:0.6});
+document.querySelectorAll('.stat-num .counter').forEach(el => counterObserver.observe(el));
+
+/* ===== REVEAL on scroll ===== */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){ entry.target.classList.add('in'); revealObserver.unobserve(entry.target); }
+  });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ===== HERO console typing ===== */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const PROMPT = 'Redacta 3 preguntas de entrevista para un Analista de Compensaciones con foco en pensamiento analítico.';
+const typedEl = document.getElementById('typed');
+const respEl = document.getElementById('resp');
+function showResponse(){
+  respEl.style.display = 'block';
+  respEl.querySelectorAll('.resp-item').forEach((it,idx) => {
+    setTimeout(() => it.classList.add('show'), reduceMotion ? 0 : 220*(idx+1));
+  });
+}
+if(reduceMotion){
+  typedEl.textContent = PROMPT; showResponse();
+}else{
+  let i = 0;
+  const caret = document.createElement('span'); caret.className='caret';
+  typedEl.after(caret);
+  function type(){
+    if(i <= PROMPT.length){
+      typedEl.textContent = PROMPT.slice(0,i); i++;
+      setTimeout(type, 22 + Math.random()*34);
+    }else{
+      setTimeout(() => { caret.remove(); showResponse(); }, 500);
+    }
+  }
+  setTimeout(type, 900);
+}
+
+/* duplicate marquee for seamless loop */
+const mq = document.getElementById('marquee');
+if(mq){ mq.innerHTML += mq.innerHTML; }
+</script>
+</body>
+</html>
