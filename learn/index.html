@@ -180,9 +180,14 @@ em{font-style:italic;color:var(--gold-deep)}
 .catalog-head h2{max-width:18ch}
 .catalog-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 
-.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.courses{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto auto 1fr auto;       /* head · specs · tools · foot */
+  column-gap:1.4rem;row-gap:0;
+}
 .course{
-  position:relative;display:flex;flex-direction:column;
+  position:relative;
+  display:grid;grid-template-rows:subgrid;grid-row:span 4;
   background:var(--paper);border:1px solid var(--line);
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .25s;
 }
@@ -249,7 +254,8 @@ em{font-style:italic;color:var(--gold-deep)}
 
 /* ---------- responsive ---------- */
 @media(max-width:920px){
-  .courses{grid-template-columns:1fr}
+  .courses{grid-template-columns:1fr;grid-template-rows:none;row-gap:1.4rem}
+  .course{display:flex;flex-direction:column;grid-row:auto}
   .method-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .catalog-head{flex-direction:column;align-items:flex-start}

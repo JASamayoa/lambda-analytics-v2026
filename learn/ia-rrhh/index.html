@@ -316,9 +316,15 @@ section{position:relative}
 .price-tier .pt-amt{font-family:var(--serif);font-size:2rem;color:var(--navy-deep)}
 .price-tier.featured{background:rgba(255,181,48,.12)}
 .price-tier.featured .pt-amt{color:var(--gold-deep)}
+.early-countdown{display:none;padding:.85rem 1.8rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--gold-deep);border-bottom:1px solid var(--line);background:rgba(255,181,48,.05);align-items:center;gap:.55em}
+.early-countdown.show{display:flex}
+.early-countdown strong{color:var(--navy-deep);font-weight:700;letter-spacing:.04em}
+.early-countdown.urgent{color:var(--navy-deep);background:rgba(224,154,20,.18)}
+.early-countdown.urgent strong{color:var(--gold-deep)}
+.early-countdown .ec-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;animation:pulse 2s infinite;flex:none}
 .price-detail{padding:1.5rem 1.8rem;display:flex;flex-direction:column;gap:.9rem}
 .price-detail .pd-row{display:flex;gap:.8em;font-size:.9rem;color:var(--ink);align-items:flex-start}
-.price-detail .pd-row .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex:none;width:6.5em;padding-top:.25em}
+.price-detail .pd-row .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex:none;width:8.5em;padding-top:.25em}
 .cupo{margin:1.4rem 0 0;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--gold-deep);display:flex;align-items:center;gap:.6em}
 .cupo .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold-deep);box-shadow:0 0 0 0 rgba(224,154,20,.5);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(224,154,20,0)}100%{box-shadow:0 0 0 0 rgba(224,154,20,0)}}
@@ -449,7 +455,7 @@ section{position:relative}
           <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
           <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
           <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
-          <div class="spec-cell"><span class="k">Inicio</span><span class="v">11 Jun</span></div>
+          <div class="spec-cell"><span class="k">Próxima fecha</span><span class="v">11 Jun</span></div>
         </div>
       </div>
     </div>
@@ -753,16 +759,17 @@ section{position:relative}
       <!-- price -->
       <div class="price-card reveal crop">
         <div class="price-head"><p class="eyebrow" style="margin:0">Inversión · USD</p></div>
-        <div class="price-tier featured">
-          <div class="pt-name">Inscripción temprana<small>Tarifa de reserva anticipada</small></div>
+        <div class="price-tier featured" id="earlybirdTier">
+          <div class="pt-name">Inscripción temprana<small id="earlybirdMeta">Tarifa anticipada · hasta 4 jun, 2026</small></div>
           <div class="pt-amt">$100</div>
         </div>
+        <div class="early-countdown" id="earlyCountdown" aria-live="polite"></div>
         <div class="price-tier">
           <div class="pt-name">General<small>Tarifa estándar</small></div>
           <div class="pt-amt">$125</div>
         </div>
         <div class="price-detail">
-          <div class="pd-row"><span class="k">Inicio</span><span>Jueves 11 de junio, 2026</span></div>
+          <div class="pd-row"><span class="k">Próxima fecha</span><span>Jueves 11 de junio, 2026</span></div>
           <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
           <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, materiales, plantillas y grabación de referencia</span></div>
           <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
@@ -1074,6 +1081,62 @@ if(reduceMotion){
 /* duplicate marquee for seamless loop */
 const mq = document.getElementById('marquee');
 if(mq){ mq.innerHTML += mq.innerHTML; }
+
+/* ===== EARLY BIRD countdown =====
+   Tarifa anticipada vigente hasta 7 días antes del inicio del curso.
+   Después de esa fecha, se oculta el tier "Inscripción temprana" y solo queda General.
+   La fecha de corte se calcula automáticamente desde SESSIONS[0].startUTC,
+   así que cuando se cambie la primera sesión, esto se actualiza solo. */
+(function setupEarlyBird(){
+  const tier      = document.getElementById('earlybirdTier');
+  const meta      = document.getElementById('earlybirdMeta');
+  const countdown = document.getElementById('earlyCountdown');
+  if(!tier || !SESSIONS || !SESSIONS.length) return;
+
+  const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  function parseUTC(s){
+    // '20260611T233000Z' → Date
+    return new Date(s.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/,'$1-$2-$3T$4:$5:$6Z'));
+  }
+
+  const courseStart = parseUTC(SESSIONS[0].startUTC);
+  const deadline    = new Date(courseStart.getTime() - 7*24*60*60*1000); // 7 días antes
+
+  function fmtShort(d){
+    return d.getUTCDate() + ' ' + MONTHS_ES[d.getUTCMonth()] + ', ' + d.getUTCFullYear();
+  }
+
+  function update(){
+    const now = new Date();
+    const ms  = deadline.getTime() - now.getTime();
+    const days = Math.ceil(ms / (24*60*60*1000));
+
+    if(days <= 0){
+      // Early bird vencido
+      tier.style.display = 'none';
+      countdown.classList.remove('show','urgent');
+      countdown.textContent = '';
+      return;
+    }
+
+    if(meta) meta.textContent = 'Tarifa anticipada · hasta ' + fmtShort(deadline);
+
+    let label;
+    if(days === 1)      label = '<span class="ec-dot"></span>Último día para tarifa anticipada — termina hoy';
+    else if(days <= 3)  label = '<span class="ec-dot"></span>Solo quedan <strong>' + days + ' días</strong> para tarifa anticipada';
+    else if(days <= 7)  label = '<span class="ec-dot"></span>Quedan <strong>' + days + ' días</strong> para tarifa anticipada';
+    else                label = 'Tarifa anticipada disponible · <strong>' + days + ' días</strong> restantes';
+
+    countdown.innerHTML = label;
+    countdown.classList.add('show');
+    countdown.classList.toggle('urgent', days <= 3);
+  }
+
+  update();
+  // Recalcular cada hora para visitantes que dejan la pestaña abierta
+  setInterval(update, 60*60*1000);
+})();
 </script>
 </body>
 </html>
