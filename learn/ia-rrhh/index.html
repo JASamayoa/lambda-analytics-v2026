@@ -338,7 +338,11 @@ section{position:relative}
 .field textarea{resize:vertical;min-height:88px}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(22,59,89,.1)}
 .field input::placeholder,.field textarea::placeholder{color:#9aa7b2}
-.form-submit{margin-top:1.4rem;width:100%;justify-content:center}
+.form-actions{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.4rem}
+.form-actions .btn{width:100%;justify-content:center;margin-top:0;padding:.95em 1.1em}
+.btn-wa{background:var(--paper-warm);color:var(--navy-deep);border:1.5px solid var(--navy-deep)}
+.btn-wa:hover{background:var(--navy-deep);color:var(--paper);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--gold)}
+.btn-wa .wa-icon{display:inline-block;width:.95em;height:.95em;margin-right:.5em;vertical-align:-.15em;fill:currentColor}
 .form-fine{font-size:.78rem;color:var(--muted);margin-top:1rem;line-height:1.5}
 .form-fine a{color:var(--navy);border-bottom:1px solid var(--gold)}
 .form-success{display:none;text-align:center;padding:2.5rem 1rem}
@@ -346,9 +350,6 @@ section{position:relative}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
 .form-success .ok{font-family:var(--serif);font-size:1.8rem;color:var(--navy-deep);margin-bottom:.8rem}
 .form-success p{color:var(--navy);max-width:42ch;margin:0 auto;line-height:1.6}
-.popup-fallback{display:none;margin-top:1.2rem;font-size:.86rem}
-.popup-fallback.show{display:block}
-.popup-fallback a{color:var(--navy-deep);font-weight:600;border-bottom:1px solid var(--gold)}
 
 /* ---------- footer ---------- */
 .footer{border-top:1px solid var(--line);background:var(--paper-warm);padding-block:clamp(3rem,6vw,4rem)}
@@ -393,6 +394,7 @@ section{position:relative}
   .nav-links .nav-cta{margin-top:1rem;text-align:center;padding:.9em}
   .nav-toggle{display:block}
   .form-grid{grid-template-columns:1fr}
+  .form-actions{grid-template-columns:1fr;gap:.7rem}
   .cal-row{grid-template-columns:auto 1fr;gap:1rem;row-gap:.4rem}
   .cal-s{grid-column:1/-1}
   .cal-title{grid-column:1/-1}
@@ -791,13 +793,18 @@ section{position:relative}
             </div>
             <div class="field full"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" placeholder="¿Hay algo específico que esperas del curso?"></textarea></div>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">Enviar inscripción <span class="arrow">→</span></button>
-          <p class="form-fine">Al enviar te contactaremos por correo o WhatsApp. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Solicitar inscripción <span class="arrow">→</span></button>
+            <button type="button" class="btn btn-wa" id="waBtn" aria-label="Atención inmediata vía WhatsApp">
+              <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Atención inmediata
+            </button>
+          </div>
+          <p class="form-fine"><strong>Solicitar inscripción</strong> envía tus datos a nuestro equipo y respondemos por correo o llamada telefónica. <strong>Atención inmediata</strong> abre WhatsApp para reservar tu cupo en línea. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="ok">¡Recibimos tu solicitud! ✦</div>
-          <p>Gracias por reservar. Te abrimos WhatsApp para confirmar tu cupo de inmediato; si no se abrió, escríbenos por ese medio o por correo.</p>
-          <div class="popup-fallback" id="popupFallback">¿No se abrió WhatsApp? <a href="#" id="manualWa" target="_blank" rel="noopener">Ábrelo aquí →</a></div>
+          <p>Gracias por reservar. Te contactaremos por correo electrónico en las próximas horas para confirmar tu cupo y compartir los métodos de pago. Si prefieres respuesta inmediata, escríbenos por <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color:var(--navy);border-bottom:1px solid var(--gold)">WhatsApp +502 2301-0853</a>.</p>
         </div>
       </div>
     </div>
@@ -838,7 +845,7 @@ section{position:relative}
 const SHEET_WEBHOOK_URL = 'REEMPLAZAR_CON_URL_DE_APPS_SCRIPT';
 const COURSE_NAME = 'IA aplicada a RRHH y Gestión del Talento - Junio 2026';
 const WHATSAPP_NUMBER = '50223010853';
-const WA_BASE = 'https://wa.me/' + WHATSAPP_NUMBER;
+const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&type=phone_number&app_absent=0&text=';
 
 /* ===== SESSIONS (CST = UTC-6, no DST) · 17:30–19:30 → 23:30–01:30 UTC ===== */
 const SESSIONS = [
@@ -930,11 +937,11 @@ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
 }));
 
-/* ===== FORM submit + WhatsApp handoff ===== */
+/* ===== FORM submit → email a learn@scilambda.net ===== */
 const form = document.getElementById('enrollForm');
 const formSuccess = document.getElementById('formSuccess');
-const popupFallback = document.getElementById('popupFallback');
-const manualWa = document.getElementById('manualWa');
+const submitBtn = document.getElementById('submitBtn');
+const waBtn = document.getElementById('waBtn');
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
@@ -944,30 +951,34 @@ form.addEventListener('submit', async e => {
     timestamp:new Date().toISOString(),
     nombre:data.nombre||'', apellido:data.apellido||'', email:data.email||'',
     telefono:data.telefono||'', empresa:data.empresa||'', cargo:data.cargo||'',
-    origen:data.origen||'', mensaje:data.mensaje||'', curso:COURSE_NAME
+    origen:data.origen||'', mensaje:data.mensaje||'', curso:COURSE_NAME,
+    fuente:'web · learn.lambda-analytics.net/ia-rrhh',
+    userAgent: navigator.userAgent
   };
-  const submitBtn = form.querySelector('button[type="submit"]');
-  submitBtn.disabled = true; submitBtn.innerHTML = 'Enviando…';
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Enviando…';
   try{
     await fetch(SHEET_WEBHOOK_URL, {
       method:'POST', mode:'no-cors',
       headers:{'Content-Type':'text/plain;charset=utf-8'},
       body:JSON.stringify(payload)
     });
-    const fullName = (payload.nombre + ' ' + payload.apellido).trim();
-    const waMessage = 'Hola, soy ' + fullName + '. Quiero reservar mi cupo para la capacitación de IA en RRHH, de Junio 2026';
-    const waUrl = WA_BASE + '?text=' + encodeURIComponent(waMessage);
     form.style.display = 'none';
     formSuccess.classList.add('show');
-    const popup = window.open(waUrl, '_blank', 'noopener');
-    if(!popup || popup.closed || typeof popup.closed === 'undefined'){
-      manualWa.href = waUrl; popupFallback.classList.add('show');
-    }
   }catch(err){
     submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Enviar inscripción <span class="arrow">→</span>';
-    alert('No pudimos registrar tu inscripción automáticamente. Escríbenos a learn@scilambda.net o por WhatsApp al +502 2301-0853 para reservar tu cupo.');
+    submitBtn.innerHTML = 'Solicitar inscripción <span class="arrow">→</span>';
+    alert('No pudimos enviar tu solicitud automáticamente. Escríbenos a learn@scilambda.net o por WhatsApp al +502 2301-0853 para reservar tu cupo.');
   }
+});
+
+/* ===== Botón Atención inmediata → WhatsApp deep link =====
+   Abre WhatsApp con mensaje prellenado solicitando información del curso.
+   El lead lo envía hacia el número de Lambda. */
+waBtn.addEventListener('click', () => {
+  const msg = 'Hola, necesito información personalizada del curso ' + COURSE_NAME;
+  const waUrl = WA_BASE + encodeURIComponent(msg);
+  window.open(waUrl, '_blank', 'noopener');
 });
 
 /* ===== STATS count-up ===== */
