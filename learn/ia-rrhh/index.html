@@ -957,6 +957,43 @@ form.addEventListener('submit', async e => {
   };
   submitBtn.disabled = true;
   submitBtn.innerHTML = 'Enviando…';
+
+  /* Salvaguarda: si el webhook aún no está configurado, abrir mailto:
+     con los datos prellenados para que no se pierdan leads. */
+  const webhookOk = SHEET_WEBHOOK_URL && SHEET_WEBHOOK_URL.indexOf('REEMPLAZAR') === -1 && SHEET_WEBHOOK_URL.indexOf('script.google.com') !== -1;
+  if(!webhookOk){
+    const subject = 'Inscripción · ' + payload.curso;
+    const bodyLines = [
+      'Hola, quiero inscribirme al curso:',
+      payload.curso,
+      '',
+      'Datos de contacto:',
+      '• Nombre: ' + payload.nombre + ' ' + payload.apellido,
+      '• Email: ' + payload.email,
+      '• Teléfono: ' + payload.telefono,
+      '• Empresa: ' + payload.empresa,
+      '• Cargo: ' + payload.cargo,
+      '• Origen: ' + payload.origen
+    ];
+    if(payload.mensaje) bodyLines.push('', 'Mensaje:', payload.mensaje);
+    bodyLines.push('', '— Enviado desde learn.lambda-analytics.net/ia-rrhh');
+    const mailto = 'mailto:learn@scilambda.net'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+    // Mensaje de éxito ajustado: el envío real lo hace el cliente de correo del lead.
+    const okEl = formSuccess.querySelector('.ok');
+    const pEl  = formSuccess.querySelector('p');
+    if(okEl) okEl.textContent = 'Abrimos tu cliente de correo ✦';
+    if(pEl)  pEl.innerHTML = 'Tus datos quedaron prellenados en un correo a <strong>learn@scilambda.net</strong>. Solo <strong>confirma el envío</strong> en tu cliente de correo para que recibamos tu solicitud. Si no se abrió, escríbenos directo a <a href="mailto:learn@scilambda.net" style="color:var(--navy);border-bottom:1px solid var(--gold)">learn@scilambda.net</a> o por <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color:var(--navy);border-bottom:1px solid var(--gold)">WhatsApp +502 2301-0853</a>.';
+
+    form.style.display = 'none';
+    formSuccess.classList.add('show');
+    window.location.href = mailto;
+    return;
+  }
+
+  /* Flujo normal: POST al Apps Script ya desplegado */
   try{
     await fetch(SHEET_WEBHOOK_URL, {
       method:'POST', mode:'no-cors',
