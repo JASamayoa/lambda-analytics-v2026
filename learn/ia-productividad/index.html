@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IA para la Productividad · lambda Analytics</title>
-<meta name="description" content="Capacitación en vivo en IA generativa para recuperar horas de trabajo. Para profesionales y equipos operativos que quieren automatizar tareas repetitivas con ChatGPT, Gemini, Claude y herramientas de productividad con IA.">
+<title>IA para Productividad Personal · lambda Analytics</title>
+<meta name="description" content="Capacitación práctica de 4 horas en 2 sesiones para integrar IA generativa (ChatGPT, Claude, Gemini, NotebookLM) en tu trabajo diario. Para profesionales sin experiencia técnica. Inicia el 13 de junio de 2026.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="canonical" href="https://learn.lambda-analytics.net/ia-productividad">
-<meta property="og:title" content="IA para la Productividad · lambda Analytics">
-<meta property="og:description" content="Curso en vivo para integrar IA generativa en tu día a día y recuperar horas de trabajo. Cupo limitado.">
+<meta property="og:title" content="IA para Productividad Personal">
+<meta property="og:description" content="4 horas · 2 sesiones en vivo vía Zoom · 5 módulos · 19 lecciones. Para profesionales sin experiencia técnica. Inicia 13 de junio de 2026.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_GT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -316,9 +316,15 @@ section{position:relative}
 .price-tier .pt-amt{font-family:var(--serif);font-size:2rem;color:var(--navy-deep)}
 .price-tier.featured{background:rgba(255,181,48,.12)}
 .price-tier.featured .pt-amt{color:var(--gold-deep)}
+.early-countdown{display:none;padding:.85rem 1.8rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--gold-deep);border-bottom:1px solid var(--line);background:rgba(255,181,48,.05);align-items:center;gap:.55em}
+.early-countdown.show{display:flex}
+.early-countdown strong{color:var(--navy-deep);font-weight:700;letter-spacing:.04em}
+.early-countdown.urgent{color:var(--navy-deep);background:rgba(224,154,20,.18)}
+.early-countdown.urgent strong{color:var(--gold-deep)}
+.early-countdown .ec-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block;animation:pulse 2s infinite;flex:none}
 .price-detail{padding:1.5rem 1.8rem;display:flex;flex-direction:column;gap:.9rem}
 .price-detail .pd-row{display:flex;gap:.8em;font-size:.9rem;color:var(--ink);align-items:flex-start}
-.price-detail .pd-row .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex:none;width:6.5em;padding-top:.25em}
+.price-detail .pd-row .k{font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);flex:none;width:8.5em;padding-top:.25em}
 .cupo{margin:1.4rem 0 0;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--gold-deep);display:flex;align-items:center;gap:.6em}
 .cupo .pulse{width:8px;height:8px;border-radius:50%;background:var(--gold-deep);box-shadow:0 0 0 0 rgba(224,154,20,.5);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(224,154,20,0)}100%{box-shadow:0 0 0 0 rgba(224,154,20,0)}}
@@ -338,7 +344,11 @@ section{position:relative}
 .field textarea{resize:vertical;min-height:88px}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(22,59,89,.1)}
 .field input::placeholder,.field textarea::placeholder{color:#9aa7b2}
-.form-submit{margin-top:1.4rem;width:100%;justify-content:center}
+.form-actions{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.4rem}
+.form-actions .btn{width:100%;justify-content:center;margin-top:0;padding:.95em 1.1em}
+.btn-wa{background:var(--paper-warm);color:var(--navy-deep);border:1.5px solid var(--navy-deep)}
+.btn-wa:hover{background:var(--navy-deep);color:var(--paper);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--gold)}
+.btn-wa .wa-icon{display:inline-block;width:.95em;height:.95em;margin-right:.5em;vertical-align:-.15em;fill:currentColor}
 .form-fine{font-size:.78rem;color:var(--muted);margin-top:1rem;line-height:1.5}
 .form-fine a{color:var(--navy);border-bottom:1px solid var(--gold)}
 .form-success{display:none;text-align:center;padding:2.5rem 1rem}
@@ -346,9 +356,6 @@ section{position:relative}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
 .form-success .ok{font-family:var(--serif);font-size:1.8rem;color:var(--navy-deep);margin-bottom:.8rem}
 .form-success p{color:var(--navy);max-width:42ch;margin:0 auto;line-height:1.6}
-.popup-fallback{display:none;margin-top:1.2rem;font-size:.86rem}
-.popup-fallback.show{display:block}
-.popup-fallback a{color:var(--navy-deep);font-weight:600;border-bottom:1px solid var(--gold)}
 
 /* ---------- footer ---------- */
 .footer{border-top:1px solid var(--line);background:var(--paper-warm);padding-block:clamp(3rem,6vw,4rem)}
@@ -393,6 +400,7 @@ section{position:relative}
   .nav-links .nav-cta{margin-top:1rem;text-align:center;padding:.9em}
   .nav-toggle{display:block}
   .form-grid{grid-template-columns:1fr}
+  .form-actions{grid-template-columns:1fr;gap:.7rem}
   .cal-row{grid-template-columns:auto 1fr;gap:1rem;row-gap:.4rem}
   .cal-s{grid-column:1/-1}
   .cal-title{grid-column:1/-1}
@@ -407,9 +415,6 @@ section{position:relative}
 </style>
 </head>
 <body>
-
-<!-- BORRADOR BANNER -->
-<div style="background:#ffb530;color:#0d2640;padding:.8rem 1.2rem;font-family:JetBrains Mono,monospace;font-size:.78rem;letter-spacing:.06em;text-align:center;font-weight:600;border-bottom:2px solid #e09a14">BORRADOR · Esta página usa el curso IA-RRHH como plantilla. Editá los textos antes de publicar.</div>
 
 <!-- NAV -->
 <nav class="nav" id="top">
@@ -431,23 +436,26 @@ section{position:relative}
   <div class="wrap hero-grid">
     <div>
       <div class="hero-coords reveal">
-        <span><b>CURSO</b> IA-PROD/2026</span>
-        <span><b>NIVEL</b> Básico → Intermedio</span>
+        <span><b>CURSO</b> IA-PRODUCTIVIDAD/2026</span>
+        <span><b>NIVEL</b> Principiante</span>
         <span><b>SEDE</b> Zoom</span>
       </div>
-      <p class="eyebrow reveal" data-d="1">Capacitación ejecutiva · Junio 2026</p>
-      <h1 class="reveal" data-d="1">Inteligencia Artificial<span class="accent">para la <span class="hl">Productividad</span></span></h1>
-      <p class="lead reveal" data-d="2"><strong>[BORRADOR]</strong> Curso en vivo para integrar IA generativa en tu trabajo diario y recuperar horas operativas. Sales con plantillas, flujos y proyectos configurados listos para aplicar el lunes siguiente.</p>
+      <p class="eyebrow reveal" data-d="1">Capacitación práctica · Junio 2026</p>
+      <h1 class="reveal" data-d="1">
+        Inteligencia Artificial
+        <span class="accent">para tu <span class="hl">Productividad&nbsp;Personal</span></span>
+      </h1>
+      <p class="lead reveal" data-d="2">4 horas en vivo para automatizar correos, reuniones, reportes y planificación con IA. Sales con tu sistema personal listo para implementar al día siguiente. Sin programar, sin teoría innecesaria.</p>
       <div class="hero-cta reveal" data-d="3">
         <a href="#inscripcion" class="btn btn-primary">Reservar mi cupo <span class="arrow">→</span></a>
         <a href="#programa" class="btn btn-ghost">Ver programa</a>
       </div>
       <div class="spec reveal crop" data-d="4">
         <div class="spec-row">
-          <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
-          <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
+          <div class="spec-cell"><span class="k">Duración</span><span class="v">4 h</span></div>
+          <div class="spec-cell"><span class="k">Sesiones</span><span class="v">2</span></div>
           <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
-          <div class="spec-cell"><span class="k">Inicio</span><span class="v">11 Jun</span></div>
+          <div class="spec-cell"><span class="k">Próxima fecha</span><span class="v">13 Jun</span></div>
         </div>
       </div>
     </div>
@@ -457,15 +465,15 @@ section{position:relative}
       <div class="console-bar">
         <span class="led on"></span><span class="led"></span><span class="led"></span>
         <span class="grow"></span>
-        <span class="tag">prompt_lab · rrhh.gpt</span>
+        <span class="tag">prompt_lab · productividad.gpt</span>
       </div>
       <div class="console-body">
         <div class="console-line"><span class="pre">&gt;_</span><span class="console-prompt" id="typed"></span></div>
         <div class="console-resp" id="resp" style="display:none">
           <div class="resp-label">// salida generada</div>
-          <div class="resp-item" data-i="1"><span class="n">01</span><span>¿Cómo priorizas tareas cuando tienes 3 vacantes críticas en paralelo?</span></div>
-          <div class="resp-item" data-i="2"><span class="n">02</span><span>Describe una métrica de selección que hayas mejorado y cómo la mediste.</span></div>
-          <div class="resp-item" data-i="3"><span class="n">03</span><span>¿Qué harías si un hiring manager rechaza a todos los finalistas?</span></div>
+          <div class="resp-item" data-i="1"><span class="n">01</span><span>Reúne los pendientes del día y ordénalos por impacto y urgencia.</span></div>
+          <div class="resp-item" data-i="2"><span class="n">02</span><span>Redacta un correo de seguimiento a clientes que no respondieron esta semana.</span></div>
+          <div class="resp-item" data-i="3"><span class="n">03</span><span>Resume el hilo de 40 mensajes y extrae las 3 decisiones tomadas.</span></div>
         </div>
       </div>
     </div>
@@ -474,14 +482,14 @@ section{position:relative}
   <!-- marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track" id="marquee">
-      <div class="marquee-item">Reclutamiento</div>
-      <div class="marquee-item">Onboarding</div>
-      <div class="marquee-item">Clima organizacional</div>
-      <div class="marquee-item">Evaluación de desempeño</div>
-      <div class="marquee-item">Desarrollo de talento</div>
-      <div class="marquee-item">Comunicación interna</div>
-      <div class="marquee-item">Retención</div>
-      <div class="marquee-item">Compensación</div>
+      <div class="marquee-item">Correos</div>
+      <div class="marquee-item">Reuniones</div>
+      <div class="marquee-item">Reportes</div>
+      <div class="marquee-item">Planificación semanal</div>
+      <div class="marquee-item">Comunicación profesional</div>
+      <div class="marquee-item">Gestión del tiempo</div>
+      <div class="marquee-item">Automatización personal</div>
+      <div class="marquee-item">Stack de IA</div>
     </div>
   </div>
 </header>
@@ -489,9 +497,9 @@ section{position:relative}
 <!-- STATS -->
 <section class="stats">
   <div class="stats-grid">
-    <div class="stat reveal" data-count="8"><span class="idx">/01</span><div class="stat-num"><span class="counter">0</span><span class="suffix">h</span></div><div class="stat-label">en vivo · sin grabaciones diferidas</div></div>
-    <div class="stat reveal" data-d="1" data-count="4"><span class="idx">/02</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">sesiones con práctica guiada</div></div>
-    <div class="stat reveal" data-d="2" data-count="3"><span class="idx">/03</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">herramientas de IA orquestadas</div></div>
+    <div class="stat reveal" data-count="4"><span class="idx">/01</span><div class="stat-num"><span class="counter">0</span><span class="suffix">h</span></div><div class="stat-label">en vivo · sin grabaciones diferidas</div></div>
+    <div class="stat reveal" data-d="1" data-count="5"><span class="idx">/02</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">módulos con entregable aplicable</div></div>
+    <div class="stat reveal" data-d="2" data-count="19"><span class="idx">/03</span><div class="stat-num"><span class="counter">0</span></div><div class="stat-label">lecciones · demo + práctica guiada</div></div>
     <div class="stat reveal" data-d="3" data-count="70"><span class="idx">/04</span><div class="stat-num"><span class="counter">0</span><span class="suffix">%</span></div><div class="stat-label">del tiempo es práctica aplicada</div></div>
   </div>
 </section>
@@ -500,97 +508,108 @@ section{position:relative}
 <section class="sec programa" id="programa">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Ruta del curso · 4 módulos</p>
-      <h2>De cero a flujo de trabajo: una progresión clara.</h2>
-      <p class="lead">Cada sesión combina un marco conceptual breve, demostración en vivo y práctica guiada con casos reales de Recursos Humanos.</p>
+      <p class="eyebrow">Ruta del curso · 5 módulos · 19 lecciones</p>
+      <h2>De cero a sistema personal: progresión accionable.</h2>
+      <p class="lead">Cada módulo combina explicación sin tecnicismos, demostración en vivo y un taller práctico. Termina cada bloque con un entregable concreto que aplicas inmediatamente en tu rutina laboral.</p>
     </div>
 
     <div class="modules reveal">
       <!-- M1 -->
       <article class="module open">
         <div class="module-head" role="button" tabindex="0" aria-expanded="true">
-          <span class="module-idx">S/01</span>
+          <span class="module-idx">M/01 · 35 min</span>
           <div class="module-titlewrap">
-            <h3 class="module-title">Introducción a IA y entorno de trabajo</h3>
-            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span><span class="chip">Drive / OneDrive</span></div>
+            <h3 class="module-title">Introducción a la IA · por qué importa ahora</h3>
+            <div class="module-tools"><span class="chip">Fundamentos</span><span class="chip">3 lecciones</span></div>
           </div>
           <span class="module-toggle" aria-hidden="true">+</span>
         </div>
         <div class="module-body"><div class="module-body-inner"><div class="module-content">
-          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Dejar lista tu “base de operaciones” digital y hacer tus primeros prompts, descubriendo en la práctica qué puede hacer la IA por tu trabajo diario.</p></div>
+          <div class="module-obj"><div class="obj-label">Entregable</div><p>Sales del módulo entendiendo qué puede y qué no puede pedirle a la IA, sin miedo ni expectativas falsas.</p></div>
           <ul class="module-list">
-            <li>Crear y configurar cuentas en ChatGPT y Google Gemini</li>
-            <li>Organizar Google Drive u OneDrive como carpeta central del curso</li>
-            <li>Conectar las herramientas de IA a tu nube personal</li>
-            <li>Navegación básica en las interfaces de ChatGPT y Gemini</li>
-            <li>Primeros prompts exploratorios con tu trabajo real de RRHH</li>
-            <li>Reflexión grupal: ¿qué sorprendió? ¿qué usarías mañana?</li>
+            <li><strong>1.1</strong> · Qué es la IA generativa y cómo funciona — sin tecnicismos (10 min)</li>
+            <li><strong>1.2</strong> · Por qué ahora y por qué tú — derribando bloqueos del principiante (10 min)</li>
+            <li><strong>1.3</strong> · Límites y uso responsable — "alucinaciones", datos sensibles, cuándo verificar (15 min)</li>
           </ul>
         </div></div></div>
       </article>
       <!-- M2 -->
       <article class="module">
         <div class="module-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="module-idx">S/02</span>
+          <span class="module-idx">M/02 · 50 min</span>
           <div class="module-titlewrap">
-            <h3 class="module-title">Prompt Engineering y Proyectos</h3>
-            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span></div>
+            <h3 class="module-title">Prompting desde cero</h3>
+            <div class="module-tools"><span class="chip">Prompting efectivo</span><span class="chip">4 lecciones</span><span class="chip">Taller</span></div>
           </div>
           <span class="module-toggle" aria-hidden="true">+</span>
         </div>
         <div class="module-body"><div class="module-body-inner"><div class="module-content">
-          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Comunicarte con la IA de forma estructurada y efectiva, y crear tu primer Proyecto persistente en ChatGPT con instrucciones propias.</p></div>
+          <div class="module-obj"><div class="obj-label">Entregable</div><p>Una plantilla de prompt reutilizable que probaste en vivo, lista para aplicar en tu trabajo desde el lunes.</p></div>
           <ul class="module-list">
-            <li>Anatomía del prompt efectivo: rol + contexto + tarea + formato de salida</li>
-            <li>Diferencia entre prompts exploratorios y solicitudes formales</li>
-            <li>Casos reales: oferta de trabajo, retroalimentación escrita, preguntas de entrevista</li>
-            <li>Presentaciones profesionales con Gemini (resultados de selección, métricas)</li>
-            <li>Proyectos en ChatGPT: instrucciones de sistema, archivos y memoria persistente</li>
-            <li>Cada participante crea y configura su primer Proyecto</li>
+            <li><strong>2.1</strong> · Anatomía de un buen prompt — los 4 ingredientes: rol, tarea, contexto, formato (12 min)</li>
+            <li><strong>2.2</strong> · De un prompt malo a uno excelente — demo en vivo paso a paso (13 min)</li>
+            <li><strong>2.3</strong> · Técnicas que cambian el resultado — ejemplos, preguntar antes de responder, iterar (12 min)</li>
+            <li><strong>2.4</strong> · Taller: tu primer prompt profesional aplicado a tu trabajo (13 min)</li>
           </ul>
         </div></div></div>
       </article>
       <!-- M3 -->
       <article class="module">
         <div class="module-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="module-idx">S/03</span>
+          <span class="module-idx">M/03 · 50 min</span>
           <div class="module-titlewrap">
-            <h3 class="module-title">Selección Inteligente de Talento</h3>
-            <div class="module-tools"><span class="chip">NotebookLM</span></div>
+            <h3 class="module-title">IA para Comunicación Profesional</h3>
+            <div class="module-tools"><span class="chip">Correos</span><span class="chip">Resúmenes</span><span class="chip">Taller</span></div>
           </div>
           <span class="module-toggle" aria-hidden="true">+</span>
         </div>
         <div class="module-body"><div class="module-body-inner"><div class="module-content">
-          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Usar NotebookLM como asistente de reclutamiento para analizar, comparar y rankear candidatos sin leer cada CV por separado.</p></div>
+          <div class="module-obj"><div class="obj-label">Entregable</div><p>Un flujo de comunicación con IA listo para usar en el día a día: 2 a 3 prompts para tus comunicaciones más frecuentes.</p></div>
           <ul class="module-list">
-            <li>Qué es NotebookLM y en qué se diferencia de ChatGPT</li>
-            <li>Cargar CVs como fuentes dentro de una libreta de trabajo</li>
-            <li>Cargar la descripción del puesto para contextualizar la búsqueda</li>
-            <li>Consultas estratégicas: ¿quién tiene más experiencia? ¿quién hace mejor match?</li>
-            <li>Preguntas de entrevista personalizadas por candidato</li>
-            <li>Tabla comparativa de candidatos como entregable de cierre</li>
+            <li><strong>3.1</strong> · Redactar correos y mensajes — del borrador en 30 segundos al envío (12 min)</li>
+            <li><strong>3.2</strong> · Resumir para responder más rápido — hilos largos, documentos, notas (13 min)</li>
+            <li><strong>3.3</strong> · Comunicación difícil y seguimiento — respuestas delicadas, recordatorios, cierres (12 min)</li>
+            <li><strong>3.4</strong> · Taller: tu set de plantillas de comunicación (13 min)</li>
           </ul>
         </div></div></div>
       </article>
       <!-- M4 -->
       <article class="module">
         <div class="module-head" role="button" tabindex="0" aria-expanded="false">
-          <span class="module-idx">S/04</span>
+          <span class="module-idx">M/04 · 50 min</span>
           <div class="module-titlewrap">
-            <h3 class="module-title">Flujos de Trabajo y Productividad con IA</h3>
-            <div class="module-tools"><span class="chip">ChatGPT</span><span class="chip">Gemini</span></div>
+            <h3 class="module-title">IA para Gestión del Tiempo y Tareas</h3>
+            <div class="module-tools"><span class="chip">Priorización</span><span class="chip">Planificación</span><span class="chip">Taller</span></div>
           </div>
           <span class="module-toggle" aria-hidden="true">+</span>
         </div>
         <div class="module-body"><div class="module-body-inner"><div class="module-content">
-          <div class="module-obj"><div class="obj-label">Objetivo</div><p>Construir plantillas reutilizables y hábitos de trabajo con IA que apliques desde el día siguiente al curso, garantizando la adopción sostenida.</p></div>
+          <div class="module-obj"><div class="obj-label">Entregable</div><p>Una rutina semanal de productividad con IA, lista para implementar en tu próxima semana real de trabajo.</p></div>
           <ul class="module-list">
-            <li>Plantillas frecuentes: seguimiento a candidatos, reportes de clima, minutas, comunicados</li>
-            <li>Organizar Proyectos de ChatGPT por área (selección, capacitación, bienestar, administración)</li>
-            <li>Reportes visuales con Gemini usando datos desde Google Drive</li>
-            <li>Buenas prácticas y hábitos sostenibles con IA</li>
-            <li>Taller final: cada quien construye 3 a 5 plantillas listas para usar</li>
-            <li>Cierre: integrar la IA en la semana laboral sin depender de ella</li>
+            <li><strong>4.1</strong> · Organizar y priorizar el día — volcar pendientes y dejar que la IA los ordene (12 min)</li>
+            <li><strong>4.2</strong> · Planificación semanal y proyectos — descomponer en pasos accionables con fechas (13 min)</li>
+            <li><strong>4.3</strong> · Automatizar lo repetitivo — identificar tareas recurrentes y crear prompts fijos (12 min)</li>
+            <li><strong>4.4</strong> · Taller: rediseña tu semana real de trabajo (13 min)</li>
+          </ul>
+        </div></div></div>
+      </article>
+      <!-- M5 -->
+      <article class="module">
+        <div class="module-head" role="button" tabindex="0" aria-expanded="false">
+          <span class="module-idx">M/05 · 55 min</span>
+          <div class="module-titlewrap">
+            <h3 class="module-title">Tu Sistema IA Personal</h3>
+            <div class="module-tools"><span class="chip">Stack personal</span><span class="chip">Autonomía</span><span class="chip">Plan de acción</span></div>
+          </div>
+          <span class="module-toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="module-body"><div class="module-body-inner"><div class="module-content">
+          <div class="module-obj"><div class="obj-label">Entregable</div><p>El sistema IA personal completo + plan de acción de 24 horas con las 3 tareas que vas a automatizar al día siguiente.</p></div>
+          <ul class="module-list">
+            <li><strong>5.1</strong> · Construye tu stack — elegir 3 a 4 herramientas (ChatGPT, Claude, Gemini, NotebookLM) sin redundancias (15 min)</li>
+            <li><strong>5.2</strong> · Mídete: cuánto tiempo estás ahorrando — cálculo en vivo de horas semanales recuperadas (12 min)</li>
+            <li><strong>5.3</strong> · Qué sigue: aprender en 15 min por semana — rutina ligera, recursos confiables (13 min)</li>
+            <li><strong>5.4</strong> · Cierre y plan de acción de 24 horas — las 3 tareas que automatizas mañana (15 min)</li>
           </ul>
         </div></div></div>
       </article>
@@ -603,15 +622,15 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Stack de herramientas</p>
-      <h2>Tres plataformas que se complementan.</h2>
-      <p class="lead">No aprendes herramientas aisladas. Aprendes a orquestarlas según el problema que tengas enfrente.</p>
+      <h2>Tu stack personal · sin redundancias.</h2>
+      <p class="lead">No aprendes herramientas aisladas. Aprendes a elegir cuál usar para cada tarea — y construyes tu propio stack de 3 a 4 herramientas que se complementan.</p>
     </div>
     <div class="tools-grid">
-      <div class="tool-card reveal"><span class="node">node·01</span><span class="tool-fn">Conversación y redacción</span><div class="tool-name">ChatGPT</div><p>Redacta políticas, descripciones de puesto, comunicaciones internas y respuestas a candidatos con tono y consistencia.</p></div>
-      <div class="tool-card reveal" data-d="1"><span class="node">node·02</span><span class="tool-fn">Análisis documental</span><div class="tool-name">NotebookLM</div><p>Síntesis y análisis de cuerpos extensos de información: CVs, encuestas, evaluaciones, documentos y reportes internos.</p></div>
-      <div class="tool-card reveal" data-d="2"><span class="node">node·03</span><span class="tool-fn">Presentación</span><div class="tool-name">Google Gemini</div><p>Presentaciones ejecutivas, hallazgos visuales y materiales de comunicación con calidad profesional en una fracción del tiempo.</p></div>
+      <div class="tool-card reveal"><span class="node">node·01</span><span class="tool-fn">Conversación y razonamiento</span><div class="tool-name">ChatGPT · Claude</div><p>Redacción profesional, resúmenes, análisis y planificación. La base de tu sistema personal — Claude y ChatGPT comparten el mismo rol con matices distintos.</p></div>
+      <div class="tool-card reveal" data-d="1"><span class="node">node·02</span><span class="tool-fn">Análisis documental</span><div class="tool-name">NotebookLM</div><p>Sintetiza hilos largos, documentos extensos, reportes y notas. Cuando el volumen es mucho y necesitas extraer lo esencial sin leer todo.</p></div>
+      <div class="tool-card reveal" data-d="2"><span class="node">node·03</span><span class="tool-fn">Trabajo integrado</span><div class="tool-name">Gemini · Copilot · Notion AI</div><p>IA dentro de tus herramientas: Gmail, Word, Notion. Donde ya trabajas, sin cambiar de pestaña. Veremos cuál tiene sentido para tu flujo.</p></div>
     </div>
-    <p class="tools-note reveal">Metodología — el 70% del tiempo se dedica a ejercicios prácticos con casos reales del área de RRHH. Cada sesión: explicación conceptual breve · demostración en vivo · práctica guiada.</p>
+    <p class="tools-note reveal">Metodología — el 70% del tiempo es práctica aplicada. Cada módulo: explicación breve sin tecnicismos · demostración en vivo · taller con tu propio trabajo · entregable concreto que aplicas al día siguiente.</p>
   </div>
 </section>
 
@@ -621,43 +640,29 @@ section{position:relative}
     <div class="cal-head reveal">
       <div class="sec-head" style="margin:0">
         <p class="eyebrow">Calendario</p>
-        <h2>Cuatro encuentros en vivo, dos semanas.</h2>
+        <h2>Dos sábados, cuatro horas en total.</h2>
       </div>
       <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">5:30 — 7:30 PM · hora Guatemala (CST · UTC-6)</p>
     </div>
     <div class="timeline reveal">
       <div class="cal-row">
         <span class="cal-s">S/01</span>
-        <div class="cal-date"><span class="day">11</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
+        <div class="cal-date"><span class="day">13</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Sábado</span><div class="cal-title">Fundamentos + Prompting (Módulos 1 y 2)</div></div>
         <span class="cal-time">17:30 – 19:30</span>
         <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
       </div>
       <div class="cal-row">
         <span class="cal-s">S/02</span>
-        <div class="cal-date"><span class="day">16</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Martes</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
+        <div class="cal-date"><span class="day">20</span><span class="mo">Jun</span></div>
+        <div><span class="cal-dow">Sábado</span><div class="cal-title">Comunicación + Tiempo + Sistema Personal (Módulos 3, 4 y 5)</div></div>
         <span class="cal-time">17:30 – 19:30</span>
         <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
-      </div>
-      <div class="cal-row">
-        <span class="cal-s">S/03</span>
-        <div class="cal-date"><span class="day">18</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Selección Inteligente de Talento</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
-        <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
-      </div>
-      <div class="cal-row">
-        <span class="cal-s">S/04</span>
-        <div class="cal-date"><span class="day">23</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Martes</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
-        <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
       </div>
     </div>
     <div class="cal-foot reveal">
       <p>Las sesiones se imparten vía Zoom. Recibirás el enlace de acceso, materiales y recordatorios automáticos al correo registrado al confirmar tu inscripción.</p>
-      <a href="#" class="ics-btn" id="downloadIcs">Descargar las 4 sesiones (.ics) <span>↓</span></a>
+      <a href="#" class="ics-btn" id="downloadIcs">Descargar las 2 sesiones (.ics) <span>↓</span></a>
     </div>
   </div>
 </section>
@@ -667,58 +672,47 @@ section{position:relative}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">A quién va dirigido</p>
-      <h2>Diseñado para quienes deciden sobre el talento.</h2>
+      <h2>Diseñado para profesionales sin experiencia técnica.</h2>
     </div>
     <div class="aud-grid">
       <ul class="aud-list reveal">
-        <li><span class="mk">A1</span>Equipos y profesionales de Recursos Humanos, en cualquier nivel</li>
-        <li><span class="mk">A2</span>Gerentes de RH y HR Business Partners</li>
-        <li><span class="mk">A3</span>Recruiters y especialistas en adquisición de talento</li>
-        <li><span class="mk">A4</span>Líderes de equipo y mandos medios</li>
-        <li><span class="mk">A5</span>Consultores en gestión del talento y desarrollo</li>
+        <li><span class="mk">A1</span>Profesionales que quieren empezar con IA y no saben por dónde</li>
+        <li><span class="mk">A2</span>Mandos medios y líderes de equipo con agenda saturada</li>
+        <li><span class="mk">A3</span>Consultores, freelancers y emprendedores que gestionan su propio tiempo</li>
+        <li><span class="mk">A4</span>Analistas y administrativos que producen correos, reportes y minutas a diario</li>
+        <li><span class="mk">A5</span>Cualquier persona con un trabajo de conocimiento que quiera recuperar horas</li>
       </ul>
       <aside class="aud-aside reveal crop" data-d="1">
-        <p class="quote">La IA en RRHH no reemplaza el juicio humano. Te da mejor información y te devuelve el tiempo operativo para las decisiones que solo una persona puede tomar.</p>
+        <p class="quote">No necesitas programar, no necesitas saber de IA. Necesitas las tareas reales que consumen tu tiempo — y nosotros te enseñamos a automatizarlas en 4 horas.</p>
         <span class="cite">— lambda Analytics</span>
-        <div class="level"><span>◆</span> Nivel básico–intermedio · sin experiencia previa en IA</div>
+        <div class="level"><span>◆</span> Nivel principiante · sin experiencia previa en IA</div>
       </aside>
     </div>
 
     <div class="team">
       <div class="team-label reveal">Quién imparte el curso · consultores con experiencia aplicada</div>
-      <div class="team-grid">
+      <div class="team-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px">
         <div class="member reveal">
-          <div class="member-photo" data-initials="ES"><img src="/ia-productividad/img/elena.jpg" alt="Elena Samayoa, VP of HR" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-photo" data-initials="DJ"><img src="/ia-productividad/img/dimas.jpg" alt="Dimas Jolón, AI Expert" loading="lazy" onerror="this.remove()"></div>
           <div class="member-info">
-            <div class="role">VP of HR</div>
-            <div class="name">Elena Samayoa</div>
+            <div class="role">AI Expert · lambda Analytics</div>
+            <div class="name">Dimas Jolón</div>
             <ul class="member-creds">
-              <li><span class="deg">M.Sc. Administración de Recursos Humanos</span><span class="inst">Universidad Galileo</span></li>
-              <li><span class="deg">Lic. Psicología Clínica</span><span class="inst">Univ. Rafael Landívar</span></li>
+              <li><span class="deg">M.Sc. Investigación de Operaciones</span><span class="inst">Universidad Galileo</span></li>
+              <li><span class="deg">Ing. Mecatrónica</span><span class="inst">Universidad Galileo</span></li>
             </ul>
           </div>
         </div>
         <div class="member reveal" data-d="1">
           <div class="member-photo" data-initials="JS"><img src="/ia-productividad/img/jorge.jpg" alt="Jorge Samayoa, CEO" loading="lazy" onerror="this.remove()"></div>
           <div class="member-info">
-            <div class="role">CEO</div>
+            <div class="role">CEO · lambda Analytics</div>
             <div class="name">Jorge Samayoa</div>
             <ul class="member-creds">
               <li><span class="deg">Ph.D. Operations Research</span><span class="inst">Purdue University</span></li>
               <li><span class="deg">M.Sc. Matemática</span><span class="inst">Texas A&amp;M University</span></li>
               <li><span class="deg">M.Sc. Investigación de Operaciones</span><span class="inst">Universidad Galileo</span></li>
               <li><span class="deg">Ing. Electrónica</span><span class="inst">Univ. Francisco Marroquín</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="member reveal" data-d="2">
-          <div class="member-photo" data-initials="DJ"><img src="/ia-productividad/img/dimas.jpg" alt="Dimas Jolón, AI Expert" loading="lazy" onerror="this.remove()"></div>
-          <div class="member-info">
-            <div class="role">AI Expert</div>
-            <div class="name">Dimas Jolón</div>
-            <ul class="member-creds">
-              <li><span class="deg">M.Sc. Investigación de Operaciones</span><span class="inst">Universidad Galileo</span></li>
-              <li><span class="deg">Ing. Mecatrónica</span><span class="inst">Universidad Galileo</span></li>
             </ul>
           </div>
         </div>
@@ -731,8 +725,8 @@ section{position:relative}
 <section class="banner">
   <div class="wrap banner-inner">
     <div class="reveal">
-      <h2>¿Listo para integrar IA en tu día a día de RRHH?</h2>
-      <p class="banner-meta">El curso se imparte con cupo limitado para mantener la dinámica de práctica guiada.</p>
+      <h2>¿Listo para recuperar horas de tu semana con IA?</h2>
+      <p class="banner-meta">Cupo limitado para mantener la dinámica de práctica guiada y atención individualizada.</p>
     </div>
     <a href="#inscripcion" class="btn btn-primary reveal" data-d="1">Reservar mi cupo <span class="arrow">→</span></a>
   </div>
@@ -751,18 +745,19 @@ section{position:relative}
       <!-- price -->
       <div class="price-card reveal crop">
         <div class="price-head"><p class="eyebrow" style="margin:0">Inversión · USD</p></div>
-        <div class="price-tier featured">
-          <div class="pt-name">Inscripción temprana<small>Tarifa de reserva anticipada</small></div>
-          <div class="pt-amt">$100</div>
+        <div class="price-tier featured" id="earlybirdTier">
+          <div class="pt-name">Inscripción temprana<small id="earlybirdMeta">Tarifa anticipada · hasta 6 jun, 2026</small></div>
+          <div class="pt-amt">$50</div>
         </div>
+        <div class="early-countdown" id="earlyCountdown" aria-live="polite"></div>
         <div class="price-tier">
           <div class="pt-name">General<small>Tarifa estándar</small></div>
-          <div class="pt-amt">$125</div>
+          <div class="pt-amt">$75</div>
         </div>
         <div class="price-detail">
-          <div class="pd-row"><span class="k">Inicio</span><span>Jueves 11 de junio, 2026</span></div>
+          <div class="pd-row"><span class="k">Próxima fecha</span><span>Sábado 13 de junio, 2026</span></div>
           <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
-          <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, materiales, plantillas y grabación de referencia</span></div>
+          <div class="pd-row"><span class="k">Incluye</span><span>2 sesiones en vivo, materiales, plantillas de prompts y grabación de referencia</span></div>
           <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
           <div class="cupo"><span class="pulse"></span> Cupo limitado · reserva con anticipación</div>
         </div>
@@ -791,13 +786,23 @@ section{position:relative}
             </div>
             <div class="field full"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" placeholder="¿Hay algo específico que esperas del curso?"></textarea></div>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">Enviar inscripción <span class="arrow">→</span></button>
-          <p class="form-fine">Al enviar te contactaremos por correo o WhatsApp. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
+          <!-- Honeypot: campo invisible para humanos, los bots lo llenan -->
+          <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
+            <label for="website">Website (déjalo vacío)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Solicitar inscripción <span class="arrow">→</span></button>
+            <button type="button" class="btn btn-wa" id="waBtn" aria-label="Atención inmediata vía WhatsApp">
+              <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Atención inmediata
+            </button>
+          </div>
+          <p class="form-fine"><strong>Solicitar inscripción</strong> envía tus datos a nuestro equipo y respondemos por correo o llamada telefónica. <strong>Atención inmediata</strong> abre WhatsApp para reservar tu cupo en línea. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="ok">¡Recibimos tu solicitud! ✦</div>
-          <p>Gracias por reservar. Te abrimos WhatsApp para confirmar tu cupo de inmediato; si no se abrió, escríbenos por ese medio o por correo.</p>
-          <div class="popup-fallback" id="popupFallback">¿No se abrió WhatsApp? <a href="#" id="manualWa" target="_blank" rel="noopener">Ábrelo aquí →</a></div>
+          <p>Gracias por reservar. Te contactaremos por correo electrónico en las próximas horas para confirmar tu cupo y compartir los métodos de pago. Si prefieres respuesta inmediata, escríbenos por <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color:var(--navy);border-bottom:1px solid var(--gold)">WhatsApp +502 2301-0853</a>.</p>
         </div>
       </div>
     </div>
@@ -828,24 +833,23 @@ section{position:relative}
     </div>
     <div class="footer-bottom">
       <span>© 2026 lambda Analytics · Guatemala</span>
-      <span>IA-PROD / 2026 · BORRADOR</span>
+      <span>IA-Productividad / Junio 2026</span>
     </div>
   </div>
 </footer>
 
 <script>
 /* ========================= CONFIG ========================= */
-const SHEET_WEBHOOK_URL = 'REEMPLAZAR_CON_URL_DE_APPS_SCRIPT';
-const COURSE_NAME = 'IA para la Productividad - lambda Analytics 2026';
+const API_ENDPOINT = '/api/lead';
+const COURSE_SLUG = 'ia-productividad';
+const COURSE_NAME = 'IA para Productividad Personal - Junio 2026';
 const WHATSAPP_NUMBER = '50223010853';
-const WA_BASE = 'https://wa.me/' + WHATSAPP_NUMBER;
+const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&type=phone_number&app_absent=0&text=';
 
 /* ===== SESSIONS (CST = UTC-6, no DST) · 17:30–19:30 → 23:30–01:30 UTC ===== */
 const SESSIONS = [
-  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260611T233000Z', endUTC:'20260612T013000Z', dateLabel:'Jueves 11 de junio de 2026'},
-  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260616T233000Z', endUTC:'20260617T013000Z', dateLabel:'Martes 16 de junio de 2026'},
-  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260618T233000Z', endUTC:'20260619T013000Z', dateLabel:'Jueves 18 de junio de 2026'},
-  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260623T233000Z', endUTC:'20260624T013000Z', dateLabel:'Martes 23 de junio de 2026'}
+  {n:1, title:'Sesión 1 · Fundamentos + Prompting (Módulos 1 y 2)',                       startUTC:'20260613T233000Z', endUTC:'20260614T013000Z', dateLabel:'Sábado 13 de junio de 2026'},
+  {n:2, title:'Sesión 2 · Comunicación + Tiempo + Sistema Personal (Módulos 3, 4 y 5)',   startUTC:'20260620T233000Z', endUTC:'20260621T013000Z', dateLabel:'Sábado 20 de junio de 2026'}
 ];
 
 const COURSE_DESCRIPTION =
@@ -877,11 +881,11 @@ document.querySelectorAll('[data-cal-add]').forEach(btn => {
 function nowUTC(){ return new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z'; }
 function buildIcs(){
   const stamp = nowUTC();
-  const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lambda Analytics//Curso IA RRHH//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lambda Analytics//Curso IA Productividad//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
   SESSIONS.forEach(s => {
     lines.push(
       'BEGIN:VEVENT',
-      'UID:lambda-iarrhh-2026-' + s.n + '@lambda-analytics.net',
+      'UID:lambda-iaproductividad-2026-' + s.n + '@lambda-analytics.net',
       'DTSTAMP:' + stamp,
       'DTSTART:' + s.startUTC,
       'DTEND:' + s.endUTC,
@@ -901,7 +905,7 @@ document.getElementById('downloadIcs').addEventListener('click', e => {
   const blob = new Blob([buildIcs()], {type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.download = 'lambda-ia-productividad-2026.ics'; a.href = url;
+  a.href = url; a.download = 'lambda-ia-productividad-junio2026.ics';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
@@ -930,44 +934,72 @@ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false');
 }));
 
-/* ===== FORM submit + WhatsApp handoff ===== */
+/* ===== FORM submit → email a learn@scilambda.net ===== */
 const form = document.getElementById('enrollForm');
 const formSuccess = document.getElementById('formSuccess');
-const popupFallback = document.getElementById('popupFallback');
-const manualWa = document.getElementById('manualWa');
+const submitBtn = document.getElementById('submitBtn');
+const waBtn = document.getElementById('waBtn');
 
 form.addEventListener('submit', async e => {
   e.preventDefault();
   if(!form.checkValidity()){ form.reportValidity(); return; }
   const data = Object.fromEntries(new FormData(form).entries());
+
+  // Extraer UTMs y referrer del entorno actual
+  const params = new URLSearchParams(location.search);
   const payload = {
-    timestamp:new Date().toISOString(),
-    nombre:data.nombre||'', apellido:data.apellido||'', email:data.email||'',
-    telefono:data.telefono||'', empresa:data.empresa||'', cargo:data.cargo||'',
-    origen:data.origen||'', mensaje:data.mensaje||'', curso:COURSE_NAME
+    course_slug:  COURSE_SLUG,
+    course_name:  COURSE_NAME,
+    nombre:       data.nombre   || '',
+    apellido:     data.apellido || '',
+    email:        data.email    || '',
+    telefono:     data.telefono || '',
+    empresa:      data.empresa  || '',
+    cargo:        data.cargo    || '',
+    origen:       data.origen   || '',
+    mensaje:      data.mensaje  || '',
+    utm_source:   params.get('utm_source')   || '',
+    utm_medium:   params.get('utm_medium')   || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    utm_term:     params.get('utm_term')     || '',
+    utm_content:  params.get('utm_content')  || '',
+    referrer:     document.referrer || '',
+    landing_path: location.pathname || '',
+    // Honeypot anti-spam (campos invisibles que solo llenan bots)
+    website: data.website || ''
   };
-  const submitBtn = form.querySelector('button[type="submit"]');
-  submitBtn.disabled = true; submitBtn.innerHTML = 'Enviando…';
+
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = 'Enviando…';
+
   try{
-    await fetch(SHEET_WEBHOOK_URL, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
-      body:JSON.stringify(payload)
+    const res = await fetch(API_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     });
-    const fullName = (payload.nombre + ' ' + payload.apellido).trim();
-    const waMessage = 'Hola, soy ' + fullName + '. Quiero reservar mi cupo para la capacitación de IA en RRHH, de Junio 2026';
-    const waUrl = WA_BASE + '?text=' + encodeURIComponent(waMessage);
+    const json = await res.json().catch(() => ({ ok: false }));
+    if(!res.ok || !json.ok){
+      throw new Error(json.error || ('HTTP ' + res.status));
+    }
+    // Éxito: registrado en DB y emails disparados
     form.style.display = 'none';
     formSuccess.classList.add('show');
-    const popup = window.open(waUrl, '_blank', 'noopener');
-    if(!popup || popup.closed || typeof popup.closed === 'undefined'){
-      manualWa.href = waUrl; popupFallback.classList.add('show');
-    }
   }catch(err){
     submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Enviar inscripción <span class="arrow">→</span>';
-    alert('No pudimos registrar tu inscripción automáticamente. Escríbenos a learn@scilambda.net o por WhatsApp al +502 2301-0853 para reservar tu cupo.');
+    submitBtn.innerHTML = 'Solicitar inscripción <span class="arrow">→</span>';
+    console.error('[enroll]', err);
+    alert('No pudimos enviar tu solicitud automáticamente (' + (err.message || 'error de red') + '). Escríbenos a learn@scilambda.net o por WhatsApp al +502 2301-0853 para reservar tu cupo.');
   }
+});
+
+/* ===== Botón Atención inmediata → WhatsApp deep link =====
+   Abre WhatsApp con mensaje prellenado solicitando información del curso.
+   El lead lo envía hacia el número de Lambda. */
+waBtn.addEventListener('click', () => {
+  const msg = 'Hola, necesito información personalizada del curso ' + COURSE_NAME;
+  const waUrl = WA_BASE + encodeURIComponent(msg);
+  window.open(waUrl, '_blank', 'noopener');
 });
 
 /* ===== STATS count-up ===== */
@@ -1026,6 +1058,62 @@ if(reduceMotion){
 /* duplicate marquee for seamless loop */
 const mq = document.getElementById('marquee');
 if(mq){ mq.innerHTML += mq.innerHTML; }
+
+/* ===== EARLY BIRD countdown =====
+   Tarifa anticipada vigente hasta 7 días antes del inicio del curso.
+   Después de esa fecha, se oculta el tier "Inscripción temprana" y solo queda General.
+   La fecha de corte se calcula automáticamente desde SESSIONS[0].startUTC,
+   así que cuando se cambie la primera sesión, esto se actualiza solo. */
+(function setupEarlyBird(){
+  const tier      = document.getElementById('earlybirdTier');
+  const meta      = document.getElementById('earlybirdMeta');
+  const countdown = document.getElementById('earlyCountdown');
+  if(!tier || !SESSIONS || !SESSIONS.length) return;
+
+  const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  function parseUTC(s){
+    // '20260611T233000Z' → Date
+    return new Date(s.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/,'$1-$2-$3T$4:$5:$6Z'));
+  }
+
+  const courseStart = parseUTC(SESSIONS[0].startUTC);
+  const deadline    = new Date(courseStart.getTime() - 7*24*60*60*1000); // 7 días antes
+
+  function fmtShort(d){
+    return d.getUTCDate() + ' ' + MONTHS_ES[d.getUTCMonth()] + ', ' + d.getUTCFullYear();
+  }
+
+  function update(){
+    const now = new Date();
+    const ms  = deadline.getTime() - now.getTime();
+    const days = Math.ceil(ms / (24*60*60*1000));
+
+    if(days <= 0){
+      // Early bird vencido
+      tier.style.display = 'none';
+      countdown.classList.remove('show','urgent');
+      countdown.textContent = '';
+      return;
+    }
+
+    if(meta) meta.textContent = 'Tarifa anticipada · hasta ' + fmtShort(deadline);
+
+    let label;
+    if(days === 1)      label = '<span class="ec-dot"></span>Último día para tarifa anticipada — termina hoy';
+    else if(days <= 3)  label = '<span class="ec-dot"></span>Solo quedan <strong>' + days + ' días</strong> para tarifa anticipada';
+    else if(days <= 7)  label = '<span class="ec-dot"></span>Quedan <strong>' + days + ' días</strong> para tarifa anticipada';
+    else                label = 'Tarifa anticipada disponible · <strong>' + days + ' días</strong> restantes';
+
+    countdown.innerHTML = label;
+    countdown.classList.add('show');
+    countdown.classList.toggle('urgent', days <= 3);
+  }
+
+  update();
+  // Recalcular cada hora para visitantes que dejan la pestaña abierta
+  setInterval(update, 60*60*1000);
+})();
 </script>
 </body>
 </html>
