@@ -25,7 +25,7 @@ function getResend() {
   return resend;
 }
 
-const FROM = process.env.RESEND_FROM || 'lambda Learn <learn@scilambda.net>';
+const FROM = process.env.RESEND_FROM || 'Lambda Learn <learn@scilambda.net>';
 const ADMIN = process.env.ADMIN_EMAIL || 'learn@scilambda.net';
 
 function escapeHtml(s) {
