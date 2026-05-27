@@ -1,5 +1,11 @@
 # Despliegue del backend de captura de leads
 
+> **Importante sobre la arquitectura del repo:** este repo tiene **dos proyectos Vercel separados**:
+>   - **Proyecto raíz** → sirve `lambda-analytics.net` (root directory = `/`)
+>   - **Proyecto learn** → sirve `learn.lambda-analytics.net` (root directory = `learn/`)
+>
+> Por eso **todos los archivos de backend (`api/`, `lib/`, `sql/`, `scripts/`, `package.json`) viven dentro de `learn/`**. Si los movés a la raíz, el proyecto Vercel de learn no los ve y los endpoints devuelven 404.
+
 Arquitectura final del sitio:
 
 ```
@@ -37,10 +43,10 @@ Costo total cloud: **$0/mes** hasta ~50,000 leads/mes. Después: Neon $19, Verce
 
 ## 2. Aplicar el schema (2 min)
 
-Desde tu Mac, en la raíz del repo:
+Desde tu Mac, en `learn/` (donde vive el proyecto Vercel que sirve learn.lambda-analytics.net):
 
 ```bash
-cd "/Users/jasamayoa/Dropbox/Business/LAMBDA/APLICACIONES/lambda_analytics"
+cd "/Users/jasamayoa/Dropbox/Business/LAMBDA/APLICACIONES/lambda_analytics/learn"
 npm install
 DATABASE_URL="postgresql://...el string que copiaste..." npm run db:migrate
 ```
