@@ -637,35 +637,35 @@ section{position:relative}
         <p class="eyebrow">Calendario</p>
         <h2>Cuatro encuentros en vivo, dos semanas.</h2>
       </div>
-      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">5:30 — 7:30 PM · hora Guatemala (CST · UTC-6)</p>
+      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">6:00 — 8:00 PM · hora Guatemala (CST · UTC-6)</p>
     </div>
     <div class="timeline reveal">
       <div class="cal-row">
         <span class="cal-s">S/01</span>
         <div class="cal-date"><span class="day">11</span><span class="mo">Jun</span></div>
         <div><span class="cal-dow">Jueves</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
+        <span class="cal-time">18:00 – 20:00</span>
         <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
       </div>
       <div class="cal-row">
         <span class="cal-s">S/02</span>
         <div class="cal-date"><span class="day">16</span><span class="mo">Jun</span></div>
         <div><span class="cal-dow">Martes</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
+        <span class="cal-time">18:00 – 20:00</span>
         <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
       </div>
       <div class="cal-row">
         <span class="cal-s">S/03</span>
         <div class="cal-date"><span class="day">18</span><span class="mo">Jun</span></div>
         <div><span class="cal-dow">Jueves</span><div class="cal-title">Selección Inteligente de Talento</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
+        <span class="cal-time">18:00 – 20:00</span>
         <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
       </div>
       <div class="cal-row">
         <span class="cal-s">S/04</span>
         <div class="cal-date"><span class="day">23</span><span class="mo">Jun</span></div>
         <div><span class="cal-dow">Martes</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
-        <span class="cal-time">17:30 – 19:30</span>
+        <span class="cal-time">18:00 – 20:00</span>
         <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
       </div>
     </div>
@@ -866,16 +866,16 @@ const COURSE_NAME = 'IA aplicada a RRHH y Gestión del Talento - Junio 2026';
 const WHATSAPP_NUMBER = '50223010853';
 const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&type=phone_number&app_absent=0&text=';
 
-/* ===== SESSIONS (CST = UTC-6, no DST) · 17:30–19:30 → 23:30–01:30 UTC ===== */
+/* ===== SESSIONS (CST = UTC-6, no DST) · 18:00–20:00 → 00:00–02:00 UTC ===== */
 const SESSIONS = [
-  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260611T233000Z', endUTC:'20260612T013000Z', dateLabel:'Jueves 11 de junio de 2026'},
-  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260616T233000Z', endUTC:'20260617T013000Z', dateLabel:'Martes 16 de junio de 2026'},
-  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260618T233000Z', endUTC:'20260619T013000Z', dateLabel:'Jueves 18 de junio de 2026'},
-  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260623T233000Z', endUTC:'20260624T013000Z', dateLabel:'Martes 23 de junio de 2026'}
+  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260612T000000Z', endUTC:'20260612T020000Z', dateLabel:'Jueves 11 de junio de 2026'},
+  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260617T000000Z', endUTC:'20260617T020000Z', dateLabel:'Martes 16 de junio de 2026'},
+  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260619T000000Z', endUTC:'20260619T020000Z', dateLabel:'Jueves 18 de junio de 2026'},
+  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260624T000000Z', endUTC:'20260624T020000Z', dateLabel:'Martes 23 de junio de 2026'}
 ];
 
 const COURSE_DESCRIPTION =
-'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM hora Guatemala (CST).\\n\\n' +
+'Capacitación en vivo de lambda Analytics. 6:00 a 8:00 PM hora Guatemala (CST).\\n\\n' +
 'Te compartiremos el enlace de Zoom y los materiales por correo antes de la sesión.\\n\\n' +
 'Contacto: learn@scilambda.net  |  WhatsApp +502 2301-0853\\n' +
 'Sitio: https://learn.lambda-analytics.net';
@@ -1095,7 +1095,7 @@ if(mq){ mq.innerHTML += mq.innerHTML; }
   const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 
   function parseUTC(s){
-    // '20260611T233000Z' → Date
+    // '20260612T000000Z' → Date
     return new Date(s.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/,'$1-$2-$3T$4:$5:$6Z'));
   }
 
