@@ -187,9 +187,9 @@ em{font-style:italic;color:var(--gold-deep)}
 .catalog-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 
 .courses{
-  display:grid;grid-template-columns:repeat(4,1fr);
+  display:grid;grid-template-columns:repeat(3,1fr);
   grid-template-rows:auto auto 1fr auto;       /* head · specs · tools · foot */
-  column-gap:1.2rem;row-gap:0;
+  column-gap:1.4rem;row-gap:0;
 }
 .course{
   position:relative;
@@ -218,6 +218,52 @@ em{font-style:italic;color:var(--gold-deep)}
 .course{cursor:pointer}
 .course.is-soon{opacity:.92}
 .course.is-soon .course-cta{color:var(--muted);border-bottom-color:var(--line-cool)}
+
+/* ---------- card destacada: cursos personalizados ---------- */
+.course-custom{
+  display:grid;grid-template-columns:1fr auto;gap:clamp(1.5rem,4vw,3rem);align-items:center;
+  margin-top:1.6rem;padding:clamp(1.6rem,3vw,2.4rem) clamp(1.8rem,3.5vw,2.8rem);
+  background:var(--navy-deep);color:var(--paper);
+  border:1px solid var(--navy-deep);position:relative;cursor:pointer;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.course-custom::before{
+  content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:var(--gold);
+}
+.course-custom:hover{transform:translateY(-3px);box-shadow:8px 8px 0 var(--paper-deep)}
+.course-custom .cc-tag{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;font-weight:600;
+  color:var(--gold);text-transform:uppercase;display:block;margin-bottom:.85rem;
+}
+.course-custom .cc-title{
+  font-family:var(--serif);font-size:clamp(1.3rem,2.1vw,1.7rem);line-height:1.2;
+  color:var(--paper);margin-bottom:.7rem;letter-spacing:-.01em;
+}
+.course-custom .cc-sub{
+  font-size:.94rem;color:rgba(244,241,234,.78);line-height:1.55;max-width:55ch;margin-bottom:1.1rem;
+}
+.course-custom .cc-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.course-custom .cc-chips .chip{
+  background:rgba(244,241,234,.08);color:var(--paper);border-color:rgba(244,241,234,.18);
+}
+.course-custom .cc-right{display:flex;flex-direction:column;align-items:flex-end;gap:.65rem;flex:none}
+.course-custom .cc-cta{
+  display:inline-flex;align-items:center;gap:.7em;
+  background:var(--gold);color:var(--navy-deep);padding:1em 1.6em;border-radius:2px;
+  font-family:var(--mono);font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  transition:gap .25s,background .25s;
+}
+.course-custom:hover .cc-cta{gap:1.1em;background:var(--paper)}
+.course-custom .cc-cta-arrow{transition:transform .25s}
+.course-custom:hover .cc-cta-arrow{transform:translateX(3px)}
+.course-custom .cc-meta{
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;color:rgba(244,241,234,.55);text-transform:uppercase;
+}
+@media(max-width:680px){
+  .course-custom{grid-template-columns:1fr;text-align:left}
+  .course-custom .cc-right{align-items:flex-start;width:100%}
+  .course-custom .cc-cta{width:100%;justify-content:center}
+}
 
 /* ---------- metodología ---------- */
 .method{padding-block:clamp(60px,9vh,110px)}
@@ -259,17 +305,12 @@ em{font-style:italic;color:var(--gold-deep)}
 .reveal[data-d="3"]{transition-delay:.24s}
 
 /* ---------- responsive ---------- */
-@media(max-width:1080px){
-  .courses{grid-template-columns:repeat(2,1fr);grid-template-rows:none;row-gap:1.4rem}
-  .course{display:flex;flex-direction:column;grid-row:auto}
-}
 @media(max-width:920px){
+  .courses{grid-template-columns:1fr;grid-template-rows:none;row-gap:1.4rem}
+  .course{display:flex;flex-direction:column;grid-row:auto}
   .method-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .catalog-head{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:560px){
-  .courses{grid-template-columns:1fr}
 }
 @media(max-width:680px){
   .nav-links a:not(.nav-cta){display:none}
@@ -400,29 +441,29 @@ em{font-style:italic;color:var(--gold-deep)}
         </div>
       </article>
 
-      <!-- C4 · CURSOS PERSONALIZADOS -->
-      <article class="course reveal" data-d="3">
-        <div class="course-head">
-          <div class="course-idx"><span>C/04 · A MEDIDA</span><span class="course-status soon">Diseño personalizado</span></div>
-          <h3>Cursos personalizados</h3>
-          <p class="course-sub">¿No encuentras el tema exacto que tu equipo necesita? Diseñamos un curso a medida según el sector, nivel y objetivos de tu organización.</p>
-        </div>
-        <div class="course-specs">
-          <div class="spec-i"><span class="sk">Modalidad</span><span class="sv">In-company</span></div>
-          <div class="spec-i"><span class="sk">Duración</span><span class="sv">A definir</span></div>
-          <div class="spec-i"><span class="sk">Tema</span><span class="sv">Tu elección</span></div>
-          <div class="spec-i"><span class="sk">Inversión</span><span class="sv">Cotizar</span></div>
-        </div>
-        <div class="course-tools">
+    </div>
+
+    <!-- C4 · CURSOS PERSONALIZADOS (card destacada full-width) -->
+    <a href="/cursos-personalizados" class="course-custom reveal" data-d="3" aria-label="Solicitar cotización para curso personalizado">
+      <div class="cc-left">
+        <span class="cc-tag">C/04 · A medida · Diseño personalizado</span>
+        <h3 class="cc-title">¿No encuentras el tema exacto que tu equipo necesita?</h3>
+        <p class="cc-sub">Diseñamos un curso a medida según el sector, nivel y objetivos de tu organización. Programa, casos y materiales personalizados con casos reales de tu industria.</p>
+        <div class="cc-chips">
           <span class="chip">Sector específico</span>
           <span class="chip">Casos reales</span>
           <span class="chip">Diseño a medida</span>
+          <span class="chip">In-company</span>
         </div>
-        <div class="course-foot">
-          <a href="/cursos-personalizados" class="course-cta">Solicitar cotización <span>→</span></a>
+      </div>
+      <div class="cc-right">
+        <div class="cc-cta">
+          <span class="cc-cta-label">Solicitar cotización</span>
+          <span class="cc-cta-arrow">→</span>
         </div>
-      </article>
-    </div>
+        <small class="cc-meta">Respuesta &lt; 24 h hábiles</small>
+      </div>
+    </a>
   </div>
 </section>
 
