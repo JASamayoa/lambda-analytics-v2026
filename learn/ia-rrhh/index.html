@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IA aplicada a RRHH y Gestión del Talento · lambda Analytics</title>
-<meta name="description" content="Capacitación práctica de 8 horas para integrar IA generativa (ChatGPT, Gemini, NotebookLM) en procesos de Recursos Humanos. 4 sesiones en vivo vía Zoom. Dos hornadas a elegir — sabatina o entre semana — desde el 25 de julio de 2026.">
+<meta name="description" content="Capacitación práctica de 8 horas para integrar IA generativa (ChatGPT, Gemini, NotebookLM) en procesos de Recursos Humanos. 4 sesiones en vivo vía Zoom. Dos hornadas a elegir — sabatina u ordinaria — desde el 25 de julio de 2026.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://learn.lambda-analytics.net/ia-rrhh">
 <meta property="og:title" content="IA aplicada a RRHH y Gestión del Talento">
-<meta property="og:description" content="8 horas · 4 sesiones en vivo vía Zoom · ChatGPT · Gemini · NotebookLM. Dos hornadas: sabatina (desde 25 jul) o entre semana (desde 27 jul). Cupo limitado.">
+<meta property="og:description" content="8 horas · 4 sesiones en vivo vía Zoom · ChatGPT · Gemini · NotebookLM. Dos hornadas: sabatina (desde 25 jul) u ordinaria (desde 27 jul). Cupo limitado.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_GT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -468,7 +468,7 @@ section{position:relative}
           <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
           <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
           <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
-          <div class="spec-cell"><span class="k">Próxima fecha</span><span class="v">25 Jul</span></div>
+          <div class="spec-cell"><span class="k">Jornadas</span><span class="v" style="font-size:1.05rem;line-height:1.25">Ordinaria<br>Sabatina</span></div>
         </div>
       </div>
     </div>
@@ -685,10 +685,10 @@ section{position:relative}
       </div>
     </div>
 
-    <!-- HORNADA ENTRE SEMANA -->
+    <!-- HORNADA ORDINARIA -->
     <div class="cohort reveal" data-d="1">
       <div class="cohort-head">
-        <span class="cohort-tag">Hornada Entre Semana</span>
+        <span class="cohort-tag">Hornada Ordinaria</span>
         <span class="cohort-meta">2 lunes + 2 jueves · 5:30 – 7:30 PM</span>
       </div>
       <div class="timeline">
@@ -829,7 +829,7 @@ section{position:relative}
           <div class="pt-amt">$100</div>
         </div>
         <div class="price-detail">
-          <div class="pd-row"><span class="k">Hornadas</span><span>Sabatina (25 jul) o entre semana (27 jul) — mismo programa y precio</span></div>
+          <div class="pd-row"><span class="k">Hornadas</span><span>Sabatina (25 jul) u ordinaria (27 jul) — mismo programa y precio</span></div>
           <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
           <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, materiales, plantillas y grabación de referencia</span></div>
           <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
@@ -851,7 +851,7 @@ section{position:relative}
               <select id="hornada" name="hornada" required>
                 <option value="">Selecciona una hornada</option>
                 <option value="Sabatina">Sabatina — sábados 8:30 PM (25 jul · 1, 8, 15 ago)</option>
-                <option value="Entre semana">Entre semana — lun/jue 5:30 PM (27, 30 jul · 3, 6 ago)</option>
+                <option value="Ordinaria">Ordinaria — lun/jue 5:30 PM (27, 30 jul · 3, 6 ago)</option>
                 <option value="Cualquiera">Cualquiera — coordínenmela ustedes</option>
               </select>
             </div>
@@ -930,22 +930,22 @@ const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&ty
 
 /* ===== SESSIONS (CST = UTC-6, no DST) =====
    Sabatina (n:1-4): sábados 8:30 PM GT → 02:30–04:30 UTC del domingo
-   Entre semana (n:5-8): lun/jue 5:30 PM GT → 23:30–01:30 UTC del día sig. */
+   Ordinaria (n:5-8): lun/jue 5:30 PM GT → 23:30–01:30 UTC del día sig. */
 const SESSIONS = [
   // Hornada sabatina (más cercana, define el countdown del early bird)
   {n:1, title:'Sesión 1 sabatina · Introducción a IA y entorno de trabajo',  startUTC:'20260726T023000Z', endUTC:'20260726T043000Z', dateLabel:'Sábado 25 de julio de 2026'},
   {n:2, title:'Sesión 2 sabatina · Prompt Engineering y Proyectos',          startUTC:'20260802T023000Z', endUTC:'20260802T043000Z', dateLabel:'Sábado 1 de agosto de 2026'},
   {n:3, title:'Sesión 3 sabatina · Selección Inteligente de Talento',        startUTC:'20260809T023000Z', endUTC:'20260809T043000Z', dateLabel:'Sábado 8 de agosto de 2026'},
   {n:4, title:'Sesión 4 sabatina · Flujos de Trabajo y Productividad con IA', startUTC:'20260816T023000Z', endUTC:'20260816T043000Z', dateLabel:'Sábado 15 de agosto de 2026'},
-  // Hornada entre semana
-  {n:5, title:'Sesión 1 entre semana · Introducción a IA y entorno de trabajo',  startUTC:'20260727T233000Z', endUTC:'20260728T013000Z', dateLabel:'Lunes 27 de julio de 2026'},
-  {n:6, title:'Sesión 2 entre semana · Prompt Engineering y Proyectos',          startUTC:'20260730T233000Z', endUTC:'20260731T013000Z', dateLabel:'Jueves 30 de julio de 2026'},
-  {n:7, title:'Sesión 3 entre semana · Selección Inteligente de Talento',        startUTC:'20260803T233000Z', endUTC:'20260804T013000Z', dateLabel:'Lunes 3 de agosto de 2026'},
-  {n:8, title:'Sesión 4 entre semana · Flujos de Trabajo y Productividad con IA', startUTC:'20260806T233000Z', endUTC:'20260807T013000Z', dateLabel:'Jueves 6 de agosto de 2026'}
+  // Hornada ordinaria
+  {n:5, title:'Sesión 1 ordinaria · Introducción a IA y entorno de trabajo',  startUTC:'20260727T233000Z', endUTC:'20260728T013000Z', dateLabel:'Lunes 27 de julio de 2026'},
+  {n:6, title:'Sesión 2 ordinaria · Prompt Engineering y Proyectos',          startUTC:'20260730T233000Z', endUTC:'20260731T013000Z', dateLabel:'Jueves 30 de julio de 2026'},
+  {n:7, title:'Sesión 3 ordinaria · Selección Inteligente de Talento',        startUTC:'20260803T233000Z', endUTC:'20260804T013000Z', dateLabel:'Lunes 3 de agosto de 2026'},
+  {n:8, title:'Sesión 4 ordinaria · Flujos de Trabajo y Productividad con IA', startUTC:'20260806T233000Z', endUTC:'20260807T013000Z', dateLabel:'Jueves 6 de agosto de 2026'}
 ];
 
 const COURSE_DESCRIPTION =
-'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM (entre semana) o 8:30 a 10:30 PM (sabatina) hora Guatemala (CST).\\n\\n' +
+'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM (ordinaria) o 8:30 a 10:30 PM (sabatina) hora Guatemala (CST).\\n\\n' +
 'Te compartiremos el enlace de Zoom y los materiales por correo antes de la sesión.\\n\\n' +
 'Contacto: learn@scilambda.net  |  WhatsApp +502 2301-0853\\n' +
 'Sitio: https://learn.lambda-analytics.net';
