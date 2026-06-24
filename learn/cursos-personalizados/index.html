@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IA aplicada a RRHH y Gestión del Talento · lambda Analytics</title>
-<meta name="description" content="Capacitación práctica de 8 horas para integrar IA generativa (ChatGPT, Gemini, NotebookLM) en procesos de Recursos Humanos. 4 sesiones en vivo vía Zoom. Dos jornadas a elegir — sabatina u ordinaria — desde el 25 de julio de 2026.">
+<title>Cursos personalizados · Capacitación a medida para empresas · lambda Analytics</title>
+<meta name="description" content="Diseñamos capacitaciones a medida en IA generativa para tu empresa. Tú nos dices el tema, el nivel y los objetivos — nosotros construimos el programa con casos reales de tu sector. Cotización formal en menos de 24 horas hábiles.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="canonical" href="https://learn.lambda-analytics.net/ia-rrhh">
-<meta property="og:title" content="IA aplicada a RRHH y Gestión del Talento">
-<meta property="og:description" content="8 horas · 4 sesiones en vivo vía Zoom · ChatGPT · Gemini · NotebookLM. Dos jornadas: sabatina (desde 25 jul) u ordinaria (desde 27 jul). Cupo limitado.">
+<link rel="canonical" href="https://learn.lambda-analytics.net/cursos-personalizados">
+<meta property="og:title" content="Cursos personalizados · Capacitación a medida para empresas">
+<meta property="og:description" content="Diseñamos el curso a medida del tema, sector y objetivos de tu empresa. Cotización en <24h hábiles.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_GT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <style>
 @font-face{
   font-family:'Pirulen';
-  src:url('/ia-rrhh/fonts/pirulen.otf') format('opentype');
+  src:url('/cursos-personalizados/fonts/pirulen.otf') format('opentype');
   font-weight:400;
   font-style:normal;
   font-display:swap;
@@ -257,13 +257,6 @@ section{position:relative}
 
 /* ---------- calendario ---------- */
 .cal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
-.cohort{margin-bottom:2.5rem;border:1px solid var(--line);border-radius:3px;background:rgba(255,255,255,.4);overflow:hidden}
-.cohort-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:var(--paper-warm);border-bottom:1px solid var(--line);flex-wrap:wrap}
-.cohort-tag{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;align-items:center;gap:.55em}
-.cohort-tag::before{content:"";width:1.6em;height:1px;background:var(--gold-deep);display:inline-block}
-.cohort-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted)}
-.cohort .timeline{border-top:none;padding:0 1.4rem}
-.cohort .cal-row:last-child{border-bottom:none}
 .timeline{border-top:1px solid var(--line)}
 .cal-row{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:clamp(1rem,3vw,2.5rem);align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--line);transition:padding-left .3s var(--ease)}
 .cal-row:hover{padding-left:.8rem}
@@ -276,15 +269,10 @@ section{position:relative}
 .cal-time{font-family:var(--mono);font-size:.74rem;color:var(--muted);letter-spacing:.04em;white-space:nowrap}
 .cal-add{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);border:1px solid var(--line-cool);padding:.55em .85em;border-radius:2px;transition:all .25s;white-space:nowrap}
 .cal-add:hover{background:var(--navy-deep);color:var(--paper);border-color:var(--navy-deep)}
-.cal-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
-.cal-foot p{font-size:.86rem;color:var(--muted);max-width:50ch;line-height:1.6}
-.cal-foot-actions{display:flex;flex-direction:column;gap:.8rem;align-items:flex-end}
-.ics-btn{font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;gap:.5em;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:.2em;transition:gap .25s;white-space:nowrap}
+.cal-foot{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
+.cal-foot p{font-size:.86rem;color:var(--muted);max-width:60ch;line-height:1.6}
+.ics-btn{font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;gap:.5em;align-items:center;border-bottom:2px solid var(--gold);padding-bottom:.2em;transition:gap .25s}
 .ics-btn:hover{gap:.9em}
-@media(max-width:680px){
-  .cal-foot{flex-direction:column;align-items:flex-start}
-  .cal-foot-actions{align-items:flex-start;width:100%}
-}
 
 /* ---------- audiencia + equipo ---------- */
 .aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
@@ -441,7 +429,6 @@ section{position:relative}
     <div class="nav-links" id="navLinks">
       <a href="https://www.lambda-analytics.net">Inicio</a>
       <a href="#programa">Programa</a>
-      <a href="#calendario">Calendario</a>
       <a href="#audiencia">Equipo</a>
       <a href="#inscripcion" class="nav-cta">Inscribirme</a>
     </div>
@@ -454,26 +441,26 @@ section{position:relative}
   <div class="wrap hero-grid">
     <div>
       <div class="hero-coords reveal">
-        <span><b>CURSO</b> IA-RRHH/2026</span>
-        <span><b>NIVEL</b> Básico → Intermedio</span>
+        <span><b>FORMATO</b> A MEDIDA</span>
+        <span><b>NIVEL</b> Principiante</span>
         <span><b>SEDE</b> Zoom</span>
       </div>
-      <p class="eyebrow reveal" data-d="1">Capacitación ejecutiva · Julio – Agosto 2026</p>
+      <p class="eyebrow reveal" data-d="1">Capacitación a medida · Empresas</p>
       <h1 class="reveal" data-d="1">
-        Inteligencia Artificial
-        <span class="accent">aplicada a <span class="hl">Recursos&nbsp;Humanos</span></span>
+        Cursos de IA
+        <span class="accent">diseñados a la <span class="hl">medida&nbsp;de tu&nbsp;empresa</span></span>
       </h1>
-      <p class="lead reveal" data-d="2">8 horas en vivo para reclutar, evaluar y desarrollar talento con IA generativa. Sales con tu entorno configurado y plantillas listas para usar el lunes siguiente.</p>
+      <p class="lead reveal" data-d="2">Tú nos dices el tema, el nivel de tu equipo y los objetivos — nosotros diseñamos el programa con casos reales de tu sector. Desde fundamentos de IA hasta integración con tu stack tecnológico. Cotización formal en menos de 24 horas hábiles.</p>
       <div class="hero-cta reveal" data-d="3">
-        <a href="#inscripcion" class="btn btn-primary">Reservar mi cupo <span class="arrow">→</span></a>
+        <a href="#inscripcion" class="btn btn-primary">Cotizar para mi empresa <span class="arrow">→</span></a>
         <a href="#programa" class="btn btn-ghost">Ver programa</a>
       </div>
       <div class="spec reveal crop" data-d="4">
         <div class="spec-row">
-          <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
+          <div class="spec-cell"><span class="k">Duración</span><span class="v">A definir</span></div>
           <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
           <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
-          <div class="spec-cell"><span class="k">Jornadas</span><span class="v" style="font-size:1.05rem;line-height:1.25">Ordinaria<br>Sabatina</span></div>
+          <div class="spec-cell"><span class="k">Formato</span><span class="v" style="font-size:1.05rem;line-height:1.25">Virtual o<br>presencial</span></div>
         </div>
       </div>
     </div>
@@ -642,102 +629,6 @@ section{position:relative}
 </section>
 
 <!-- CALENDARIO -->
-<section class="sec calendario" id="calendario">
-  <div class="wrap">
-    <div class="cal-head reveal">
-      <div class="sec-head" style="margin:0">
-        <p class="eyebrow">Calendario · Julio – Agosto 2026</p>
-        <h2>Dos jornadas, mismo programa.</h2>
-      </div>
-      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">Elige la que mejor se ajusta a tu agenda · hora Guatemala (CST · UTC-6)</p>
-    </div>
-
-    <!-- JORNADA ORDINARIA -->
-    <div class="cohort reveal">
-      <div class="cohort-head">
-        <span class="cohort-tag">Jornada Ordinaria</span>
-        <span class="cohort-meta">2 lunes + 2 jueves · 5:30 – 7:30 PM</span>
-      </div>
-      <div class="timeline">
-        <div class="cal-row">
-          <span class="cal-s">S/01</span>
-          <div class="cal-date"><span class="day">27</span><span class="mo">Jul</span></div>
-          <div><span class="cal-dow">Lunes</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
-          <span class="cal-time">17:30 – 19:30</span>
-          <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/02</span>
-          <div class="cal-date"><span class="day">30</span><span class="mo">Jul</span></div>
-          <div><span class="cal-dow">Jueves</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
-          <span class="cal-time">17:30 – 19:30</span>
-          <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/03</span>
-          <div class="cal-date"><span class="day">03</span><span class="mo">Ago</span></div>
-          <div><span class="cal-dow">Lunes</span><div class="cal-title">Selección Inteligente de Talento</div></div>
-          <span class="cal-time">17:30 – 19:30</span>
-          <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/04</span>
-          <div class="cal-date"><span class="day">06</span><span class="mo">Ago</span></div>
-          <div><span class="cal-dow">Jueves</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
-          <span class="cal-time">17:30 – 19:30</span>
-          <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- JORNADA SABATINA -->
-    <div class="cohort reveal" data-d="1">
-      <div class="cohort-head">
-        <span class="cohort-tag">Jornada Sabatina</span>
-        <span class="cohort-meta">4 sábados · 8:30 – 10:30 PM</span>
-      </div>
-      <div class="timeline">
-        <div class="cal-row">
-          <span class="cal-s">S/01</span>
-          <div class="cal-date"><span class="day">25</span><span class="mo">Jul</span></div>
-          <div><span class="cal-dow">Sábado</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
-          <span class="cal-time">20:30 – 22:30</span>
-          <a href="#" class="cal-add" data-cal-add="4">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/02</span>
-          <div class="cal-date"><span class="day">01</span><span class="mo">Ago</span></div>
-          <div><span class="cal-dow">Sábado</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
-          <span class="cal-time">20:30 – 22:30</span>
-          <a href="#" class="cal-add" data-cal-add="5">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/03</span>
-          <div class="cal-date"><span class="day">08</span><span class="mo">Ago</span></div>
-          <div><span class="cal-dow">Sábado</span><div class="cal-title">Selección Inteligente de Talento</div></div>
-          <span class="cal-time">20:30 – 22:30</span>
-          <a href="#" class="cal-add" data-cal-add="6">+ Agregar</a>
-        </div>
-        <div class="cal-row">
-          <span class="cal-s">S/04</span>
-          <div class="cal-date"><span class="day">15</span><span class="mo">Ago</span></div>
-          <div><span class="cal-dow">Sábado</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
-          <span class="cal-time">20:30 – 22:30</span>
-          <a href="#" class="cal-add" data-cal-add="7">+ Agregar</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="cal-foot reveal">
-      <p>Las sesiones se imparten vía Zoom. Recibirás el enlace de acceso, materiales y recordatorios automáticos al correo registrado al confirmar tu inscripción.</p>
-      <div class="cal-foot-actions">
-        <a href="#" class="ics-btn" id="downloadIcsOrdinaria">Descargar sesiones ordinarias (.ics) <span>↓</span></a>
-        <a href="#" class="ics-btn" id="downloadIcsSabatina">Descargar sesiones sabatinas (.ics) <span>↓</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- AUDIENCIA + EQUIPO -->
 <section class="sec audiencia" id="audiencia">
   <div class="wrap">
@@ -764,7 +655,7 @@ section{position:relative}
       <div class="team-label reveal">Quién imparte el curso · consultores con experiencia aplicada</div>
       <div class="team-grid">
         <div class="member reveal">
-          <div class="member-photo" data-initials="ES"><img src="/ia-rrhh/img/elena.jpg" alt="Elena Samayoa, VP of HR" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-photo" data-initials="ES"><img src="/cursos-personalizados/img/elena.jpg" alt="Elena Samayoa, VP of HR" loading="lazy" onerror="this.remove()"></div>
           <div class="member-info">
             <div class="role">VP of HR</div>
             <div class="name">Licda. Elena Samayoa</div>
@@ -775,7 +666,7 @@ section{position:relative}
           </div>
         </div>
         <div class="member reveal" data-d="1">
-          <div class="member-photo" data-initials="JS"><img src="/ia-rrhh/img/jorge.jpg" alt="Jorge Samayoa, CEO" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-photo" data-initials="JS"><img src="/cursos-personalizados/img/jorge.jpg" alt="Jorge Samayoa, CEO" loading="lazy" onerror="this.remove()"></div>
           <div class="member-info">
             <div class="role">CEO</div>
             <div class="name">Dr. Jorge Samayoa</div>
@@ -788,7 +679,7 @@ section{position:relative}
           </div>
         </div>
         <div class="member reveal" data-d="2">
-          <div class="member-photo" data-initials="DJ"><img src="/ia-rrhh/img/dimas.jpg" alt="Dimas Jolón, AI Expert" loading="lazy" onerror="this.remove()"></div>
+          <div class="member-photo" data-initials="DJ"><img src="/cursos-personalizados/img/dimas.jpg" alt="Dimas Jolón, AI Expert" loading="lazy" onerror="this.remove()"></div>
           <div class="member-info">
             <div class="role">AI Expert</div>
             <div class="name">Ing. Dimas Jolón</div>
@@ -807,74 +698,78 @@ section{position:relative}
 <section class="banner">
   <div class="wrap banner-inner">
     <div class="reveal">
-      <h2>¿Listo para integrar IA en tu día a día de RRHH?</h2>
-      <p class="banner-meta">El curso se imparte con cupo limitado para mantener la dinámica de práctica guiada.</p>
+      <h2>¿Necesitas un curso específico que no encontraste?</h2>
+      <p class="banner-meta">Diseñamos capacitaciones a medida en cualquier tema de IA aplicada. Hablemos de los objetivos de tu equipo.</p>
     </div>
-    <a href="#inscripcion" class="btn btn-primary reveal" data-d="1">Reservar mi cupo <span class="arrow">→</span></a>
+    <a href="#inscripcion" class="btn btn-primary reveal" data-d="1">Cotizar para mi empresa <span class="arrow">→</span></a>
   </div>
 </section>
 
-<!-- INSCRIPCION -->
+<!-- INSCRIPCION (B2B) -->
 <section class="sec inscripcion" id="inscripcion">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Inscripción</p>
-      <h2>Reserva tu cupo.</h2>
-      <p class="lead">Completa el formulario y nos pondremos en contacto para confirmar tu inscripción y el método de pago.</p>
+      <p class="eyebrow">Cotización corporativa</p>
+      <h2>Cotiza la capacitación para tu equipo.</h2>
+      <p class="lead">Cuéntanos sobre tu organización y los participantes. Te enviamos cotización formal en menos de 24 horas hábiles, ajustada al número de personas, modalidad y fechas que te convengan.</p>
     </div>
 
     <div class="enroll-grid">
-      <!-- price -->
+      <!-- info card -->
       <div class="price-card reveal crop">
-        <div class="price-head"><p class="eyebrow" style="margin:0">Inversión · USD</p></div>
-        <div class="price-tier featured" id="earlybirdTier">
-          <div class="pt-name">Inscripción temprana<small id="earlybirdMeta">Tarifa anticipada · hasta 18 jul, 2026</small></div>
-          <div class="pt-amt">$100</div>
-        </div>
-        <div class="early-countdown" id="earlyCountdown" aria-live="polite"></div>
-        <div class="price-tier">
-          <div class="pt-name">General<small>Tarifa estándar</small></div>
-          <div class="pt-amt">$125</div>
-        </div>
-        <div class="price-detail">
-          <div class="pd-row"><span class="k">Jornadas</span><span>Sabatina (25 jul) u ordinaria (27 jul) — mismo programa y precio</span></div>
-          <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
-          <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, material didáctico y plantillas de prompts</span></div>
-          <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
-          <div class="cupo"><span class="pulse"></span> Cupo limitado · reserva con anticipación</div>
+        <div class="price-head"><p class="eyebrow" style="margin:0">Cómo funciona</p></div>
+        <div class="price-detail" style="padding-top:1.6rem">
+          <div class="pd-row"><span class="k">Tema</span><span>Cualquier tema de IA aplicada — tú nos cuentas qué necesita tu equipo</span></div>
+          <div class="pd-row"><span class="k">Duración</span><span>Ajustable según objetivos — típicamente entre 4 y 16 horas</span></div>
+          <div class="pd-row"><span class="k">Costo</span><span>Cotización personalizada según número de participantes y modalidad</span></div>
+          <div class="pd-row"><span class="k">Incluye</span><span>Programa personalizado + materiales con casos reales de tu sector + plantillas reutilizables</span></div>
+          <div class="pd-row"><span class="k">Tiempo</span><span>Respuesta con cotización formal en &lt;24 h hábiles</span></div>
+          <div class="cupo"><span class="pulse"></span> Capacitación cerrada · solo para tu organización</div>
         </div>
       </div>
 
-      <!-- form -->
+      <!-- form B2B -->
       <div class="form-card reveal" data-d="1">
         <form id="enrollForm" novalidate>
           <div class="form-grid">
             <div class="field"><label for="nombre">Nombre <span class="req">*</span></label><input type="text" id="nombre" name="nombre" autocomplete="given-name" required></div>
             <div class="field"><label for="apellido">Apellido <span class="req">*</span></label><input type="text" id="apellido" name="apellido" autocomplete="family-name" required></div>
-            <div class="field full"><label for="email">Correo electrónico <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
+            <div class="field"><label for="email">Correo corporativo <span class="req">*</span></label><input type="email" id="email" name="email" autocomplete="email" required></div>
             <div class="field"><label for="telefono">Teléfono <span class="req">*</span></label><input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" autocomplete="tel" required></div>
             <div class="field"><label for="empresa">Empresa <span class="req">*</span></label><input type="text" id="empresa" name="empresa" autocomplete="organization" required></div>
             <div class="field"><label for="cargo">Cargo <span class="req">*</span></label><input type="text" id="cargo" name="cargo" autocomplete="organization-title" required></div>
-            <div class="field full"><label for="jornada">¿Qué jornada prefieres? <span class="req">*</span></label>
-              <select id="jornada" name="jornada" required>
-                <option value="">Selecciona una jornada</option>
-                <option value="Ordinaria">Ordinaria — lun/jue 5:30 PM (27, 30 jul · 3, 6 ago)</option>
-                <option value="Sabatina">Sabatina — sábados 8:30 PM (25 jul · 1, 8, 15 ago)</option>
-                <option value="Cualquiera">Cualquiera — coordínenmela ustedes</option>
+            <div class="field"><label for="participantes">N° de participantes estimado <span class="req">*</span></label>
+              <select id="participantes" name="participantes" required>
+                <option value="">Selecciona un rango</option>
+                <option value="5-10">5 a 10 personas</option>
+                <option value="11-20">11 a 20 personas</option>
+                <option value="21-50">21 a 50 personas</option>
+                <option value="50+">Más de 50 personas</option>
+                <option value="A definir">Aún no definido</option>
               </select>
             </div>
-            <div class="field"><label for="origen">¿Cómo nos conociste? <span class="req">*</span></label>
+            <div class="field"><label for="modalidad">Modalidad preferida <span class="req">*</span></label>
+              <select id="modalidad" name="modalidad" required>
+                <option value="">Selecciona modalidad</option>
+                <option value="Virtual">Virtual (Zoom)</option>
+                <option value="Presencial">Presencial (en sus instalaciones)</option>
+                <option value="Híbrida">Híbrida</option>
+                <option value="A definir">A definir con su equipo</option>
+              </select>
+            </div>
+            <div class="field full"><label for="fechas">Fechas tentativas</label><input type="text" id="fechas" name="fechas" placeholder="Ej: primera quincena de agosto, viernes por la tarde, etc."></div>
+            <div class="field full"><label for="mensaje">Objetivo de la capacitación <span class="req">*</span></label><textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué tema o áreas quieres cubrir, qué espera lograr tu equipo y si hay algún caso o sector específico que debamos atender." required></textarea></div>
+            <div class="field full"><label for="origen">¿Cómo nos conociste? <span class="req">*</span></label>
               <select id="origen" name="origen" required>
                 <option value="">Selecciona una opción</option>
                 <option value="LinkedIn">LinkedIn</option>
-                <option value="Recomendación">Recomendación de un colega</option>
+                <option value="Recomendación">Recomendación</option>
                 <option value="Email">Email de lambda Analytics</option>
                 <option value="WhatsApp">WhatsApp</option>
                 <option value="Sitio web">Sitio web lambda-analytics.net</option>
                 <option value="Otro">Otro</option>
               </select>
             </div>
-            <div class="field full"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" placeholder="¿Hay algo específico que esperas del curso?"></textarea></div>
           </div>
           <!-- Honeypot: campo invisible para humanos, los bots lo llenan -->
           <div style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;opacity:0" aria-hidden="true">
@@ -882,17 +777,17 @@ section{position:relative}
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
           </div>
           <div class="form-actions">
-            <button type="submit" class="btn btn-primary" id="submitBtn">Reservar mi cupo <span class="arrow">→</span></button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">Solicitar cotización <span class="arrow">→</span></button>
             <button type="button" class="btn btn-wa" id="waBtn" aria-label="Atención inmediata vía WhatsApp">
               <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Atención inmediata
             </button>
           </div>
-          <p class="form-fine"><strong>Reservar mi cupo</strong> envía tus datos a nuestro equipo y respondemos por correo o llamada telefónica. <strong>Atención inmediata</strong> abre WhatsApp para conversar al instante con el equipo. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
+          <p class="form-fine"><strong>Solicitar cotización</strong> envía tu solicitud al equipo comercial. Respondemos en menos de 24 horas hábiles con propuesta formal ajustada al tamaño de tu equipo. <strong>Atención inmediata</strong> abre WhatsApp para conversar al instante con el equipo. También puedes escribirnos directo a <a href="mailto:learn@scilambda.net">learn@scilambda.net</a>.</p>
         </form>
         <div class="form-success" id="formSuccess">
           <div class="ok">¡Recibimos tu solicitud! ✦</div>
-          <p>Gracias por reservar. Te contactaremos por correo electrónico en las próximas horas para confirmar tu cupo y compartir los métodos de pago. Si prefieres respuesta inmediata, escríbenos por <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color:var(--navy);border-bottom:1px solid var(--gold)">WhatsApp +502 2301-0853</a>.</p>
+          <p>Gracias por confiar en Lambda. Nuestro equipo comercial revisará tu solicitud y te enviará la cotización personalizada en menos de 24 horas hábiles. Si prefieres respuesta inmediata, escríbenos por <a href="https://wa.me/50223010853" target="_blank" rel="noopener" style="color:var(--navy);border-bottom:1px solid var(--gold)">WhatsApp +502 2301-0853</a>.</p>
         </div>
       </div>
     </div>
@@ -910,7 +805,6 @@ section{position:relative}
       <div class="footer-col">
         <h4>Curso</h4>
         <a href="#programa">Programa</a>
-        <a href="#calendario">Calendario</a>
         <a href="#audiencia">Equipo</a>
         <a href="#inscripcion">Inscripción</a>
       </div>
@@ -923,7 +817,7 @@ section{position:relative}
     </div>
     <div class="footer-bottom">
       <span>© 2026 lambda Analytics · Guatemala</span>
-      <span>IA-RRHH / Julio – Agosto 2026</span>
+      <span>Cursos personalizados / In-company</span>
     </div>
   </div>
 </footer>
@@ -931,30 +825,21 @@ section{position:relative}
 <script>
 /* ========================= CONFIG ========================= */
 const API_ENDPOINT = '/api/lead';
-const COURSE_SLUG = 'ia-rrhh';
-const COURSE_NAME = 'IA aplicada a RRHH y Gestión del Talento - Julio 2026';
+const COURSE_SLUG = 'cursos-personalizados';
+const COURSE_NAME = 'Cursos personalizados - Capacitación a medida';
 const WHATSAPP_NUMBER = '50223010853';
 const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&type=phone_number&app_absent=0&text=';
 
-/* ===== SESSIONS (CST = UTC-6, no DST) =====
-   Ordinaria (n:1-4): lun/jue 5:30 PM GT → 23:30–01:30 UTC del día sig.
-   Sabatina (n:5-8): sábados 8:30 PM GT → 02:30–04:30 UTC del domingo
-   El countdown del early bird usa la fecha más temprana, no SESSIONS[0]. */
+/* ===== SESSIONS (CST = UTC-6, no DST) · 17:30–19:30 → 23:30–01:30 UTC ===== */
 const SESSIONS = [
-  // Jornada ordinaria
-  {n:1, jornada:'ordinaria', title:'Sesión 1 ordinaria · Introducción a IA y entorno de trabajo',  startUTC:'20260727T233000Z', endUTC:'20260728T013000Z', dateLabel:'Lunes 27 de julio de 2026'},
-  {n:2, jornada:'ordinaria', title:'Sesión 2 ordinaria · Prompt Engineering y Proyectos',          startUTC:'20260730T233000Z', endUTC:'20260731T013000Z', dateLabel:'Jueves 30 de julio de 2026'},
-  {n:3, jornada:'ordinaria', title:'Sesión 3 ordinaria · Selección Inteligente de Talento',        startUTC:'20260803T233000Z', endUTC:'20260804T013000Z', dateLabel:'Lunes 3 de agosto de 2026'},
-  {n:4, jornada:'ordinaria', title:'Sesión 4 ordinaria · Flujos de Trabajo y Productividad con IA', startUTC:'20260806T233000Z', endUTC:'20260807T013000Z', dateLabel:'Jueves 6 de agosto de 2026'},
-  // Jornada sabatina
-  {n:5, jornada:'sabatina', title:'Sesión 1 sabatina · Introducción a IA y entorno de trabajo',  startUTC:'20260726T023000Z', endUTC:'20260726T043000Z', dateLabel:'Sábado 25 de julio de 2026'},
-  {n:6, jornada:'sabatina', title:'Sesión 2 sabatina · Prompt Engineering y Proyectos',          startUTC:'20260802T023000Z', endUTC:'20260802T043000Z', dateLabel:'Sábado 1 de agosto de 2026'},
-  {n:7, jornada:'sabatina', title:'Sesión 3 sabatina · Selección Inteligente de Talento',        startUTC:'20260809T023000Z', endUTC:'20260809T043000Z', dateLabel:'Sábado 8 de agosto de 2026'},
-  {n:8, jornada:'sabatina', title:'Sesión 4 sabatina · Flujos de Trabajo y Productividad con IA', startUTC:'20260816T023000Z', endUTC:'20260816T043000Z', dateLabel:'Sábado 15 de agosto de 2026'}
+  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260611T233000Z', endUTC:'20260612T013000Z', dateLabel:'Jueves 11 de junio de 2026'},
+  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260616T233000Z', endUTC:'20260617T013000Z', dateLabel:'Martes 16 de junio de 2026'},
+  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260618T233000Z', endUTC:'20260619T013000Z', dateLabel:'Jueves 18 de junio de 2026'},
+  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260623T233000Z', endUTC:'20260624T013000Z', dateLabel:'Martes 23 de junio de 2026'}
 ];
 
 const COURSE_DESCRIPTION =
-'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM (ordinaria) o 8:30 a 10:30 PM (sabatina) hora Guatemala (CST).\\n\\n' +
+'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM hora Guatemala (CST).\\n\\n' +
 'Te compartiremos el enlace de Zoom y los materiales por correo antes de la sesión.\\n\\n' +
 'Contacto: learn@scilambda.net  |  WhatsApp +502 2301-0853\\n' +
 'Sitio: https://learn.lambda-analytics.net';
@@ -978,16 +863,15 @@ document.querySelectorAll('[data-cal-add]').forEach(btn => {
   });
 });
 
-/* ===== ICS — 4 sesiones por jornada, con 30min VALARM ===== */
+/* ===== ICS — all 4 sessions with 30min VALARM ===== */
 function nowUTC(){ return new Date().toISOString().replace(/[-:]/g,'').split('.')[0] + 'Z'; }
-function buildIcs(jornadaFilter){
-  // jornadaFilter: 'ordinaria' o 'sabatina' — si se omite, exporta las 8
+function buildIcs(){
   const stamp = nowUTC();
-  const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lambda Analytics//Curso IA RRHH//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
-  SESSIONS.filter(s => !jornadaFilter || s.jornada === jornadaFilter).forEach(s => {
+  const lines = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//lambda Analytics//Cursos personalizados//ES','CALSCALE:GREGORIAN','METHOD:PUBLISH'];
+  SESSIONS.forEach(s => {
     lines.push(
       'BEGIN:VEVENT',
-      'UID:lambda-iarrhh-juliago2026-' + s.n + '@lambda-analytics.net',
+      'UID:lambda-cursos-personalizados-' + s.n + '@lambda-analytics.net',
       'DTSTAMP:' + stamp,
       'DTSTART:' + s.startUTC,
       'DTEND:' + s.endUTC,
@@ -1002,23 +886,14 @@ function buildIcs(jornadaFilter){
   lines.push('END:VCALENDAR');
   return lines.join('\r\n');
 }
-
-function downloadIcsFile(jornadaFilter, filename){
-  const blob = new Blob([buildIcs(jornadaFilter)], {type:'text/calendar;charset=utf-8'});
+document.getElementById('downloadIcs').addEventListener('click', e => {
+  e.preventDefault();
+  const blob = new Blob([buildIcs()], {type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = filename;
+  a.href = url; a.download = 'lambda-cursos-personalizados.ics';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-document.getElementById('downloadIcsOrdinaria').addEventListener('click', e => {
-  e.preventDefault();
-  downloadIcsFile('ordinaria', 'lambda-ia-rrhh-ordinaria-julio2026.ics');
-});
-document.getElementById('downloadIcsSabatina').addEventListener('click', e => {
-  e.preventDefault();
-  downloadIcsFile('sabatina', 'lambda-ia-rrhh-sabatina-julio2026.ics');
 });
 
 /* ===== PROGRAMA accordion ===== */
@@ -1058,20 +933,22 @@ form.addEventListener('submit', async e => {
 
   // Extraer UTMs y referrer del entorno actual
   const params = new URLSearchParams(location.search);
-  // Concatenar la jornada al course_name para que el email/DB la registre directo
-  const jornada = (data.jornada || '').trim();
-  const courseNameWithCohort = jornada
-    ? COURSE_NAME + ' · Jornada ' + jornada
-    : COURSE_NAME;
-  // Prefijar el mensaje con la jornada para visibilidad inmediata al admin
-  const mensajeOriginal = (data.mensaje || '').trim();
-  const mensajeConJornada = jornada
-    ? ('[Jornada elegida: ' + jornada + ']' + (mensajeOriginal ? '\n\n' + mensajeOriginal : ''))
-    : mensajeOriginal;
+
+  // Concatenar datos B2B (participantes, modalidad, fechas) al mensaje
+  // para que el equipo comercial los vea de inmediato en el email.
+  const objetivoOriginal = (data.mensaje || '').trim();
+  const b2bMeta = [
+    data.participantes ? '• Participantes estimados: ' + data.participantes : '',
+    data.modalidad     ? '• Modalidad preferida: ' + data.modalidad         : '',
+    data.fechas        ? '• Fechas tentativas: ' + data.fechas              : ''
+  ].filter(Boolean).join('\n');
+  const mensajeB2B = '[COTIZACIÓN CORPORATIVA · ' + (data.empresa || 'empresa por confirmar') + ']\n\n'
+    + b2bMeta
+    + (objetivoOriginal ? '\n\nObjetivo de la capacitación:\n' + objetivoOriginal : '');
 
   const payload = {
     course_slug:  COURSE_SLUG,
-    course_name:  courseNameWithCohort,
+    course_name:  COURSE_NAME,
     nombre:       data.nombre   || '',
     apellido:     data.apellido || '',
     email:        data.email    || '',
@@ -1079,7 +956,7 @@ form.addEventListener('submit', async e => {
     empresa:      data.empresa  || '',
     cargo:        data.cargo    || '',
     origen:       data.origen   || '',
-    mensaje:      mensajeConJornada,
+    mensaje:      mensajeB2B,
     utm_source:   params.get('utm_source')   || '',
     utm_medium:   params.get('utm_medium')   || '',
     utm_campaign: params.get('utm_campaign') || '',
@@ -1109,7 +986,7 @@ form.addEventListener('submit', async e => {
     formSuccess.classList.add('show');
   }catch(err){
     submitBtn.disabled = false;
-    submitBtn.innerHTML = 'Reservar mi cupo <span class="arrow">→</span>';
+    submitBtn.innerHTML = 'Solicitar cotización <span class="arrow">→</span>';
     console.error('[enroll]', err);
     alert('No pudimos enviar tu solicitud automáticamente (' + (err.message || 'error de red') + '). Escríbenos a learn@scilambda.net o por WhatsApp al +502 2301-0853 para reservar tu cupo.');
   }
@@ -1182,9 +1059,10 @@ const mq = document.getElementById('marquee');
 if(mq){ mq.innerHTML += mq.innerHTML; }
 
 /* ===== EARLY BIRD countdown =====
-   Tarifa anticipada vigente hasta 7 días antes de la PRIMERA sesión real
-   (sea ordinaria o sabatina). Calculamos el min de todos los startUTC para
-   que el deadline sea robusto al orden visual del array. */
+   Tarifa anticipada vigente hasta 7 días antes del inicio del curso.
+   Después de esa fecha, se oculta el tier "Inscripción temprana" y solo queda General.
+   La fecha de corte se calcula automáticamente desde SESSIONS[0].startUTC,
+   así que cuando se cambie la primera sesión, esto se actualiza solo. */
 (function setupEarlyBird(){
   const tier      = document.getElementById('earlybirdTier');
   const meta      = document.getElementById('earlybirdMeta');
@@ -1194,13 +1072,11 @@ if(mq){ mq.innerHTML += mq.innerHTML; }
   const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 
   function parseUTC(s){
-    // '20260726T023000Z' → Date
+    // '20260611T233000Z' → Date
     return new Date(s.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/,'$1-$2-$3T$4:$5:$6Z'));
   }
 
-  // Min de los startUTC = primera sesión real, sin depender del orden visual
-  const earliestMs  = Math.min.apply(null, SESSIONS.map(function(s){ return parseUTC(s.startUTC).getTime(); }));
-  const courseStart = new Date(earliestMs);
+  const courseStart = parseUTC(SESSIONS[0].startUTC);
   const deadline    = new Date(courseStart.getTime() - 7*24*60*60*1000); // 7 días antes
 
   function fmtShort(d){

@@ -187,9 +187,9 @@ em{font-style:italic;color:var(--gold-deep)}
 .catalog-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 
 .courses{
-  display:grid;grid-template-columns:repeat(3,1fr);
+  display:grid;grid-template-columns:repeat(4,1fr);
   grid-template-rows:auto auto 1fr auto;       /* head · specs · tools · foot */
-  column-gap:1.4rem;row-gap:0;
+  column-gap:1.2rem;row-gap:0;
 }
 .course{
   position:relative;
@@ -259,12 +259,17 @@ em{font-style:italic;color:var(--gold-deep)}
 .reveal[data-d="3"]{transition-delay:.24s}
 
 /* ---------- responsive ---------- */
-@media(max-width:920px){
-  .courses{grid-template-columns:1fr;grid-template-rows:none;row-gap:1.4rem}
+@media(max-width:1080px){
+  .courses{grid-template-columns:repeat(2,1fr);grid-template-rows:none;row-gap:1.4rem}
   .course{display:flex;flex-direction:column;grid-row:auto}
+}
+@media(max-width:920px){
   .method-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .catalog-head{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:560px){
+  .courses{grid-template-columns:1fr}
 }
 @media(max-width:680px){
   .nav-links a:not(.nav-cta){display:none}
@@ -371,18 +376,18 @@ em{font-style:italic;color:var(--gold-deep)}
         </div>
       </article>
 
-      <!-- C3 · FUNDAMENTOS -->
+      <!-- C3 · FUNDAMENTOS (B2B) -->
       <article class="course reveal" data-d="2">
         <div class="course-head">
-          <div class="course-idx"><span>C/03 · FUND-IA/2026</span><span class="course-status live">Próxima cohorte</span></div>
+          <div class="course-idx"><span>C/03 · FUND-IA</span><span class="course-status soon">Solo empresas</span></div>
           <h3>Fundamentos de la IA</h3>
-          <p class="course-sub">Para líderes, mandos medios y profesionales que necesitan entender qué es IA, qué puede y qué no puede hacer, antes de adoptarla en su organización.</p>
+          <p class="course-sub">Capacitación cerrada para equipos. Para líderes y mandos medios que necesitan entender qué es IA, qué puede y qué no, antes de adoptarla.</p>
         </div>
         <div class="course-specs">
-          <div class="spec-i"><span class="sk">Duración</span><span class="sv">[Por definir]</span></div>
-          <div class="spec-i"><span class="sk">Inicio</span><span class="sv">[Por definir]</span></div>
+          <div class="spec-i"><span class="sk">Modalidad</span><span class="sv">In-company</span></div>
+          <div class="spec-i"><span class="sk">Duración</span><span class="sv">A definir</span></div>
           <div class="spec-i"><span class="sk">Nivel</span><span class="sv">Introductorio</span></div>
-          <div class="spec-i"><span class="sk">Inversión</span><span class="sv">Consultar</span></div>
+          <div class="spec-i"><span class="sk">Inversión</span><span class="sv">Cotizar</span></div>
         </div>
         <div class="course-tools">
           <span class="chip">Conceptos</span>
@@ -391,7 +396,30 @@ em{font-style:italic;color:var(--gold-deep)}
           <span class="chip">Claude</span>
         </div>
         <div class="course-foot">
-          <a href="/fundamentos-ia" class="course-cta">Ver curso <span>→</span></a>
+          <a href="/fundamentos-ia" class="course-cta">Cotizar para mi equipo <span>→</span></a>
+        </div>
+      </article>
+
+      <!-- C4 · CURSOS PERSONALIZADOS -->
+      <article class="course reveal" data-d="3">
+        <div class="course-head">
+          <div class="course-idx"><span>C/04 · A MEDIDA</span><span class="course-status soon">Diseño personalizado</span></div>
+          <h3>Cursos personalizados</h3>
+          <p class="course-sub">¿No encuentras el tema exacto que tu equipo necesita? Diseñamos un curso a medida según el sector, nivel y objetivos de tu organización.</p>
+        </div>
+        <div class="course-specs">
+          <div class="spec-i"><span class="sk">Modalidad</span><span class="sv">In-company</span></div>
+          <div class="spec-i"><span class="sk">Duración</span><span class="sv">A definir</span></div>
+          <div class="spec-i"><span class="sk">Tema</span><span class="sv">Tu elección</span></div>
+          <div class="spec-i"><span class="sk">Inversión</span><span class="sv">Cotizar</span></div>
+        </div>
+        <div class="course-tools">
+          <span class="chip">Sector específico</span>
+          <span class="chip">Casos reales</span>
+          <span class="chip">Diseño a medida</span>
+        </div>
+        <div class="course-foot">
+          <a href="/cursos-personalizados" class="course-cta">Solicitar cotización <span>→</span></a>
         </div>
       </article>
     </div>
