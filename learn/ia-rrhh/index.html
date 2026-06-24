@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IA aplicada a RRHH y Gestión del Talento · lambda Analytics</title>
-<meta name="description" content="Capacitación práctica de 8 horas para integrar IA generativa (ChatGPT, Gemini, NotebookLM) en procesos de Recursos Humanos. 4 sesiones en vivo vía Zoom. Inicia el 11 de junio de 2026.">
+<meta name="description" content="Capacitación práctica de 8 horas para integrar IA generativa (ChatGPT, Gemini, NotebookLM) en procesos de Recursos Humanos. 4 sesiones en vivo vía Zoom. Dos hornadas a elegir — sabatina o entre semana — desde el 25 de julio de 2026.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="https://learn.lambda-analytics.net/ia-rrhh">
 <meta property="og:title" content="IA aplicada a RRHH y Gestión del Talento">
-<meta property="og:description" content="8 horas · 4 sesiones en vivo vía Zoom · ChatGPT · Gemini · NotebookLM. Inicia 11 de junio de 2026. Cupo limitado.">
+<meta property="og:description" content="8 horas · 4 sesiones en vivo vía Zoom · ChatGPT · Gemini · NotebookLM. Dos hornadas: sabatina (desde 25 jul) o entre semana (desde 27 jul). Cupo limitado.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_GT">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -257,6 +257,13 @@ section{position:relative}
 
 /* ---------- calendario ---------- */
 .cal-head{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.cohort{margin-bottom:2.5rem;border:1px solid var(--line);border-radius:3px;background:rgba(255,255,255,.4);overflow:hidden}
+.cohort-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:var(--paper-warm);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.cohort-tag{font-family:var(--mono);font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--navy-deep);display:inline-flex;align-items:center;gap:.55em}
+.cohort-tag::before{content:"";width:1.6em;height:1px;background:var(--gold-deep);display:inline-block}
+.cohort-meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted)}
+.cohort .timeline{border-top:none;padding:0 1.4rem}
+.cohort .cal-row:last-child{border-bottom:none}
 .timeline{border-top:1px solid var(--line)}
 .cal-row{display:grid;grid-template-columns:auto auto 1fr auto auto;gap:clamp(1rem,3vw,2.5rem);align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--line);transition:padding-left .3s var(--ease)}
 .cal-row:hover{padding-left:.8rem}
@@ -446,7 +453,7 @@ section{position:relative}
         <span><b>NIVEL</b> Básico → Intermedio</span>
         <span><b>SEDE</b> Zoom</span>
       </div>
-      <p class="eyebrow reveal" data-d="1">Capacitación ejecutiva · Junio 2026</p>
+      <p class="eyebrow reveal" data-d="1">Capacitación ejecutiva · Julio – Agosto 2026</p>
       <h1 class="reveal" data-d="1">
         Inteligencia Artificial
         <span class="accent">aplicada a <span class="hl">Recursos&nbsp;Humanos</span></span>
@@ -461,7 +468,7 @@ section{position:relative}
           <div class="spec-cell"><span class="k">Duración</span><span class="v">8 h</span></div>
           <div class="spec-cell"><span class="k">Sesiones</span><span class="v">4</span></div>
           <div class="spec-cell"><span class="k">Modalidad</span><span class="v">Virtual</span></div>
-          <div class="spec-cell"><span class="k">Próxima fecha</span><span class="v">11 Jun</span></div>
+          <div class="spec-cell"><span class="k">Próxima fecha</span><span class="v">25 Jul</span></div>
         </div>
       </div>
     </div>
@@ -634,44 +641,91 @@ section{position:relative}
   <div class="wrap">
     <div class="cal-head reveal">
       <div class="sec-head" style="margin:0">
-        <p class="eyebrow">Calendario</p>
-        <h2>Cuatro jueves consecutivos en vivo.</h2>
+        <p class="eyebrow">Calendario · Julio – Agosto 2026</p>
+        <h2>Dos hornadas, mismo programa.</h2>
       </div>
-      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">6:00 — 8:00 PM · hora Guatemala (CST · UTC-6)</p>
+      <p class="mono" style="font-size:.74rem;color:var(--muted);letter-spacing:.06em">Elige la que mejor se ajusta a tu agenda · hora Guatemala (CST · UTC-6)</p>
     </div>
-    <div class="timeline reveal">
-      <div class="cal-row">
-        <span class="cal-s">S/01</span>
-        <div class="cal-date"><span class="day">11</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
-        <span class="cal-time">18:00 – 20:00</span>
-        <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
+
+    <!-- HORNADA SABATINA -->
+    <div class="cohort reveal">
+      <div class="cohort-head">
+        <span class="cohort-tag">Hornada Sabatina</span>
+        <span class="cohort-meta">4 sábados · 8:30 – 10:30 PM</span>
       </div>
-      <div class="cal-row">
-        <span class="cal-s">S/02</span>
-        <div class="cal-date"><span class="day">18</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
-        <span class="cal-time">18:00 – 20:00</span>
-        <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
-      </div>
-      <div class="cal-row">
-        <span class="cal-s">S/03</span>
-        <div class="cal-date"><span class="day">25</span><span class="mo">Jun</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Selección Inteligente de Talento</div></div>
-        <span class="cal-time">18:00 – 20:00</span>
-        <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
-      </div>
-      <div class="cal-row">
-        <span class="cal-s">S/04</span>
-        <div class="cal-date"><span class="day">02</span><span class="mo">Jul</span></div>
-        <div><span class="cal-dow">Jueves</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
-        <span class="cal-time">18:00 – 20:00</span>
-        <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
+      <div class="timeline">
+        <div class="cal-row">
+          <span class="cal-s">S/01</span>
+          <div class="cal-date"><span class="day">25</span><span class="mo">Jul</span></div>
+          <div><span class="cal-dow">Sábado</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
+          <span class="cal-time">20:30 – 22:30</span>
+          <a href="#" class="cal-add" data-cal-add="0">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/02</span>
+          <div class="cal-date"><span class="day">01</span><span class="mo">Ago</span></div>
+          <div><span class="cal-dow">Sábado</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
+          <span class="cal-time">20:30 – 22:30</span>
+          <a href="#" class="cal-add" data-cal-add="1">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/03</span>
+          <div class="cal-date"><span class="day">08</span><span class="mo">Ago</span></div>
+          <div><span class="cal-dow">Sábado</span><div class="cal-title">Selección Inteligente de Talento</div></div>
+          <span class="cal-time">20:30 – 22:30</span>
+          <a href="#" class="cal-add" data-cal-add="2">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/04</span>
+          <div class="cal-date"><span class="day">15</span><span class="mo">Ago</span></div>
+          <div><span class="cal-dow">Sábado</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
+          <span class="cal-time">20:30 – 22:30</span>
+          <a href="#" class="cal-add" data-cal-add="3">+ Agregar</a>
+        </div>
       </div>
     </div>
+
+    <!-- HORNADA ENTRE SEMANA -->
+    <div class="cohort reveal" data-d="1">
+      <div class="cohort-head">
+        <span class="cohort-tag">Hornada Entre Semana</span>
+        <span class="cohort-meta">2 lunes + 2 jueves · 5:30 – 7:30 PM</span>
+      </div>
+      <div class="timeline">
+        <div class="cal-row">
+          <span class="cal-s">S/01</span>
+          <div class="cal-date"><span class="day">27</span><span class="mo">Jul</span></div>
+          <div><span class="cal-dow">Lunes</span><div class="cal-title">Introducción a IA y entorno de trabajo</div></div>
+          <span class="cal-time">17:30 – 19:30</span>
+          <a href="#" class="cal-add" data-cal-add="4">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/02</span>
+          <div class="cal-date"><span class="day">30</span><span class="mo">Jul</span></div>
+          <div><span class="cal-dow">Jueves</span><div class="cal-title">Prompt Engineering y Proyectos</div></div>
+          <span class="cal-time">17:30 – 19:30</span>
+          <a href="#" class="cal-add" data-cal-add="5">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/03</span>
+          <div class="cal-date"><span class="day">03</span><span class="mo">Ago</span></div>
+          <div><span class="cal-dow">Lunes</span><div class="cal-title">Selección Inteligente de Talento</div></div>
+          <span class="cal-time">17:30 – 19:30</span>
+          <a href="#" class="cal-add" data-cal-add="6">+ Agregar</a>
+        </div>
+        <div class="cal-row">
+          <span class="cal-s">S/04</span>
+          <div class="cal-date"><span class="day">06</span><span class="mo">Ago</span></div>
+          <div><span class="cal-dow">Jueves</span><div class="cal-title">Flujos de Trabajo y Productividad con IA</div></div>
+          <span class="cal-time">17:30 – 19:30</span>
+          <a href="#" class="cal-add" data-cal-add="7">+ Agregar</a>
+        </div>
+      </div>
+    </div>
+
     <div class="cal-foot reveal">
       <p>Las sesiones se imparten vía Zoom. Recibirás el enlace de acceso, materiales y recordatorios automáticos al correo registrado al confirmar tu inscripción.</p>
-      <a href="#" class="ics-btn" id="downloadIcs">Descargar las 4 sesiones (.ics) <span>↓</span></a>
+      <a href="#" class="ics-btn" id="downloadIcs">Descargar las 8 sesiones (.ics) <span>↓</span></a>
     </div>
   </div>
 </section>
@@ -766,16 +820,16 @@ section{position:relative}
       <div class="price-card reveal crop">
         <div class="price-head"><p class="eyebrow" style="margin:0">Inversión · USD</p></div>
         <div class="price-tier featured" id="earlybirdTier">
-          <div class="pt-name">Inscripción temprana<small id="earlybirdMeta">Tarifa anticipada · hasta 4 jun, 2026</small></div>
-          <div class="pt-amt">$100</div>
+          <div class="pt-name">Inscripción temprana<small id="earlybirdMeta">Tarifa anticipada · hasta 18 jul, 2026</small></div>
+          <div class="pt-amt">$75</div>
         </div>
         <div class="early-countdown" id="earlyCountdown" aria-live="polite"></div>
         <div class="price-tier">
           <div class="pt-name">General<small>Tarifa estándar</small></div>
-          <div class="pt-amt">$125</div>
+          <div class="pt-amt">$100</div>
         </div>
         <div class="price-detail">
-          <div class="pd-row"><span class="k">Próxima fecha</span><span>Jueves 11 de junio, 2026</span></div>
+          <div class="pd-row"><span class="k">Hornadas</span><span>Sabatina (25 jul) o entre semana (27 jul) — mismo programa y precio</span></div>
           <div class="pd-row"><span class="k">Modalidad</span><span>Virtual · vía Zoom</span></div>
           <div class="pd-row"><span class="k">Incluye</span><span>4 sesiones en vivo, materiales, plantillas y grabación de referencia</span></div>
           <div class="pd-row"><span class="k">Pago</span><span>Disponible en cuotas — consúltanos al inscribirte</span></div>
@@ -793,6 +847,14 @@ section{position:relative}
             <div class="field"><label for="telefono">Teléfono <span class="req">*</span></label><input type="tel" id="telefono" name="telefono" placeholder="+502 0000-0000" autocomplete="tel" required></div>
             <div class="field"><label for="empresa">Empresa <span class="req">*</span></label><input type="text" id="empresa" name="empresa" autocomplete="organization" required></div>
             <div class="field"><label for="cargo">Cargo <span class="req">*</span></label><input type="text" id="cargo" name="cargo" autocomplete="organization-title" required></div>
+            <div class="field full"><label for="hornada">¿Qué hornada prefieres? <span class="req">*</span></label>
+              <select id="hornada" name="hornada" required>
+                <option value="">Selecciona una hornada</option>
+                <option value="Sabatina">Sabatina — sábados 8:30 PM (25 jul · 1, 8, 15 ago)</option>
+                <option value="Entre semana">Entre semana — lun/jue 5:30 PM (27, 30 jul · 3, 6 ago)</option>
+                <option value="Cualquiera">Cualquiera — coordínenmela ustedes</option>
+              </select>
+            </div>
             <div class="field"><label for="origen">¿Cómo nos conociste? <span class="req">*</span></label>
               <select id="origen" name="origen" required>
                 <option value="">Selecciona una opción</option>
@@ -853,7 +915,7 @@ section{position:relative}
     </div>
     <div class="footer-bottom">
       <span>© 2026 lambda Analytics · Guatemala</span>
-      <span>IA-RRHH / Junio 2026</span>
+      <span>IA-RRHH / Julio – Agosto 2026</span>
     </div>
   </div>
 </footer>
@@ -862,20 +924,28 @@ section{position:relative}
 /* ========================= CONFIG ========================= */
 const API_ENDPOINT = '/api/lead';
 const COURSE_SLUG = 'ia-rrhh';
-const COURSE_NAME = 'IA aplicada a RRHH y Gestión del Talento - Junio 2026';
+const COURSE_NAME = 'IA aplicada a RRHH y Gestión del Talento - Julio 2026';
 const WHATSAPP_NUMBER = '50223010853';
 const WA_BASE = 'https://api.whatsapp.com/send/?phone=' + WHATSAPP_NUMBER + '&type=phone_number&app_absent=0&text=';
 
-/* ===== SESSIONS (CST = UTC-6, no DST) · 18:00–20:00 → 00:00–02:00 UTC ===== */
+/* ===== SESSIONS (CST = UTC-6, no DST) =====
+   Sabatina (n:1-4): sábados 8:30 PM GT → 02:30–04:30 UTC del domingo
+   Entre semana (n:5-8): lun/jue 5:30 PM GT → 23:30–01:30 UTC del día sig. */
 const SESSIONS = [
-  {n:1, title:'Sesión 1 · Introducción a IA y entorno de trabajo',        startUTC:'20260612T000000Z', endUTC:'20260612T020000Z', dateLabel:'Jueves 11 de junio de 2026'},
-  {n:2, title:'Sesión 2 · Prompt Engineering y Proyectos',                startUTC:'20260619T000000Z', endUTC:'20260619T020000Z', dateLabel:'Jueves 18 de junio de 2026'},
-  {n:3, title:'Sesión 3 · Selección Inteligente de Talento',              startUTC:'20260626T000000Z', endUTC:'20260626T020000Z', dateLabel:'Jueves 25 de junio de 2026'},
-  {n:4, title:'Sesión 4 · Flujos de Trabajo y Productividad con IA',       startUTC:'20260703T000000Z', endUTC:'20260703T020000Z', dateLabel:'Jueves 2 de julio de 2026'}
+  // Hornada sabatina (más cercana, define el countdown del early bird)
+  {n:1, title:'Sesión 1 sabatina · Introducción a IA y entorno de trabajo',  startUTC:'20260726T023000Z', endUTC:'20260726T043000Z', dateLabel:'Sábado 25 de julio de 2026'},
+  {n:2, title:'Sesión 2 sabatina · Prompt Engineering y Proyectos',          startUTC:'20260802T023000Z', endUTC:'20260802T043000Z', dateLabel:'Sábado 1 de agosto de 2026'},
+  {n:3, title:'Sesión 3 sabatina · Selección Inteligente de Talento',        startUTC:'20260809T023000Z', endUTC:'20260809T043000Z', dateLabel:'Sábado 8 de agosto de 2026'},
+  {n:4, title:'Sesión 4 sabatina · Flujos de Trabajo y Productividad con IA', startUTC:'20260816T023000Z', endUTC:'20260816T043000Z', dateLabel:'Sábado 15 de agosto de 2026'},
+  // Hornada entre semana
+  {n:5, title:'Sesión 1 entre semana · Introducción a IA y entorno de trabajo',  startUTC:'20260727T233000Z', endUTC:'20260728T013000Z', dateLabel:'Lunes 27 de julio de 2026'},
+  {n:6, title:'Sesión 2 entre semana · Prompt Engineering y Proyectos',          startUTC:'20260730T233000Z', endUTC:'20260731T013000Z', dateLabel:'Jueves 30 de julio de 2026'},
+  {n:7, title:'Sesión 3 entre semana · Selección Inteligente de Talento',        startUTC:'20260803T233000Z', endUTC:'20260804T013000Z', dateLabel:'Lunes 3 de agosto de 2026'},
+  {n:8, title:'Sesión 4 entre semana · Flujos de Trabajo y Productividad con IA', startUTC:'20260806T233000Z', endUTC:'20260807T013000Z', dateLabel:'Jueves 6 de agosto de 2026'}
 ];
 
 const COURSE_DESCRIPTION =
-'Capacitación en vivo de lambda Analytics. 6:00 a 8:00 PM hora Guatemala (CST).\\n\\n' +
+'Capacitación en vivo de lambda Analytics. 5:30 a 7:30 PM (entre semana) o 8:30 a 10:30 PM (sabatina) hora Guatemala (CST).\\n\\n' +
 'Te compartiremos el enlace de Zoom y los materiales por correo antes de la sesión.\\n\\n' +
 'Contacto: learn@scilambda.net  |  WhatsApp +502 2301-0853\\n' +
 'Sitio: https://learn.lambda-analytics.net';
@@ -907,7 +977,7 @@ function buildIcs(){
   SESSIONS.forEach(s => {
     lines.push(
       'BEGIN:VEVENT',
-      'UID:lambda-iarrhh-2026-' + s.n + '@lambda-analytics.net',
+      'UID:lambda-iarrhh-juliago2026-' + s.n + '@lambda-analytics.net',
       'DTSTAMP:' + stamp,
       'DTSTART:' + s.startUTC,
       'DTEND:' + s.endUTC,
@@ -927,7 +997,7 @@ document.getElementById('downloadIcs').addEventListener('click', e => {
   const blob = new Blob([buildIcs()], {type:'text/calendar;charset=utf-8'});
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url; a.download = 'lambda-ia-rrhh-junio2026.ics';
+  a.href = url; a.download = 'lambda-ia-rrhh-julio-agosto2026.ics';
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
@@ -969,9 +1039,20 @@ form.addEventListener('submit', async e => {
 
   // Extraer UTMs y referrer del entorno actual
   const params = new URLSearchParams(location.search);
+  // Concatenar la hornada al course_name para que el email/DB la registre directo
+  const hornada = (data.hornada || '').trim();
+  const courseNameWithCohort = hornada
+    ? COURSE_NAME + ' · Hornada ' + hornada
+    : COURSE_NAME;
+  // Prefijar el mensaje con la hornada para visibilidad inmediata al admin
+  const mensajeOriginal = (data.mensaje || '').trim();
+  const mensajeConHornada = hornada
+    ? ('[Hornada elegida: ' + hornada + ']' + (mensajeOriginal ? '\n\n' + mensajeOriginal : ''))
+    : mensajeOriginal;
+
   const payload = {
     course_slug:  COURSE_SLUG,
-    course_name:  COURSE_NAME,
+    course_name:  courseNameWithCohort,
     nombre:       data.nombre   || '',
     apellido:     data.apellido || '',
     email:        data.email    || '',
@@ -979,7 +1060,7 @@ form.addEventListener('submit', async e => {
     empresa:      data.empresa  || '',
     cargo:        data.cargo    || '',
     origen:       data.origen   || '',
-    mensaje:      data.mensaje  || '',
+    mensaje:      mensajeConHornada,
     utm_source:   params.get('utm_source')   || '',
     utm_medium:   params.get('utm_medium')   || '',
     utm_campaign: params.get('utm_campaign') || '',
@@ -1095,7 +1176,7 @@ if(mq){ mq.innerHTML += mq.innerHTML; }
   const MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
 
   function parseUTC(s){
-    // '20260612T000000Z' → Date
+    // '20260726T023000Z' → Date
     return new Date(s.replace(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/,'$1-$2-$3T$4:$5:$6Z'));
   }
 
