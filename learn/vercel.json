@@ -1,6 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "rsvp.lambda-analytics.net" }],
+      "destination": "/the-ai-edge",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

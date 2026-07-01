@@ -1,0 +1,11 @@
+# Lista de invitados · The AI Edge
+# Un invitado por línea. Formato:
+#   Nombre Completo | Empresa (opcional) | correo (opcional)
+# Las líneas que empiezan con # se ignoran.
+#
+# Copiá este archivo a data/invitees.txt y reemplazá con tus invitados reales.
+
+Ana López Ramírez | Corporación XYZ | ana.lopez@xyz.com
+Carlos Méndez Solís | Grupo ABC | cmendez@abc.com
+María Fernández | Industrias del Valle
+Roberto Castillo Pérez | Banco Continental | rcastillo@continental.com.gt
