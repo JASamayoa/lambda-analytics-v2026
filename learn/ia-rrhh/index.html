@@ -451,11 +451,12 @@ section{position:relative}
 .testi-quote::before{content:"\201C";font-family:var(--serif);color:var(--gold-deep);font-size:2.6rem;line-height:0;position:absolute;left:-.05em;top:.35em;opacity:.5}
 .testi-quote span{display:block;padding-top:.9rem}
 .testi-person{display:flex;align-items:center;gap:.9rem;margin-top:auto}
-.testi-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:var(--navy-deep);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.testi-avatar svg{width:70%;height:auto;fill:var(--paper-warm)}
-.testi-name{font-weight:600;color:var(--navy-deep);line-height:1.2}
-.testi-role{font-size:.82rem;color:var(--muted);line-height:1.35;margin-top:.15em}
-.testi-loc{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-top:.4em}
+.testi-avatar{flex:none;width:52px;height:52px;border-radius:50%;background:#e7e2d8;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.testi-avatar svg{width:100%;height:100%;fill:var(--navy-deep)}
+.testi-person>span:last-child{display:flex;flex-direction:column}
+.testi-name{font-weight:600;color:var(--navy-deep);line-height:1.2;white-space:nowrap}
+.testi-role{font-size:.8rem;color:var(--muted);line-height:1.3;margin-top:.2em;white-space:nowrap}
+.testi-loc{display:inline-flex;align-items:center;gap:.4em;font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-top:.5em}
 .testi-loc .flag{width:1.15em;height:.8em;border-radius:1px;flex:none;box-shadow:0 0 0 1px rgba(13,38,64,.12)}
 @media(max-width:820px){
   .testi-grid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}
@@ -851,7 +852,7 @@ section{position:relative}
         <blockquote class="testi-quote"><span>Aprendí a usar IA para filtrar y evaluar candidatos sin perder el criterio humano. Lo que antes me tomaba una tarde entera, ahora lo resuelvo en minutos.</span></blockquote>
         <figcaption class="testi-person">
           <span class="testi-avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100"><path d="M50 12c-14 0-24 10-24 26 0 9 2 21 5 30h8c-3-8-5-18-5-26 0-11 7-18 16-18s16 7 16 18c0 8-2 18-5 26h8c3-9 5-21 5-30 0-16-10-26-24-26Z"/><circle cx="50" cy="38" r="13"/><path d="M50 54c-13 0-24 9-27 24h54c-3-15-14-24-27-24Z"/></svg>
+            <svg viewBox="0 0 100 100"><path d="M50 60 C36 60 22 66 15 80 C12 86 11 93 10 100 L90 100 C89 93 88 86 85 80 C78 66 64 60 50 60 Z"/><path d="M50 10 C43 10 39 12 36 16 C31 14 27 18 27 22 C23 23 22 28 24 31 C21 33 21 38 24 41 C21 44 22 49 25 50 C22 54 24 59 28 59 C26 64 29 69 33 69 C31 74 35 79 39 79 C43 83 46 84 50 84 C54 84 57 83 61 79 C65 79 69 74 67 69 C71 69 74 64 72 59 C76 59 78 54 75 50 C78 49 79 44 76 41 C79 38 79 33 76 31 C78 28 77 23 73 22 C73 18 69 14 64 16 C61 12 57 10 50 10 Z"/></svg>
           </span>
           <span>
             <span class="testi-name">Ana Lucía Morales</span>
@@ -866,7 +867,7 @@ section{position:relative}
         <blockquote class="testi-quote"><span>El curso es 100% práctico. Salí con flujos de trabajo que apliqué al día siguiente con mi equipo; la diferencia en productividad fue inmediata.</span></blockquote>
         <figcaption class="testi-person">
           <span class="testi-avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100"><path d="M50 14c-10 0-18 8-18 18s8 18 18 18 18-8 18-18-8-18-18-18Zm0 44C33 58 14 67 14 86v4h72v-4c0-19-19-28-36-28Z"/></svg>
+            <svg viewBox="0 0 100 100"><path d="M50 14 C40 14 32 22 31 34 C30 34 29 35 29 38 C29 41 30 42 32 42 C33 49 39 56 42 58 C44 61 44 64 42 67 C34 68 20 72 14 82 C11 88 10 94 10 100 L90 100 C90 94 89 88 86 82 C80 72 66 68 58 67 C56 64 56 61 58 58 C61 56 67 49 68 42 C70 42 71 41 71 38 C71 35 70 34 69 34 C68 22 60 14 50 14 Z"/></svg>
           </span>
           <span>
             <span class="testi-name">Carlos Melgar</span>
@@ -881,7 +882,7 @@ section{position:relative}
         <blockquote class="testi-quote"><span>Pasé de no saber por dónde empezar con la IA a construir mis propios prompts para procesos de RRHH. La guía en vivo hace toda la diferencia.</span></blockquote>
         <figcaption class="testi-person">
           <span class="testi-avatar" aria-hidden="true">
-            <svg viewBox="0 0 100 100"><path d="M50 12c-14 0-24 10-24 26 0 9 2 21 5 30h8c-3-8-5-18-5-26 0-11 7-18 16-18s16 7 16 18c0 8-2 18-5 26h8c3-9 5-21 5-30 0-16-10-26-24-26Z"/><circle cx="50" cy="38" r="13"/><path d="M50 54c-13 0-24 9-27 24h54c-3-15-14-24-27-24Z"/></svg>
+            <svg viewBox="0 0 100 100"><path d="M50 60 C36 60 22 66 15 80 C12 86 11 93 10 100 L90 100 C89 93 88 86 85 80 C78 66 64 60 50 60 Z"/><path d="M50 20 C39 20 33 28 33 40 C33 51 40 59 50 59 C60 59 67 51 67 40 C67 28 61 20 50 20 Z"/><path d="M50 12 C33 12 25 25 25 42 C25 51 24 61 21 70 C20 73 23 74 26 72 C30 69 34 63 36 56 C35 62 35 68 37 70 L44 46 C46 48 48 49 50 49 C52 49 54 48 56 46 L63 70 C65 68 65 62 64 56 C66 63 70 69 74 72 C77 74 80 73 79 70 C76 61 75 51 75 42 C75 25 67 12 50 12 Z"/></svg>
           </span>
           <span>
             <span class="testi-name">Lucía Molina</span>
