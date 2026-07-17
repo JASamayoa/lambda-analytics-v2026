@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>lambda Analytics · Learn · Formación abierta en IA para empresas</title>
-<meta name="description" content="Academia de lambda Analytics. Cursos abiertos en vivo de IA generativa para equipos de RRHH, productividad y fundamentos. Impartidos por consultores con experiencia aplicada en Centroamérica y Estados Unidos.">
+<meta name="description" content="Academia de lambda Analytics. Cursos abiertos en vivo de IA generativa para equipos de RRHH, productividad, liderazgo y fundamentos. Impartidos por consultores con experiencia aplicada en Centroamérica y Estados Unidos.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -56,6 +56,12 @@
       "position": 3,
       "url": "https://learn.lambda-analytics.net/fundamentos-ia",
       "name": "Fundamentos de la IA"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "url": "https://learn.lambda-analytics.net/lider-digital",
+      "name": "Liderazgo y Coaching en la Era de la IA"
     }
   ]
 }
@@ -186,18 +192,54 @@ em{font-style:italic;color:var(--gold-deep)}
 .catalog-head h2{max-width:18ch}
 .catalog-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
 
+/* ---------- carrusel de cursos ---------- */
+.carousel{position:relative}
 .courses{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto auto 1fr auto;       /* head · specs · tools · foot */
-  column-gap:1.4rem;row-gap:0;
+  display:flex;gap:1.4rem;
+  overflow-x:auto;overflow-y:hidden;
+  scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding:4px 4px 1.2rem;margin:0 -4px;
+  scrollbar-width:none;-ms-overflow-style:none;
+  cursor:grab;
 }
+.courses.dragging{cursor:grabbing;scroll-behavior:auto;scroll-snap-type:none}
+.courses::-webkit-scrollbar{display:none}
 .course{
   position:relative;
-  display:grid;grid-template-rows:subgrid;grid-row:span 4;
+  flex:0 0 82%;
+  scroll-snap-align:start;
+  display:flex;flex-direction:column;
   background:var(--paper);border:1px solid var(--line);
   transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .25s;
 }
+@media(min-width:560px){.course{flex-basis:calc((100% - 1.4rem)/2)}}
+@media(min-width:920px){.course{flex-basis:calc((100% - 2 * 1.4rem)/3)}}
 .course:hover{transform:translateY(-4px);box-shadow:8px 8px 0 var(--paper-deep);border-color:var(--navy)}
+.courses.dragging .course > *{pointer-events:none}
+.course-head,.course-specs,.course-tools,.course-foot{user-select:none}
+/* controles del carrusel */
+.carousel-arrow{
+  position:absolute;top:calc(50% - 2rem);z-index:5;
+  width:2.9rem;height:2.9rem;border-radius:50%;
+  display:grid;place-items:center;
+  background:var(--paper);border:1px solid var(--line);color:var(--navy-deep);
+  font-family:var(--mono);font-size:1.05rem;line-height:1;cursor:pointer;
+  box-shadow:0 8px 20px -8px rgba(13,38,64,.45);
+  transition:background .2s,transform .2s,opacity .2s,color .2s;
+}
+.carousel-arrow:hover{background:var(--navy-deep);color:var(--paper)}
+.carousel-arrow.prev{left:-1.15rem}
+.carousel-arrow.next{right:-1.15rem}
+.carousel-arrow[disabled]{opacity:0;pointer-events:none}
+.carousel-dots{display:flex;justify-content:center;gap:.55rem;margin-top:1.6rem}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:var(--line);border:none;padding:0;cursor:pointer;transition:background .25s,transform .25s}
+.carousel-dot.active{background:var(--gold-deep);transform:scale(1.35)}
+.carousel-hint{display:none;text-align:center;margin-top:1rem;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:920px){
+  .carousel-arrow{display:none}
+  .carousel-hint{display:block}
+}
 .course-head{padding:1.7rem 1.7rem 1.2rem;border-bottom:1px dashed var(--line)}
 .course-idx{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;color:var(--gold-deep);font-weight:600;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center}
 .course-status{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;padding:.3em .7em;border-radius:2px;text-transform:uppercase;font-weight:600}
@@ -306,8 +348,6 @@ em{font-style:italic;color:var(--gold-deep)}
 
 /* ---------- responsive ---------- */
 @media(max-width:920px){
-  .courses{grid-template-columns:1fr;grid-template-rows:none;row-gap:1.4rem}
-  .course{display:flex;flex-direction:column;grid-row:auto}
   .method-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .catalog-head{flex-direction:column;align-items:flex-start}
@@ -352,7 +392,7 @@ em{font-style:italic;color:var(--gold-deep)}
     </h1>
     <p class="lead reveal" data-d="2">Cursos cortos, 100% en vivo, para que tu equipo integre IA generativa en su trabajo desde el lunes siguiente. Sin grabaciones diferidas, sin teoría inútil. Mismo equipo que diseña sistemas de IA para empresas medianas y grandes en Centroamérica y EE.UU.</p>
     <div class="hero-cta reveal" data-d="3">
-      <a href="#cursos" class="btn btn-primary">Ver los 3 cursos <span class="arrow">→</span></a>
+      <a href="#cursos" class="btn btn-primary">Ver los 4 cursos <span class="arrow">→</span></a>
       <a href="#metodologia" class="btn btn-ghost">Cómo enseñamos</a>
     </div>
   </div>
@@ -366,10 +406,12 @@ em{font-style:italic;color:var(--gold-deep)}
         <p class="eyebrow" style="margin-bottom:1rem">Catálogo abierto · 2026</p>
         <h2>Tres rutas. <em>Una metodología</em>: marco breve, demostración, práctica guiada.</h2>
       </div>
-      <span class="catalog-meta">/ 03 cursos activos</span>
+      <span class="catalog-meta">/ 04 cursos activos</span>
     </div>
 
-    <div class="courses">
+    <div class="carousel">
+    <button class="carousel-arrow prev" id="carPrev" type="button" aria-label="Curso anterior" disabled>←</button>
+    <div class="courses" id="coursesTrack">
       <!-- C1 · IA-RRHH -->
       <article class="course reveal">
         <div class="course-head">
@@ -441,12 +483,39 @@ em{font-style:italic;color:var(--gold-deep)}
         </div>
       </article>
 
+      <!-- C4 · LIDER DIGITAL -->
+      <article class="course reveal" data-d="3">
+        <div class="course-head">
+          <div class="course-idx"><span>C/04 · LIDER-IA/2026</span><span class="course-status live">Inscripción abierta</span></div>
+          <h3>Liderazgo y Coaching en la Era de la IA</h3>
+          <p class="course-sub">Para líderes, gerentes y emprendedores que quieren integrar la IA en su forma de liderar, decidir y desarrollar equipos.</p>
+        </div>
+        <div class="course-specs">
+          <div class="spec-i"><span class="sk">Duración</span><span class="sv">8 h · 4 sesiones</span></div>
+          <div class="spec-i"><span class="sk">Inicio</span><span class="sv">17 Ago 2026</span></div>
+          <div class="spec-i"><span class="sk">Nivel</span><span class="sv">Básico → Intermedio</span></div>
+          <div class="spec-i"><span class="sk">Inversión</span><span class="sv">USD 100 – 125</span></div>
+        </div>
+        <div class="course-tools">
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Gemini</span>
+          <span class="chip">Asistente IA</span>
+        </div>
+        <div class="course-foot">
+          <a href="/lider-digital" class="course-cta">Ver curso <span>→</span></a>
+        </div>
+      </article>
+
     </div>
+    <button class="carousel-arrow next" id="carNext" type="button" aria-label="Siguiente curso">→</button>
+    </div><!-- /.carousel -->
+    <div class="carousel-dots" id="carouselDots" aria-label="Navegación de cursos"></div>
+    <p class="carousel-hint">‹ Desliza para ver más cursos ›</p>
 
     <!-- C4 · CURSOS PERSONALIZADOS (card destacada full-width) -->
     <a href="/cursos-personalizados" class="course-custom reveal" data-d="3" aria-label="Solicitar cotización para curso personalizado">
       <div class="cc-left">
-        <span class="cc-tag">C/04 · A medida · Diseño personalizado</span>
+        <span class="cc-tag">C/05 · A medida · Diseño personalizado</span>
         <h3 class="cc-title">¿No encuentras el tema exacto que tu equipo necesita?</h3>
         <p class="cc-sub">Diseñamos un curso a medida según el sector, nivel y objetivos de tu organización. Programa, casos y materiales personalizados con casos reales de tu industria.</p>
         <div class="cc-chips">
@@ -536,6 +605,7 @@ em{font-style:italic;color:var(--gold-deep)}
         <h4>Cursos abiertos</h4>
         <a href="/ia-rrhh">IA aplicada a RRHH</a>
         <a href="/ia-productividad">IA para la Productividad</a>
+        <a href="/lider-digital">Liderazgo y Coaching con IA</a>
         <a href="/fundamentos-ia">Fundamentos de la IA</a>
       </div>
       <div class="footer-col">
@@ -560,6 +630,79 @@ const io = new IntersectionObserver((entries) => {
   });
 }, {threshold: 0.12});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ===== carrusel de cursos ===== */
+(function(){
+  const track = document.getElementById('coursesTrack');
+  if(!track) return;
+  const cards = Array.from(track.querySelectorAll('.course'));
+  const prev = document.getElementById('carPrev');
+  const next = document.getElementById('carNext');
+  const dotsWrap = document.getElementById('carouselDots');
+
+  cards.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Ir al curso ' + (i + 1));
+    b.addEventListener('click', () => scrollToCard(i));
+    dotsWrap.appendChild(b);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function step(){
+    const c = cards[0]; if(!c) return 300;
+    const cs = getComputedStyle(track);
+    const gap = parseFloat(cs.columnGap || cs.gap || '0') || 0;
+    return c.getBoundingClientRect().width + gap;
+  }
+  function current(){ return Math.round(track.scrollLeft / step()); }
+  function scrollToCard(i){
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    track.scrollTo({ left: Math.round(i * step()), behavior: 'smooth' });
+  }
+
+  prev && prev.addEventListener('click', () => scrollToCard(current() - 1));
+  next && next.addEventListener('click', () => scrollToCard(current() + 1));
+
+  function updateUI(){
+    const idx = current();
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    const maxScroll = track.scrollWidth - track.clientWidth - 2;
+    if(prev) prev.disabled = track.scrollLeft <= 2;
+    if(next) next.disabled = track.scrollLeft >= maxScroll;
+  }
+  track.addEventListener('scroll', () => window.requestAnimationFrame(updateUI), { passive: true });
+  window.addEventListener('resize', updateUI);
+  updateUI();
+
+  /* Arrastre con mouse en escritorio */
+  let down = false, startX = 0, startLeft = 0, moved = false;
+  track.addEventListener('pointerdown', e => {
+    if(e.pointerType !== 'mouse') return;
+    down = true; moved = false; startX = e.clientX; startLeft = track.scrollLeft;
+    track.classList.add('dragging');
+  });
+  track.addEventListener('pointermove', e => {
+    if(!down) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startLeft - dx;
+  });
+  function endDrag(){
+    if(!down) return;
+    down = false;
+    track.classList.remove('dragging');
+    scrollToCard(current());
+  }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointercancel', endDrag);
+  track.addEventListener('pointerleave', endDrag);
+  /* Un arrastre no debe disparar el enlace de la card */
+  track.addEventListener('click', e => {
+    if(moved){ e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+})();
 </script>
 
 </body>
