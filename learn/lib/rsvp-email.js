@@ -28,7 +28,7 @@ const ADMIN = process.env.RSVP_ADMIN_EMAIL || 'soluciones@scilambda.net';
 export const EVENT = {
   name:     'The AI Edge — Claude for Decision Makers',
   tagline:  'Desayuno ejecutivo + taller de Claude · Del insight a la acción',
-  fecha:    'Viernes 24 de julio, 2026',
+  fecha:    'Viernes 21 de agosto, 2026',
   horario:  '9:00 – 11:00 AM',
   lugar:    'Pecorino · Zona 10, Ciudad de Guatemala',
   formato:  'Solo por invitación · Cupo personal',
