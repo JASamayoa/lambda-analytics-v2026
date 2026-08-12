@@ -302,10 +302,13 @@ function hideMsg(el){ el.className = 'msg'; }
 /* ========== 1) GATE: verificar código ========== */
 const gateForm = $('#gateForm'), gateBtn = $('#gateBtn'), gateMsg = $('#gateMsg'), codeInput = $('#codeInput');
 
+const normalizeCode = raw => { const t = String(raw||'').toUpperCase().replace(/[^A-Z0-9]/g,''); return t.length===8 ? t.slice(0,4)+'-'+t.slice(4) : t; };
+codeInput.addEventListener('input', () => { codeInput.value = codeInput.value.toUpperCase().replace(/[^A-Z0-9-]/g,''); });
+
 gateForm.addEventListener('submit', async e => {
   e.preventDefault();
   hideMsg(gateMsg);
-  const code = codeInput.value.trim();
+  const code = normalizeCode(codeInput.value);
   if(!code){ showMsg(gateMsg, 'Ingrese su código de invitación.', 'error'); return; }
 
   gateBtn.disabled = true;

@@ -14,6 +14,13 @@ import { getInviteeByCode } from '../lib/rsvp-db.js';
 
 const EVENT_SLUG = 'the-ai-edge';
 
+// Normaliza el código: ignora espacios, mayúsculas/minúsculas y el guion.
+// "mskq uuk7" | "MSKQUUK7" | "MSKQ-UUK7" -> "MSKQ-UUK7"
+function normalizeCode(raw) {
+  const s = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  return s.length === 8 ? s.slice(0, 4) + '-' + s.slice(4) : s;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -28,7 +35,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Body vacío o inválido' });
   }
 
-  const code = typeof body.code === 'string' ? body.code.trim() : '';
+  const code = normalizeCode(body.code);
   const eventSlug = typeof body.event_slug === 'string' && body.event_slug.trim() ? body.event_slug.trim() : EVENT_SLUG;
 
   if (!code || code.length > 80) {

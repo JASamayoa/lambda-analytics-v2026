@@ -35,6 +35,13 @@ function getClientIp(req) {
 }
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Normaliza el código: ignora espacios, mayúsculas/minúsculas y el guion.
+// "mskq uuk7" | "MSKQUUK7" | "MSKQ-UUK7" -> "MSKQ-UUK7"
+function normalizeCode(raw) {
+  const s = String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+  return s.length === 8 ? s.slice(0, 4) + '-' + s.slice(4) : s;
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -52,7 +59,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true, spam: true });
   }
 
-  const code = clean(body.code, 80);
+  const code = normalizeCode(body.code);
   if (!code) return badRequest(res, 'Código requerido');
 
   const email = clean(body.email);
