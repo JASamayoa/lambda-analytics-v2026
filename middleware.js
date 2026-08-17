@@ -62,7 +62,14 @@ export default function middleware(request) {
   if (saved) return saved[1] === 'en' ? go(EN_PATH, url) : pass();
 
   // --- 5. Geolocalización por IP -------------------------------------------
-  const country = (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
+  // Vercel SOBRESCRIBE x-vercel-ip-country con el país real del cliente: no se
+  // puede falsear con curl -H. Para poder verificar la regla sin viajar, se
+  // acepta ?geotest=US, que solo afecta a esa petición. No cambia nada para el
+  // tráfico normal y ningún rastreador llega hasta aquí (regla 2).
+  const probe = (url.searchParams.get('geotest') || '').toUpperCase();
+  const country = /^[A-Z]{2}$/.test(probe)
+    ? probe
+    : (request.headers.get('x-vercel-ip-country') || '').toUpperCase();
 
   // Sin dato de país → español (comportamiento actual, sin sorpresas).
   if (!country || SPANISH_SPEAKING.has(country)) return pass();
@@ -90,6 +97,7 @@ function go(pathname, base, setLang) {
   const target = new URL(pathname, base);
   const params = new URLSearchParams(base.search);
   params.delete('lang');
+  params.delete('geotest');
   target.search = params.toString();
 
   const headers = {
