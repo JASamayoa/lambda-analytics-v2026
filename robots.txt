@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://lambda-analytics.net/sitemap.xml
+Sitemap: https://www.lambda-analytics.net/sitemap.xml
