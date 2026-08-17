@@ -38,3 +38,4 @@ build
 
 # Folder residual del deploy anterior (consolidación dentro de /learn)
 lambda-learn
+_to_delete/

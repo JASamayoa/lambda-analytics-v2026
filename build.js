@@ -31,7 +31,7 @@ const template = read('src/template.html');
 const headCssRaw = read('src/_head_css.html');
 const extraCss = read('src/_extra_css.html');
 const academiaCss = read('src/_academia_css.html');
-const logosHtml = read('src/_logos.html');
+const logos = readJSON('i18n/logos.json');
 
 // Inyecta el CSS adicional justo antes de cerrar el <style> principal
 const headCss = headCssRaw.replace(/<\/style>\s*$/, extraCss + '\n</style>');
@@ -122,6 +122,90 @@ const renderFooterList = (items) =>
       return `          <li><a href="${i.href}"${ext}>${i.label}</a></li>`;
     })
     .join('\n');
+
+// Los logos se sirven como archivos desde /assets/logos/ (no en base64):
+// el navegador los cachea una vez y los reutiliza entre / y /en, en lugar de
+// descargar el mismo peso incrustado en cada idioma.
+// width/height explícitos reservan el espacio y evitan layout shift (CLS).
+const renderLogos = () =>
+  logos
+    .map(
+      (l, i) =>
+        `      <div class="logo-cell"><img class="lg${i}" src="/assets/logos/${l.file}" ` +
+        `alt="${attr(l.alt)}" width="${l.w}" height="${l.h}" ` +
+        `loading="lazy" decoding="async" /></div>`
+    )
+    .join('\n');
+
+// Peso óptico. Un logo apaisado (Canella, 5:1) y uno vertical (McDonald's, 0.7:1)
+// limitados a la misma altura NO se ven del mismo tamaño: el vertical queda
+// diminuto. Se calcula la altura de cada uno para igualar el ÁREA que ocupa,
+// no la altura. h ∝ 1/√(ratio), acotado para que ninguna fila se dispare.
+const REF_RATIO = 2.5;
+const REF_H = 58;
+const opticalHeight = (l) => {
+  const r = l.w / l.h;
+  return Math.round(
+    Math.min(84, Math.max(44, REF_H * Math.sqrt(REF_RATIO / r)))
+  );
+};
+
+// La retícula es de 4 columnas. Cuál es la "última fila" depende de cuántos
+// logos haya, así que la regla se calcula en el build en vez de asumir que el
+// total es múltiplo de 4 — si mañana se agrega un logo suelto, no queda una
+// línea huérfana colgando.
+// Escalones de la retícula: ancho máximo → columnas, alto de celda y escala
+// del logo. `null` = por defecto (pantalla grande). Cambiar `cols` aquí es
+// todo lo que hace falta para reorganizar el muro.
+const GRID_STEPS = [
+  { max: null, cols: 6, cell: 132, scale: 0.86 },
+  { max: 1200, cols: 4, cell: 148, scale: 1.0 },
+  { max: 900, cols: 3, cell: 148, scale: 1.0 },
+  { max: 600, cols: 2, cell: 108, scale: 0.72 },
+];
+
+const renderLogosGridCss = () => {
+  const n = logos.length;
+
+  const step = (s) => {
+    const C = s.cols;
+    const r = n % C || C;
+    const lines = [
+      `.logos-grid { grid-template-columns: repeat(${C}, 1fr) !important; }`,
+      `.logos-grid .logo-cell { min-height: ${s.cell}px; border-right: 1px solid var(--line) !important; border-bottom: 1px solid var(--line) !important; }`,
+      // Sin borde derecho en la última columna...
+      `.logos-grid .logo-cell:nth-child(${C}n) { border-right: none !important; }`,
+      // ...ni en la última celda, que puede no caer en la última columna.
+      `.logos-grid .logo-cell:last-child { border-right: none !important; }`,
+      // Sin borde inferior en la última fila, sea completa o no.
+      `.logos-grid .logo-cell:nth-last-child(-n+${r}) { border-bottom: none !important; }`,
+    ];
+    // Fila incompleta: se centra en vez de quedar pegada a la izquierda.
+    if (n % C !== 0) {
+      const start = Math.floor((C - r) / 2) + 1;
+      const span = r === 1 && C % 2 === 0 ? 2 : 1;
+      lines.push(
+        `.logos-grid .logo-cell:nth-last-child(${r}) { grid-column: ${start} / span ${span} !important; }`
+      );
+    }
+    // Altura óptica de cada logo en este escalón.
+    logos.forEach((l, i) => {
+      const h = Math.round(opticalHeight(l) * s.scale);
+      lines.push(`.logos-grid img.lg${i} { max-height: ${h}px !important; }`);
+    });
+
+    const body = lines.map((x) => '        ' + x).join('\n');
+    return s.max === null
+      ? body
+      : `      @media (max-width: ${s.max}px) {\n${body}\n      }`;
+  };
+
+  return `    <style>
+      /* ===== Generado por build.js — ${n} logos. No editar a mano. ===== */
+      .logos-grid { grid-auto-rows: 1fr; }
+${GRID_STEPS.map(step).join('\n')}
+    </style>`;
+};
 
 const renderSocial = () =>
   Object.entries(site.social)
@@ -269,7 +353,8 @@ function renderPage(lang) {
     '{{@jsonld}}': renderJsonLd(t, lang),
     '{{@credibility}}': renderCredibility(t),
     '{{@capacidades}}': renderCapacidades(t),
-    '{{@logos}}': logosHtml,
+    '{{@logos}}': renderLogos(),
+    '{{@logosGridCss}}': renderLogosGridCss(),
     '{{@pillars}}': renderPillars(t),
     '{{@academiaCards}}': renderAcademiaCards(t),
     '{{@footerCol1}}': renderFooterList(t.footer.col1),

@@ -1,0 +1,26 @@
+DEJA AQUÍ LOS LOGOS NUEVOS DE CLIENTES
+======================================
+
+Formato ideal, en este orden de preferencia:
+
+  1. SVG  (vectorial — el mejor resultado a cualquier tamaño)
+  2. PNG con fondo TRANSPARENTE, mínimo 800 px de ancho
+  3. PNG/JPG sobre fondo blanco  (funciona, pero el recorte puede salir sucio)
+
+Nombra cada archivo con la marca, sin acentos ni espacios. Por ejemplo:
+
+  maxa.png
+  cengicana.svg
+  rentacar.png
+  tecun.svg
+  admosa.png
+  honda.png
+  suzuki.png
+  magdalena.png
+
+No importa el color original: el pipeline los convierte al mismo tono
+azul pizarra de los 12 logos que ya están en el sitio, recorta el margen
+en blanco, normaliza el tamaño y genera el .webp final en assets/logos/.
+
+Esta carpeta NO se despliega (está en .vercelignore); solo los .webp
+generados en assets/logos/ llegan a producción.

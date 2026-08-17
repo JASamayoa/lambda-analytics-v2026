@@ -90,10 +90,18 @@
   }
   .nav-cta { white-space: nowrap; }
 
-  /* --- Wordmark del footer (antes h5, ahora p para jerarquía semántica) --- */
+  /* --- Wordmark del footer ---
+     Igual que en la barra superior: ANALYTICS alineado al borde DERECHO de
+     LAMBDA, no al izquierdo. inline-flex para que la caja mida lo que mide
+     el wordmark y flex-end tenga contra qué alinear. --- */
   .footer-wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
     margin-bottom: 22px;
     line-height: 1;
+    max-width: none;
   }
   .footer-wordmark .fw-main {
     font-family: 'Pirulen', 'Inter', sans-serif;
@@ -102,8 +110,10 @@
     letter-spacing: 0.06em;
     color: var(--paper);
     display: block;
-    margin-bottom: 4px;
     line-height: 1;
+  }
+  .footer-brand .footer-wordmark .footer-descriptor {
+    margin-bottom: 0;
   }
 
   /* --- Títulos de columna del footer (antes h6, ahora h2) --- */
