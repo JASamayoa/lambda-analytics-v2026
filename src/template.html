@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  ARCHIVO GENERADO AUTOMÁTICAMENTE — NO EDITAR A MANO.
+  Fuente:   src/template.html  (estructura y diseño)
+            i18n/es.json · i18n/en.json  (todos los textos)
+            i18n/site.json  (URLs, contacto, redes sociales)
+  Generar:  node build.js
+  ============================================================================
+-->
+<html lang="{{htmlLang}}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{{meta.title}}</title>
+<meta name="description" content="{{meta.description}}" />
+<meta name="keywords" content="{{meta.keywords}}" />
+<meta name="author" content="{{site.legalName}}" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="theme-color" content="#081826" />
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="canonical" href="{{canonical}}" />
+{{@hreflang}}
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{meta.ogTitle}}" />
+<meta property="og:description" content="{{meta.ogDescription}}" />
+<meta property="og:url" content="{{canonical}}" />
+<meta property="og:locale" content="{{ogLocale}}" />
+<meta property="og:locale:alternate" content="{{ogLocaleAlt}}" />
+<meta property="og:site_name" content="{{meta.siteName}}" />
+<meta property="og:image" content="{{site.origin}}{{site.ogImage}}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="{{meta.ogImageAlt}}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{meta.twTitle}}" />
+<meta name="twitter:description" content="{{meta.twDescription}}" />
+<meta name="twitter:image" content="{{site.origin}}{{site.ogImage}}" />
+<meta name="twitter:image:alt" content="{{meta.ogImageAlt}}" />
+
+<!-- Icons -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{{@jsonld}}
+</script>
+
+{{@headCss}}
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{a11y.skipToContent}}</a>
+
+<!-- ============ NAV ============ -->
+<nav class="top" aria-label="{{a11y.mainNav}}">
+  <a href="{{home}}" class="logo" aria-label="{{site.brand}} — inicio / home">
+    <span class="wordmark">LAMBDA</span>
+    <span class="descriptor">ANALYTICS</span>
+  </a>
+  <div class="nav-links">
+    <a href="#capacidades">{{nav.capacidades}}</a>
+    <a href="#clientes">{{nav.clientes}}</a>
+    <a href="#metodologia">{{nav.metodologia}}</a>
+    <a href="{{site.learnUrl}}">{{nav.learn}}</a>
+    <div class="lang-switch" role="group" aria-label="{{a11y.langSwitcher}}">
+      {{@langSwitch}}
+    </div>
+    <a href="#contacto" class="nav-cta">{{nav.cta}}</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">{{hero.eyebrow}}</p>
+    <h1 class="hero-title">{{hero.title}}</h1>
+    <p class="hero-sub">{{hero.sub}}</p>
+    <div class="hero-ctas">
+      <a href="#contacto" class="btn-primary">
+        {{hero.cta1}}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#capacidades" class="btn-secondary">{{hero.cta2}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREDIBILITY BAR ============ -->
+<div class="credibility">
+  <div class="credibility-inner">
+{{@credibility}}
+  </div>
+</div>
+
+<!-- ============ CAPACIDADES ============ -->
+<section class="block capacidades" id="capacidades" aria-labelledby="capacidades-title">
+  <div class="block-inner">
+    <p class="section-eyebrow">{{capacidades.eyebrow}}</p>
+    <h2 class="section-title" id="capacidades-title">{{capacidades.title}}</h2>
+    <p class="section-lede">{{capacidades.lede}}</p>
+
+    <div class="cap-grid">
+{{@capacidades}}
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES ============ -->
+<section class="block clientes" id="clientes" aria-labelledby="clientes-title">
+  <div class="block-inner">
+    <p class="section-eyebrow">{{clientes.eyebrow}}</p>
+    <h2 class="section-title" id="clientes-title">{{clientes.title}}</h2>
+    <p class="section-lede">{{clientes.lede}}</p>
+  </div>
+
+  <div class="block-inner">
+    <h3 class="visually-hidden">{{a11y.logosHeading}}</h3>
+    <div class="logos-grid">
+{{@logos}}
+    </div>
+  </div>
+</section>
+
+<!-- ============ METODOLOGÍA ============ -->
+<section class="block metodologia" id="metodologia" aria-labelledby="metodologia-title">
+  <div class="block-inner">
+    <div class="meto-grid">
+      <div>
+        <p class="section-eyebrow">{{metodologia.eyebrow}}</p>
+        <h2 class="section-title" id="metodologia-title">{{metodologia.title}}</h2>
+        <p class="section-lede">{{metodologia.lede}}</p>
+        <a href="#contacto" class="btn-primary" style="background: var(--navy-ink); color: var(--paper);">
+          {{metodologia.cta}}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="meto-pillars">
+{{@pillars}}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACADEMIA ============ -->
+{{@academiaCss}}
+
+<section class="block academia" id="academia" aria-labelledby="academia-title">
+  <div class="block-inner">
+    <p class="section-eyebrow">{{academia.eyebrow}}</p>
+    <h2 class="section-title" id="academia-title">{{academia.title}}</h2>
+    <p class="section-lede">{{academia.lede}}</p>
+
+    <div class="academia-grid">
+{{@academiaCards}}
+    </div>
+
+    <div class="academia-foot">
+      <p>{{academia.footText}}</p>
+      <a href="{{site.learnUrl}}">{{academia.footLink}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA SECTION ============ -->
+<section class="block cta-section" id="contacto" aria-labelledby="contacto-title">
+  <div class="block-inner">
+    <p class="section-eyebrow">{{cta.eyebrow}}</p>
+    <h2 class="section-title" id="contacto-title">{{cta.title}}</h2>
+    <p class="section-lede">{{cta.lede}}</p>
+
+    <div class="cta-box">
+      <div class="cta-box-text">
+        <h3>{{cta.boxTitle}}</h3>
+        <p>{{cta.boxText}}</p>
+        <p style="margin-top: 14px;">
+          <a href="mailto:{{site.email}}" style="color: var(--gold); text-decoration: none; font-weight: 500;">{{site.email}}</a><br/>
+          <a href="{{site.whatsapp}}" target="_blank" rel="noopener" style="color: rgba(244,237,226,0.6); font-size: 14px; text-decoration: none;">{{cta.whatsappLabel}}</a>
+        </p>
+      </div>
+      <a href="mailto:{{site.email}}?subject={{cta.mailSubjectEnc}}" class="btn-primary">
+        {{cta.button}}
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 8h13M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <p class="footer-wordmark"><span class="fw-main">LAMBDA</span><span class="footer-descriptor">ANALYTICS</span></p>
+        <p>{{footer.brandText}}</p>
+        <p class="footer-social-title">{{footer.socialTitle}}</p>
+        <nav class="social" aria-label="{{a11y.socialNav}}">
+{{@social}}
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <h2>{{footer.col1Title}}</h2>
+        <ul>
+{{@footerCol1}}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>{{footer.col2Title}}</h2>
+        <ul>
+{{@footerCol2}}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>{{footer.col3Title}}</h2>
+        <ul>
+          <li class="label">{{footer.col3Label}}</li>
+          <li>{{footer.col3Text}}</li>
+          <li class="label">{{footer.col3Label2}}</li>
+          <li><a href="mailto:{{site.email}}">{{site.email}}</a></li>
+          <li><a href="{{site.whatsapp}}" target="_blank" rel="noopener">{{site.phone}}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>{{footer.copyright}}</span>
+      <span><a href="mailto:{{site.email}}" style="color: rgba(244,237,226,0.6); text-decoration: none;">{{site.email}}</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Recuerda el idioma elegido por el visitante durante 1 año.
+   El middleware de Vercel respeta esta cookie y deja de auto-redirigir. */
+(function () {
+  document.querySelectorAll('[data-set-lang]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      document.cookie = 'lang=' + el.getAttribute('data-set-lang') +
+        '; path=/; max-age=31536000; SameSite=Lax';
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

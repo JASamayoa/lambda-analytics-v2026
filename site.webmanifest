@@ -1,0 +1,21 @@
+{
+  "name": "Lambda Analytics",
+  "short_name": "Lambda",
+  "description": "Firma de analítica avanzada con sede en Guatemala. Diseñamos e implementamos data warehouses, modelos predictivos y agentes de IA para empresas medianas y grandes de Centroamérica y Estados Unidos. Databricks Partner.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#faf6ee",
+  "theme_color": "#081826",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

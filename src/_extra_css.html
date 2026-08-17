@@ -1,0 +1,205 @@
+
+  /* =====================================================================
+     AÑADIDOS: accesibilidad, selector de idioma, redes sociales, SEO
+     ===================================================================== */
+
+  /* --- Skip link (accesibilidad + señal de calidad para Google) --- */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 200;
+    background: var(--gold);
+    color: var(--navy-ink);
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    text-decoration: none;
+  }
+  .skip-link:focus {
+    left: 0;
+  }
+
+  /* --- Texto solo para lectores de pantalla y crawlers --- */
+  .visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* --- Foco visible en toda la página --- */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* --- Selector de idioma --- */
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(244,237,226,0.22);
+    border-radius: 999px;
+    overflow: hidden;
+    line-height: 1;
+  }
+  .nav-links .lang-switch a {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 6px 11px;
+    color: rgba(244,237,226,0.6);
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-links .lang-switch a:hover {
+    color: var(--gold);
+    background: rgba(255,181,48,0.08);
+  }
+  .nav-links .lang-switch a[aria-current="true"] {
+    background: var(--gold);
+    color: var(--navy-ink);
+  }
+  .lang-switch .lang-sep {
+    width: 1px;
+    align-self: stretch;
+    background: rgba(244,237,226,0.18);
+  }
+
+  /* El selector se mantiene visible en móvil aunque el resto del menú se oculte */
+  @media (max-width: 768px) {
+    nav.top { padding: 14px 18px; gap: 10px; }
+    .nav-links { gap: 10px; }
+    .nav-links .lang-switch a { display: inline-flex !important; padding: 6px 9px; }
+    .nav-cta {
+      white-space: nowrap;
+      padding: 8px 14px !important;
+      font-size: 12px !important;
+    }
+    .logo .wordmark { font-size: 19px; }
+    .logo .descriptor { font-size: 9px; }
+  }
+  @media (max-width: 360px) {
+    .nav-links .lang-switch a { padding: 5px 7px; font-size: 11px; }
+  }
+  .nav-cta { white-space: nowrap; }
+
+  /* --- Wordmark del footer (antes h5, ahora p para jerarquía semántica) --- */
+  .footer-wordmark {
+    margin-bottom: 22px;
+    line-height: 1;
+  }
+  .footer-wordmark .fw-main {
+    font-family: 'Pirulen', 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    color: var(--paper);
+    display: block;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+
+  /* --- Títulos de columna del footer (antes h6, ahora h2) --- */
+  .footer-col h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  /* --- Encabezados degradados a su nivel semántico correcto --- */
+  .pillar h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    letter-spacing: -0.005em;
+  }
+  .cta-box-text h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--paper);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  /* --- Los números decorativos pasaron de <div> a <p> para jerarquía
+         semántica; se re-declaran con mayor especificidad para que no los
+         pisen las reglas genéricas .cap p / .pillar p --- */
+  .cap p.cap-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .pillar p.pillar-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 1;
+    color: var(--gold);
+    padding-top: 4px;
+    margin-bottom: 0;
+  }
+  .academia-card p.ac-meta {
+    flex: 0 0 auto;
+  }
+
+  /* --- Redes sociales --- */
+  .footer-social-title {
+    font-size: 10px !important;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244,237,226,0.4) !important;
+    margin-top: 26px;
+    margin-bottom: 12px;
+  }
+  .social {
+    display: flex;
+    gap: 10px;
+  }
+  .social a {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(244,237,226,0.16);
+    border-radius: 50%;
+    color: rgba(244,237,226,0.72);
+    transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+  }
+  .social a:hover {
+    color: var(--navy-ink);
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .social svg {
+    width: 17px;
+    height: 17px;
+    fill: currentColor;
+    display: block;
+  }
+
+  /* --- Respeta la preferencia de movimiento reducido --- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }

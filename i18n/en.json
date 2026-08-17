@@ -1,0 +1,213 @@
+{
+  "lang": "en",
+  "htmlLang": "en",
+  "ogLocale": "en_US",
+  "ogLocaleAlt": "es_GT",
+  "dir": "/en/",
+  "meta": {
+    "title": "Lambda Analytics · AI & Advanced Analytics for Enterprises",
+    "description": "Nearshore AI and advanced analytics firm headquartered in Guatemala. We design and build data warehouses, predictive models and enterprise AI agents for mid-market and large companies across Central America and the United States. Databricks Partner.",
+    "keywords": "nearshore AI consulting, advanced analytics firm Central America, Databricks Partner Guatemala, enterprise data warehouse, predictive modeling consultancy, LLM agents for business, generative AI consulting, nearshore data science",
+    "ogTitle": "Lambda Analytics · AI and advanced analytics for enterprises",
+    "ogDescription": "We improve how you decide and how tightly you control your operation. Advanced analytics firm headquartered in Guatemala, serving Central America and the United States.",
+    "ogImageAlt": "Lambda Analytics — AI and advanced analytics for enterprises",
+    "twTitle": "Lambda Analytics · AI and advanced analytics",
+    "twDescription": "AI and advanced analytics to improve your decisions and the control of your operation.",
+    "orgDescription": "Advanced analytics firm headquartered in Guatemala. AI, predictive models, data warehouses and LLM-based enterprise agents for mid-market and large companies across Central America and the United States.",
+    "siteName": "Lambda Analytics",
+    "webPageName": "Lambda Analytics · AI and advanced analytics for enterprises"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "mainNav": "Main navigation",
+    "langSwitcher": "Select language",
+    "socialNav": "Lambda Analytics social media",
+    "logosHeading": "Companies that have trusted Lambda Analytics"
+  },
+  "langSwitch": {
+    "esLabel": "ES",
+    "enLabel": "EN",
+    "esTitle": "Ver esta página en español",
+    "enTitle": "View this page in English"
+  },
+  "nav": {
+    "capacidades": "Capabilities",
+    "clientes": "Clients",
+    "metodologia": "Approach",
+    "academia": "Academy",
+    "learn": "Learn AI",
+    "cta": "Let's talk →"
+  },
+  "hero": {
+    "eyebrow": "Advanced analytics firm · Central America",
+    "title": "AI and advanced analytics to <em>improve your decisions</em> and the control of your operation.",
+    "sub": "We design, build and run the intelligence systems your business needs. Headquartered in Guatemala, delivering across Central America and the United States.",
+    "cta1": "Let's talk about your operation",
+    "cta2": "See capabilities"
+  },
+  "credibility": [
+    "Databricks Partner",
+    "10+ years in Mesoamerica",
+    "Internationally trained team",
+    "Clients across Central America and the U.S."
+  ],
+  "capacidades": {
+    "eyebrow": "What we do",
+    "title": "Three lines of work. <em>One model</em>: build it with you, then hand over the capability.",
+    "lede": "We don't hand you a model and walk away. We design the systems your business needs, deploy them on your own infrastructure, and train your team to run them without us.",
+    "items": [
+      {
+        "num": "01",
+        "title": "Data & AI Strategy",
+        "text": "Analytics maturity assessment, data architecture, implementation roadmap and use cases prioritized by their real impact on your operation.",
+        "tags": [
+          "Assessment",
+          "Architecture",
+          "Roadmap"
+        ]
+      },
+      {
+        "num": "02",
+        "title": "Technical Implementation",
+        "text": "We build data warehouses, predictive models, generative AI platforms and LLM-based enterprise agents — on Databricks, Azure or your current stack.",
+        "tags": [
+          "Databricks",
+          "Predictive models",
+          "AI agents"
+        ]
+      },
+      {
+        "num": "03",
+        "title": "Training & Handover",
+        "text": "We train your team to operate what we build. AI fundamentals programs, applied workshops and certifications delivered through Lambda Learn.",
+        "tags": [
+          "AI fundamentals",
+          "Lambda Learn",
+          "Applied workshops"
+        ]
+      }
+    ]
+  },
+  "clientes": {
+    "eyebrow": "Some of the companies that have trusted us",
+    "title": "We work with leading companies in <em>retail, agribusiness, manufacturing, healthcare, technology</em> and financial services.",
+    "lede": "Mid-market and large organizations across Central America and the United States that decided to run on data instead of intuition."
+  },
+  "metodologia": {
+    "eyebrow": "How we work",
+    "title": "We build it with you. <em>And we teach</em> your team to run it.",
+    "lede": "An advanced analytics firm headquartered in Guatemala, operating across Central America and the United States, founded by a group of professionals with international academic training.",
+    "cta": "Start a conversation",
+    "pillars": [
+      {
+        "num": "01",
+        "title": "Academic rigor, operational language",
+        "text": "Led by professionals with graduate degrees from U.S. universities. We speak business with your board, and engineering with your IT team."
+      },
+      {
+        "num": "02",
+        "title": "Regional Databricks Partner",
+        "text": "We build on the Databricks + Azure ecosystem, dominant in the Mesoamerican enterprise segment. No lock-in, no systems your team can't maintain."
+      },
+      {
+        "num": "03",
+        "title": "Capability transfer",
+        "text": "Your team doesn't end up dependent on us. Lambda Learn trains your people to operate the systems we build."
+      },
+      {
+        "num": "04",
+        "title": "Nearshore proximity",
+        "text": "Same time zone as most of the U.S., a short flight from your offices. We know the operating, regulatory and talent context of the region."
+      }
+    ]
+  },
+  "academia": {
+    "eyebrow": "Academy",
+    "title": "Open training for teams already <em>adopting AI</em>.",
+    "lede": "Short, 100% live courses taught by the same consultants who design AI systems for our enterprise clients. Your team leaves with their environment configured and templates ready to apply the following Monday.",
+    "linkLabel": "View course →",
+    "cards": [
+      {
+        "tag": "Enrolling now",
+        "title": "AI for HR and Talent Management",
+        "text": "For HR teams that want to recruit, assess and develop talent using ChatGPT, Gemini and NotebookLM.",
+        "meta": "8 h · 4 sessions · Starts Jun 11, 2026",
+        "href": "https://learn.lambda-analytics.net/ia-rrhh"
+      },
+      {
+        "tag": "Next cohort",
+        "title": "AI for Productivity",
+        "text": "For professionals and operating teams that want to win back hours by applying AI to everyday work.",
+        "meta": "2026 cohort · Dates coming soon",
+        "href": "https://learn.lambda-analytics.net/ia-productividad"
+      },
+      {
+        "tag": "Next cohort",
+        "title": "AI Fundamentals",
+        "text": "For leaders and middle managers who need to understand what AI is, and what it can and cannot do, before adopting it.",
+        "meta": "2026 cohort · Dates coming soon",
+        "href": "https://learn.lambda-analytics.net/fundamentos-ia"
+      }
+    ],
+    "footText": "Need to train a full team, or want a custom program? We design learning tracks for your organization.",
+    "footLink": "Explore the full academy →"
+  },
+  "cta": {
+    "eyebrow": "Let's talk",
+    "title": "Ready to tighten the control of <em>your operation</em>?",
+    "lede": "A first 30-minute conversation is enough for us to understand your context and tell you honestly whether we can help. No commitment.",
+    "boxTitle": "Write to us",
+    "boxText": "Tell us what you're working on. We reply within 24 business hours.",
+    "whatsappLabel": "WhatsApp +(502) 2301-0853",
+    "button": "Start a conversation",
+    "mailSubject": "I would like to talk with Lambda Analytics"
+  },
+  "footer": {
+    "brandText": "Advanced analytics firm — AI, predictive models and data platforms for companies across Central America and the United States.",
+    "col1Title": "Capabilities",
+    "col1": [
+      {
+        "label": "Data & AI Strategy",
+        "href": "#capacidades"
+      },
+      {
+        "label": "Technical Implementation",
+        "href": "#capacidades"
+      },
+      {
+        "label": "Training & Handover",
+        "href": "#capacidades"
+      },
+      {
+        "label": "Lambda Learn ↗",
+        "href": "https://learn.lambda-analytics.net",
+        "external": true
+      }
+    ],
+    "col2Title": "Company",
+    "col2": [
+      {
+        "label": "Approach",
+        "href": "#metodologia"
+      },
+      {
+        "label": "Clients",
+        "href": "#clientes"
+      },
+      {
+        "label": "Academy",
+        "href": "#academia"
+      },
+      {
+        "label": "Contact",
+        "href": "#contacto"
+      }
+    ],
+    "col3Title": "Presence",
+    "col3Label": "Offices",
+    "col3Text": "Guatemala City<br/>San Salvador",
+    "socialTitle": "Follow us",
+    "copyright": "© 2026 Scilambda, S.A. · All rights reserved.",
+    "col3Label2": "Contact"
+  }
+}

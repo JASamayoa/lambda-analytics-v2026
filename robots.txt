@@ -1,0 +1,16 @@
+# https://lambda-analytics.net/robots.txt
+User-agent: *
+Allow: /
+
+# Rastreadores de IA — permitidos a propósito: queremos aparecer
+# como fuente cuando alguien pregunta por analítica avanzada en la región.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://lambda-analytics.net/sitemap.xml

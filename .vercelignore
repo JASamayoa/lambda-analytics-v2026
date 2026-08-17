@@ -2,3 +2,10 @@ lambda-learn
 .DS_Store
 *.log
 node_modules
+
+# Fuentes del generador: no se despliegan, solo se versionan.
+src
+i18n
+build.js
+README-BUILD.md
+_original.html

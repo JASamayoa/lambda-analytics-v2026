@@ -1,0 +1,43 @@
+{
+  "origin": "https://lambda-analytics.net",
+  "brand": "Lambda Analytics",
+  "legalName": "Scilambda, S.A.",
+  "email": "info@scilambda.net",
+  "phone": "+502 2301-0853",
+  "whatsapp": "https://wa.me/50223010853",
+  "learnUrl": "https://learn.lambda-analytics.net",
+  "foundingDate": "2016",
+  "ogImage": "/og-image.png",
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/lambdaanalytics/",
+    "facebook": "https://www.facebook.com/lambdanalytics",
+    "instagram": "https://www.instagram.com/lambdaanalytics/"
+  },
+  "address": {
+    "locality": "Ciudad de Guatemala",
+    "region": "Guatemala",
+    "country": "GT"
+  },
+  "areaServed": [
+    "Guatemala",
+    "El Salvador",
+    "Honduras",
+    "Nicaragua",
+    "Costa Rica",
+    "Panama",
+    "Mexico",
+    "United States"
+  ],
+  "languages": [
+    {
+      "code": "es",
+      "path": "/",
+      "hreflang": "es"
+    },
+    {
+      "code": "en",
+      "path": "/en",
+      "hreflang": "en"
+    }
+  ]
+}
