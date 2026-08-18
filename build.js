@@ -455,8 +455,8 @@ const renderManifest = () =>
       background_color: '#faf6ee',
       theme_color: '#081826',
       icons: [
-        { src: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
-        { src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+        { src: `/favicon.svg?v=${site.assetVersion}`, sizes: 'any', type: 'image/svg+xml' },
+        { src: `/apple-touch-icon.png?v=${site.assetVersion}`, sizes: '180x180', type: 'image/png', purpose: 'any' },
       ],
     },
     null,
